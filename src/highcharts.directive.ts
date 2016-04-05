@@ -7,7 +7,7 @@ import {Chart} from './chart';
 @Directive({
   selector: '[chart]'
 })
-export class ChartDirective implements OnDestroy {
+export class ChartDirective implements OnInit, OnDestroy {
   @Input() chart: Chart;
 
   private _subscription: Subscription;
@@ -17,6 +17,7 @@ export class ChartDirective implements OnDestroy {
 
   ngOnInit() {
     this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
+    this.chart.ref = this.chartRef;
     this._subscription = this.chart.observable.subscribe(value => {
       this.chartRef.series[value.serie].addPoint(value.point);
     });

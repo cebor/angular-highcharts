@@ -11,6 +11,7 @@ export interface ChartPushData {
 export class Chart {
   private _subject: Subject<ChartPushData>;
   observable: Observable<ChartPushData>;
+  ref: HighchartsChartObject;
 
   constructor(public options: HighchartsOptions) {
     this._subject = new Subject();
