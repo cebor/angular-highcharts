@@ -10,20 +10,20 @@ import {Chart} from './chart';
 export class ChartDirective implements OnDestroy {
   @Input() chart: Chart;
 
+  private _subscription: Subscription;
   chartRef: HighchartsChartObject;
-  subscription: Subscription;
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
     this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
-    this.subscription = this.chart.observable.subscribe(value => {
+    this._subscription = this.chart.observable.subscribe(value => {
       this.chartRef.series[value.serie].addPoint(value.point);
     });
   }
 
   ngOnDestroy() {
     this.chartRef.destroy();
-    this.subscription.unsubscribe();
+    this._subscription.unsubscribe();
   }
 }

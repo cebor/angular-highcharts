@@ -12,7 +12,7 @@ export class Chart {
   private _subject: Subject<ChartPushData>;
   observable: Observable<ChartPushData>;
 
-  constructor(public options) {
+  constructor(public options: HighchartsOptions) {
     this._subject = new Subject();
     this.observable = this._subject.asObservable();
   }
