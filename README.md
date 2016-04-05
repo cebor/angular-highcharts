@@ -1,12 +1,18 @@
 # angular-highcharts
 
+```bash
+npm i highcharts
+npm i angular-highcharts
+typings install highcharts
+```
+
 ```typescript
 import {Component} from 'angular2/core';
 
 import {ChartDirective, Chart} from 'angular-highcharts';
 
 @Component({
-  selector: 'chart',
+  ...
   template: `
     <button (click)="add()">Add Point!</button>
     <div [chart]="chart"></div>`,
@@ -30,7 +36,7 @@ export class ChartComponent {
     });
 
   add() {
-    this.chartService.charts[0].pushData(Math.floor(Math.random() * 10));
+    this.chart.pushData(Math.floor(Math.random() * 10));
   }
 }
 
