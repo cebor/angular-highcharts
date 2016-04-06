@@ -1,14 +1,28 @@
 # angular-highcharts
 
-```bash
-npm i highcharts
-npm i angular-highcharts
-typings install highcharts
+### Requirements
+```json
+{
+  "node": ">=4.2",
+  "typings": ">=0.7",
+  "highcharts": ">=4.2"
+}
 ```
 
-```typescript
-import {Component} from 'angular2/core';
+### Installation
+```bash
+# install angular-highcharts
+npm i angular-highcharts
 
+# install highcharts
+npm i highcharts
+
+# install required typings
+typings install highcharts --ambient
+```
+
+### Usage Example
+```typescript
 import {ChartDirective, Chart} from 'angular-highcharts';
 
 @Component({
@@ -34,10 +48,18 @@ export class ChartComponent {
         data: [1, 2, 3]
       }]
     });
-
+  
+  // push data to chart
   add() {
     this.chart.pushData(Math.floor(Math.random() * 10));
   }
 }
-
 ```
+
+### Coming soon
+* API Docs
+* Highstocks support
+* Highmaps support
+
+### License
+MIT © Felix Itzenplitz
