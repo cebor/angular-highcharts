@@ -1,10 +1,14 @@
 # angular-highcharts
 
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][downloads-image]][downloads-url]
+
 ### Requirements
 ```json
 {
   "node": ">=4.2",
   "typings": ">=0.7",
+  "angular2": ">=2.0.0-beta.13",
   "highcharts": ">=4.2"
 }
 ```
@@ -63,3 +67,8 @@ export class ChartComponent {
 
 ### License
 MIT © Felix Itzenplitz
+
+[npm-image]: https://img.shields.io/npm/v/angular-highcharts.svg?style=flat
+[npm-url]: https://npmjs.org/package/angular-highcharts
+[downloads-image]: https://img.shields.io/npm/dm/angular-highcharts.svg?style=flat
+[downloads-url]: https://npmjs.org/package/angular-highcharts
