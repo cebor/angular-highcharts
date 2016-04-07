@@ -69,9 +69,9 @@ export class ChartComponent {
 ### License
 MIT © Felix Itzenplitz
 
-[npm-image]: https://img.shields.io/npm/v/angular-highcharts.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/angular-highcharts.svg
 [npm-url]: https://npmjs.org/package/angular-highcharts
-[downloads-image]: https://img.shields.io/npm/dm/angular-highcharts.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/angular-highcharts.svg
 [downloads-url]: https://npmjs.org/package/angular-highcharts
 [build-image]: https://travis-ci.org/cebor/angular-highcharts.svg?branch=master
 [build-url]: https://travis-ci.org/cebor/angular-highcharts
