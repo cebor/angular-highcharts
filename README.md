@@ -2,6 +2,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
+[![Build Status][build-image]][build-url]
 
 ### Requirements
 ```json
@@ -72,3 +73,5 @@ MIT © Felix Itzenplitz
 [npm-url]: https://npmjs.org/package/angular-highcharts
 [downloads-image]: https://img.shields.io/npm/dm/angular-highcharts.svg?style=flat
 [downloads-url]: https://npmjs.org/package/angular-highcharts
+[build-image]: https://travis-ci.org/cebor/angular-highcharts.svg?branch=master
+[build-url]: https://travis-ci.org/cebor/angular-highcharts

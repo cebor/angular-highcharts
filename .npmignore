@@ -1,5 +1,6 @@
 typings/
 .editorconfig
+.travis.yml
 tsconfig.json
 typings.json
 *.ts
