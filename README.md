@@ -53,9 +53,9 @@ export class ChartComponent {
       }]
     });
   
-  // push data to chart
+  // add point to chart serie (addpoint(point, [serieIndex])) 
   add() {
-    this.chart.pushData(Math.floor(Math.random() * 10));
+    this.chart.addPoint(Math.floor(Math.random() * 10));
   }
 }
 ```

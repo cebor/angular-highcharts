@@ -18,7 +18,7 @@ export class Chart {
     this.observable = this._subject.asObservable();
   }
 
-  pushData(point: Point, serie = 0): void {
+  addPoint(point: Point, serie = 0): void {
     let value = {
       point: point,
       serie: serie
