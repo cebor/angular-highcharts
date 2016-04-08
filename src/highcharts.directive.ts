@@ -34,7 +34,6 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     if (!changes['chart'].isFirstChange()) {
       this._destroy();
-      this.chart = changes['chart'].currentValue;
       this._init();
     }
   }
