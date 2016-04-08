@@ -1,4 +1,3 @@
 node_modules/
 typings/
-*.d.ts
-*.js
+dist/

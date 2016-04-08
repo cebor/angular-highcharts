@@ -2,6 +2,8 @@
   "name": "angular-highcharts",
   "version": "0.1.1",
   "description": "Highcharts Directive for Angular2",
+  "main": "./dist/angular-highcharts.js",
+  "typings": "./dist/angular-highcharts.d.ts",
   "scripts": {
     "prepublish": "typings install && npm run build",
     "typings": "typings",
