@@ -1,6 +1,6 @@
 {
   "name": "angular-highcharts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Highcharts Directive for Angular2",
   "main": "./dist/angular-highcharts.js",
   "typings": "./dist/angular-highcharts.d.ts",
