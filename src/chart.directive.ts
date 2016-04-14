@@ -18,7 +18,8 @@ import {Chart} from './chart';
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
 
-  private _subscription: Subscription;
+  private _pointSubscription: Subscription;
+  private _serieSubscription: Subscription;
   chartRef: HighchartsChartObject;
 
   constructor(private el: ElementRef) {}
@@ -41,13 +42,17 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   private _init() {
     this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
     this.chart.ref = this.chartRef;
-    this._subscription = this.chart.observable.subscribe(value => {
+    this._pointSubscription = this.chart.pointObservable.subscribe(value => {
       this.chartRef.series[value.serie].addPoint(value.point);
+    });
+    this._serieSubscription = this.chart.serieObservable.subscribe(value => {
+      this.chartRef.addSeries(value);
     });
   }
 
   private _destroy() {
     this.chartRef.destroy();
-    this._subscription.unsubscribe();
+    this._pointSubscription.unsubscribe();
+    this._serieSubscription.unsubscribe();
   }
 }
