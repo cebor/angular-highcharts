@@ -4,12 +4,14 @@
 [![NPM downloads][downloads-image]][downloads-url]
 [![Build Status][build-image]][build-url]
 
+This is a Highcharts directive for Angular2.
+
 ### Requirements
 ```json
 {
   "node": ">=4.2",
   "typings": ">=0.7",
-  "angular2": ">=2.0.0-beta.13",
+  "angular2": ">=2.0.0-beta.15",
   "highcharts": ">=4.2"
 }
 ```
@@ -36,6 +38,7 @@ import {ChartDirective, Chart} from 'angular-highcharts';
     <button (click)="add()">Add Point!</button>
     <div [chart]="chart"></div>`,
   directives: [ChartDirective]
+  ...
 })
 export class ChartComponent {
   chart = new Chart({
