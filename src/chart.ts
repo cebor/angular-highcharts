@@ -20,6 +20,8 @@ export class Chart {
   constructor(public options: HighchartsOptions) {
     this._pointSource = new Subject();
     this.pointObservable = this._pointSource.asObservable();
+    this._serieSource = new Subject();
+    this.serieObservable = this._serieSource.asObservable();
   }
 
   addPoint(point: Point, serie = 0): void {
