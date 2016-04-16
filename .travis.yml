@@ -4,6 +4,7 @@ install:
 - npm install
 - npm run typings -- install
 script:
+- npm run lint
 - npm run build
 deploy:
   provider: npm

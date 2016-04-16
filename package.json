@@ -6,8 +6,9 @@
   "typings": "./dist/main.d.ts",
   "scripts": {
     "prepublish": "typings install && npm run build",
-    "typings": "typings",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "tslint \"src/**/*.ts\"",
+    "typings": "typings"
   },
   "author": "Felix Itzenplitz",
   "repository": {
@@ -26,9 +27,10 @@
   "devDependencies": {
     "angular2": "^2.0.0-beta.15",
     "es6-shim": "^0.35.0",
-    "highcharts": "^4.2.3",
+    "highcharts": "^4.2.4",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
+    "tslint": "^3.7.4",
     "typescript": "^1.8.10",
     "typings": "^0.7.12",
     "zone.js": "^0.6.10"
