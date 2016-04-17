@@ -1,7 +1,7 @@
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 
-export type Point = number | [number, number];
+export type Point = number | [number, number] | [string, number] | HighchartsDataPoint;
 
 export interface ChartPoint {
   point: Point;
@@ -29,11 +29,13 @@ export class Chart {
       point: point,
       serie: serie
     };
-
+    // TODO: fix the ugly cast
+    (<any[]>this.options.series[serie].data).push(point);
     this._pointSource.next(chartPoint);
   }
 
   addSerie(serie: ChartSerie) {
+    this.options.series.push(serie);
     this._serieSource.next(serie);
   }
 }
