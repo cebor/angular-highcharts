@@ -29,8 +29,7 @@ export class Chart {
       point: point,
       serie: serie
     };
-    // TODO: fix the ugly cast
-    (<any[]>this.options.series[serie].data).push(point);
+    (<Point[]>this.options.series[serie].data).push(point);
     this._pointSource.next(chartPoint);
   }
 
