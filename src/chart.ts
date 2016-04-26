@@ -11,17 +11,18 @@ export interface ChartPoint {
 export type ChartSerie = HighchartsSeriesOptions;
 
 export class Chart {
-  private _pointSource: Subject<ChartPoint>;
   pointObservable: Observable<ChartPoint>;
-  private _serieSource: Subject<ChartSerie>;
   serieObservable: Observable<ChartSerie>;
   ref: HighchartsChartObject;
 
+  private pointSource: Subject<ChartPoint>;
+  private serieSource: Subject<ChartSerie>;
+
   constructor(public options: HighchartsOptions) {
-    this._pointSource = new Subject();
-    this.pointObservable = this._pointSource.asObservable();
-    this._serieSource = new Subject();
-    this.serieObservable = this._serieSource.asObservable();
+    this.pointSource = new Subject();
+    this.serieSource = new Subject();
+    this.pointObservable = this.pointSource.asObservable();
+    this.serieObservable = this.serieSource.asObservable();
   }
 
   addPoint(point: Point, serie = 0): void {
@@ -30,11 +31,11 @@ export class Chart {
       serie: serie
     };
     (<Point[]>this.options.series[serie].data).push(point);
-    this._pointSource.next(chartPoint);
+    this.pointSource.next(chartPoint);
   }
 
   addSerie(serie: ChartSerie) {
     this.options.series.push(serie);
-    this._serieSource.next(serie);
+    this.serieSource.next(serie);
   }
 }

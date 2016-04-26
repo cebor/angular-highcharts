@@ -18,49 +18,49 @@ import {Chart} from './chart';
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
 
-  private _pointSubscription: Subscription;
-  private _serieSubscription: Subscription;
   chartRef: HighchartsChartObject;
 
-  private _initialized: boolean = false;
+  private pointSubscription: Subscription;
+  private serieSubscription: Subscription;
+  private initialized: boolean = false;
 
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    this._init();
+    this.init();
   }
 
   ngOnDestroy() {
-    this._destroy();
+    this.destroy();
   }
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     if (!changes['chart'].isFirstChange()) {
-      this._destroy();
-      this._init();
+      this.destroy();
+      this.init();
     }
   }
 
-  private _init() {
+  private init() {
     if (this.chart instanceof Chart) {
       this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
       this.chart.ref = this.chartRef;
-      this._pointSubscription = this.chart.pointObservable.subscribe(value => {
+      this.pointSubscription = this.chart.pointObservable.subscribe(value => {
         this.chartRef.series[value.serie].addPoint(value.point);
       });
-      this._serieSubscription = this.chart.serieObservable.subscribe(value => {
+      this.serieSubscription = this.chart.serieObservable.subscribe(value => {
         this.chartRef.addSeries(value);
       });
-      this._initialized = true;
+      this.initialized = true;
     }
   }
 
-  private _destroy() {
-    if (this._initialized) {
+  private destroy() {
+    if (this.initialized) {
       this.chartRef.destroy();
-      this._pointSubscription.unsubscribe();
-      this._serieSubscription.unsubscribe();
-      this._initialized = false;
+      this.pointSubscription.unsubscribe();
+      this.serieSubscription.unsubscribe();
+      this.initialized = false;
     }
   }
 }
