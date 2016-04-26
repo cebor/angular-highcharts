@@ -8,7 +8,8 @@
     "prepublish": "typings install && npm run build",
     "build": "tsc",
     "lint": "tslint \"src/**/*.ts\"",
-    "typings": "typings"
+    "typings": "typings",
+    "test": "npm run lint"
   },
   "author": "Felix Itzenplitz",
   "repository": {
