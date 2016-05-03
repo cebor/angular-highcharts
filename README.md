@@ -9,9 +9,9 @@ This is a Highcharts directive for Angular2.
 ### Requirements
 ```json
 {
-  "node": ">=4.2",
-  "typings": ">=0.7",
-  "angular2": ">=2.0.0-beta.15",
+  "node": ">=5",
+  "typings": ">=0.8",
+  "angular2": ">=2.0.0-rc.0",
   "highcharts": ">=4.2"
 }
 ```

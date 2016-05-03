@@ -6,7 +6,7 @@ import {
   OnDestroy,
   OnChanges,
   SimpleChange
-} from 'angular2/core';
+} from '@angular/core';
 import {Subscription}   from 'rxjs/Subscription';
 import * as Highcharts from 'highcharts';
 
