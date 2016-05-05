@@ -6,11 +6,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "."
   },
   "exclude": [
-    "dist",
     "node_modules",
     "typings/main.d.ts",
     "typings/main"
