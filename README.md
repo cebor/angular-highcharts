@@ -11,7 +11,7 @@ This is a Highcharts directive for Angular2.
 {
   "node": ">=5",
   "typings": ">=0.8",
-  "angular2": ">=2.0.0-rc.0",
+  "angular2": ">=2.0.0-rc.1",
   "highcharts": ">=4.2"
 }
 ```
@@ -19,10 +19,10 @@ This is a Highcharts directive for Angular2.
 ### Installation
 ```bash
 # install angular-highcharts
-npm i angular-highcharts
+npm i angular-highcharts --save
 
 # install highcharts
-npm i highcharts
+npm i highcharts --save
 
 # install required typings
 typings install highcharts --ambient
@@ -57,7 +57,7 @@ export class ChartComponent {
       }]
     });
   
-  // add point to chart serie (addpoint(point, [serieIndex])) 
+  // add point to chart serie (addpoint(point, [serieIndex=0])) 
   add() {
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }
