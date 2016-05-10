@@ -1,5 +1,5 @@
-import {Subject} from 'rxjs/Subject';
-import {Observable} from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 
 export type Point = number | [number, number] | [string, number] | HighchartsDataPoint;
 

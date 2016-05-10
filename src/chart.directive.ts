@@ -1,3 +1,5 @@
+import * as Highcharts from 'highcharts';
+
 import {
   Directive,
   Input,
@@ -7,10 +9,10 @@ import {
   OnChanges,
   SimpleChange
 } from '@angular/core';
-import {Subscription}   from 'rxjs/Subscription';
-import * as Highcharts from 'highcharts';
 
-import {Chart} from './chart';
+import { Subscription }   from 'rxjs/Subscription';
+
+import { Chart } from './chart';
 
 @Directive({
   selector: '[chart]'
