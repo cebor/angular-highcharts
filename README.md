@@ -6,7 +6,7 @@
 
 This is a Highcharts directive for Angular2.
 
-### Requirements
+## Requirements
 ```json
 {
   "node": ">=5",
@@ -16,7 +16,7 @@ This is a Highcharts directive for Angular2.
 }
 ```
 
-### Installation
+## Installation
 ```bash
 # install angular-highcharts
 npm i angular-highcharts --save
@@ -28,7 +28,7 @@ npm i highcharts --save
 typings install highcharts --ambient
 ```
 
-### Usage Example
+## Usage Example
 ```typescript
 import {ChartDirective, Chart} from 'angular-highcharts';
 
@@ -57,12 +57,45 @@ export class ChartComponent {
       }]
     });
   
-  // add point to chart serie (addpoint(point, [serieIndex=0])) 
+  // add point to chart serie
   add() {
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }
 }
 ```
+
+## API Docs
+
+### Chart
+
+The Chart object.
+
+Type: `class`
+
+#### Constructor
+```typescript
+new Chart(options: HighchartsOptions)
+```
+
+#### Variables
+##### ref
+```typescript
+ref: HighchartsChartObject
+```
+Reference to the HighchartsChartObject
+
+#### Functions
+##### addPoint
+```typescript
+addPoint(point: Point [, serie: number = 0]): void
+```
+Add point to a serie
+
+##### addSerie
+```typescript
+addSerie(serie: ChartSerie): void
+```
+Add serie to the chart
 
 ### Coming soon
 * API Docs
