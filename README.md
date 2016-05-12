@@ -87,7 +87,7 @@ Reference to the HighchartsChartObject
 #### Functions
 ##### addPoint
 ```typescript
-addPoint(point: Point [, serie: number = 0]): void
+addPoint(point: Point [, serieIndex: number = 0]): void
 ```
 Add point to a serie
 

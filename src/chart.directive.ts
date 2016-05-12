@@ -48,7 +48,7 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
       this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
       this.chart.ref = this.chartRef;
       this.pointSubscription = this.chart.pointObservable.subscribe(value => {
-        this.chartRef.series[value.serie].addPoint(value.point);
+        this.chartRef.series[value.serieIndex].addPoint(value.point);
       });
       this.serieSubscription = this.chart.serieObservable.subscribe(value => {
         this.chartRef.addSeries(value);

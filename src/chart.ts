@@ -5,10 +5,10 @@ export type Point = number | [number, number] | [string, number] | HighchartsDat
 
 export interface ChartPoint {
   point: Point;
-  serie: number;
+  serieIndex: number;
 }
 
-export type ChartSerie = HighchartsSeriesOptions;
+export type ChartSerie = HighchartsPointObject;
 
 export class Chart {
   pointObservable: Observable<ChartPoint>;
@@ -25,12 +25,12 @@ export class Chart {
     this.serieObservable = this.serieSource.asObservable();
   }
 
-  addPoint(point: Point, serie = 0): void {
+  addPoint(point: Point, serieIndex = 0): void {
     let chartPoint: ChartPoint = {
       point: point,
-      serie: serie
+      serieIndex: serieIndex
     };
-    (<Point[]>this.options.series[serie].data).push(point);
+    (<Point[]>this.options.series[serieIndex].data).push(point);
     this.pointSource.next(chartPoint);
   }
 
