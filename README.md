@@ -10,7 +10,7 @@ This is a Highcharts directive for Angular2.
 ```json
 {
   "node": ">=5",
-  "typings": ">=0.8",
+  "typings": ">=1.0",
   "angular2": ">=2.0.0-rc.1",
   "highcharts": ">=4.2"
 }
@@ -25,7 +25,7 @@ npm i angular-highcharts --save
 npm i highcharts --save
 
 # install required typings
-typings install highcharts --ambient
+typings install dt~highcharts --global --save
 ```
 
 ## Usage Example

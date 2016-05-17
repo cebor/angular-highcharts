@@ -1,9 +1,9 @@
 {
-  "name": "angular-highcharts",
-  "version": false,
-  "dependencies": {},
-  "ambientDevDependencies": {
+  "globalDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654",
-    "highcharts": "registry:dt/highcharts#4.1.9+20160316155526"
+    "highcharts": "registry:dt/highcharts#4.1.9+20160505173340"
+  },
+  "resolution": {
+    "browser": "typings"
   }
 }
