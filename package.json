@@ -6,7 +6,7 @@
     "prepublish": "typings install && npm run build",
     "clean": "rimraf index.js index.d.ts src/**/*.js src/**/*.d.ts",
     "build": "tsc",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "tslint src/**/*.ts",
     "typings": "typings",
     "test": "npm run lint"
   },
@@ -26,9 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "@angular/core": "2.0.0-rc.1",
-    "es6-shim": "^0.35.0",
     "highcharts": "^4.2.4",
-    "reflect-metadata": "0.1.2",
     "rimraf": "^2.5.2",
     "rxjs": "5.0.0-beta.6",
     "tslint": "^3.8.1",
