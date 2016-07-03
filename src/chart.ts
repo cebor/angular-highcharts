@@ -48,6 +48,11 @@ export class Chart {
   }
 
   addSerie(serie: ChartSerie): void {
+    // init data array if not set
+    if (!serie.data) {
+      serie.data = [];
+    }
+
     this.options.series.push(serie);
     this.serieSource.next(serie);
   }
