@@ -97,6 +97,12 @@ addSerie(serie: ChartSerie): void
 ```
 Add serie to the chart
 
+##### removeSerie
+```typescript
+removeSerie(serieIndex: number): void
+```
+Remove serie to the chart
+
 ### Coming soon
 * API Docs
 * Highstocks support

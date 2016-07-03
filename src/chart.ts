@@ -8,7 +8,7 @@ export interface ChartPoint {
   serieIndex: number;
 }
 
-export type ChartSerie = HighchartsPointObject;
+export type ChartSerie = HighchartsSeriesOptions;
 
 export class Chart {
   pointObservable: Observable<ChartPoint>;
@@ -34,8 +34,15 @@ export class Chart {
     this.pointSource.next(chartPoint);
   }
 
-  addSerie(serie: ChartSerie) {
+  addSerie(serie: ChartSerie): void {
     this.options.series.push(serie);
     this.serieSource.next(serie);
+  }
+
+  removeSerie(serieIndex: number): void {
+    this.options.series.splice(serieIndex, 1);
+    if (this.ref) {
+      this.ref.series[serieIndex].remove(true);
+    }
   }
 }
