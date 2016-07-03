@@ -19,6 +19,11 @@ export class Chart {
   private serieSource: Subject<ChartSerie>;
 
   constructor(public options: HighchartsOptions) {
+    // init series array if not set
+    if (!this.options.series) {
+      this.options.series = [];
+    }
+
     this.pointSource = new Subject();
     this.serieSource = new Subject();
     this.pointObservable = this.pointSource.asObservable();
@@ -34,12 +39,21 @@ export class Chart {
     this.pointSource.next(chartPoint);
   }
 
+  removePoint(pointIndex: number, serieIndex = 0): void {
+    // TODO add try catch (empty)
+    (<[]>this.options.series[serieIndex].data).splice(pointIndex, 1);
+    if (this.ref) {
+      this.ref.series[serieIndex].removePoint(pointIndex, true);
+    }
+  }
+
   addSerie(serie: ChartSerie): void {
     this.options.series.push(serie);
     this.serieSource.next(serie);
   }
 
   removeSerie(serieIndex: number): void {
+    // TODO add try catch (empty)
     this.options.series.splice(serieIndex, 1);
     if (this.ref) {
       this.ref.series[serieIndex].remove(true);

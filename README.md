@@ -91,6 +91,12 @@ addPoint(point: Point [, serieIndex: number = 0]): void
 ```
 Add point to a serie
 
+##### removePoint
+```typescript
+removePoint(pointIndex: number [, serieIndex: number = 0]): void
+```
+Remove point from a serie
+
 ##### addSerie
 ```typescript
 addSerie(serie: ChartSerie): void
