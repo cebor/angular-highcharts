@@ -82,7 +82,7 @@ new Chart(options: HighchartsOptions)
 ```typescript
 ref: HighchartsChartObject
 ```
-Reference to the HighchartsChartObject
+Reference to the HighchartsChartObject - [Offical Chart API Docs](http://api.highcharts.com/highcharts#Chart)
 
 #### Functions
 ##### addPoint
@@ -112,10 +112,17 @@ Remove serie to the chart
 ### Using Highcharts modules
 To use Highcharts modules you can import a refernce of the `Highcharts` object and apply the module manually
 
+#### Target: commonjs (webpack)
 ```typescript
 import { Highcharts } from 'angular-highcharts';
-// activate external module
 require('highcharts/modules/exporting')(Highcharts);
+```
+
+#### Target: system (SystemJS)
+```typescript
+import { Highcharts } from 'angular-highcharts';
+import exporting from 'highcharts/modules/exporting';
+exporting(Highcharts)
 ```
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
