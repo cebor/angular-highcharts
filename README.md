@@ -109,6 +109,17 @@ removeSerie(serieIndex: number): void
 ```
 Remove serie to the chart
 
+### Using Highcharts modules
+To use Highcharts modules you can import a refernce of the `Highcharts` object and apply the module manually
+
+```typescript
+import { Highcharts } from 'angular-highcharts';
+// activate export module
+require('highcharts/modules/exporting')(Highcharts);
+```
+
+Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
+
 ### Coming soon
 * API Docs
 * Highstocks support
