@@ -114,7 +114,7 @@ To use Highcharts modules you can import a refernce of the `Highcharts` object a
 
 ```typescript
 import { Highcharts } from 'angular-highcharts';
-// activate export module
+// activate external module
 require('highcharts/modules/exporting')(Highcharts);
 ```
 
