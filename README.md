@@ -127,6 +127,9 @@ exporting(Highcharts)
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
+### Demo
+[Link](https://loggr.stkn.org/v2/chart)
+
 ### Coming soon
 * API Docs
 * Highstocks support
