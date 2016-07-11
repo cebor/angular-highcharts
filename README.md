@@ -77,33 +77,28 @@ Type: `class`
 new Chart(options: HighchartsOptions)
 ```
 
-#### Variables
-##### ref
+#### Properties
 ```typescript
 ref: HighchartsChartObject
 ```
-Reference to the HighchartsChartObject - [Offical Chart API Docs](http://api.highcharts.com/highcharts#Chart)
+References to the HighchartsChartObject - [Offical Chart API Docs](http://api.highcharts.com/highcharts#Chart)
 
-#### Functions
-##### addPoint
+#### Methods
 ```typescript
-addPoint(point: Point [, serieIndex: number = 0]): void
+addPoint(point: Point, [serieIndex: number = 0]): void
 ```
-Add point to a serie
+Adds a point to a serie
 
-##### removePoint
 ```typescript
-removePoint(pointIndex: number [, serieIndex: number = 0]): void
+removePoint(pointIndex: number, [serieIndex: number = 0]): void
 ```
-Remove point from a serie
+Removes a point from a serie
 
-##### addSerie
 ```typescript
 addSerie(serie: ChartSerie): void
 ```
-Add serie to the chart
+Adds a serie to the chart
 
-##### removeSerie
 ```typescript
 removeSerie(serieIndex: number): void
 ```
