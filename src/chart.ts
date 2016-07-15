@@ -41,7 +41,7 @@ export class Chart {
 
   removePoint(pointIndex: number, serieIndex = 0): void {
     // TODO add try catch (empty)
-    (<[]>this.options.series[serieIndex].data).splice(pointIndex, 1);
+    (<Point[]>this.options.series[serieIndex].data).splice(pointIndex, 1);
     if (this.ref) {
       this.ref.series[serieIndex].removePoint(pointIndex, true);
     }
