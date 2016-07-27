@@ -10,8 +10,6 @@ import {
   SimpleChange
 } from '@angular/core';
 
-import { Subscription }   from 'rxjs/Subscription';
-
 import { Chart } from './chart';
 
 @Directive({
@@ -19,12 +17,6 @@ import { Chart } from './chart';
 })
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
-
-  chartRef: HighchartsChartObject;
-
-  private pointSubscription: Subscription;
-  private serieSubscription: Subscription;
-  private initialized: boolean = false;
 
   constructor(private el: ElementRef) {}
 
@@ -45,24 +37,13 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
 
   private init() {
     if (this.chart instanceof Chart) {
-      this.chartRef = Highcharts.chart(this.el.nativeElement, this.chart.options);
-      this.chart.ref = this.chartRef;
-      this.pointSubscription = this.chart.pointObservable.subscribe(value => {
-        this.chartRef.series[value.serieIndex].addPoint(value.point);
-      });
-      this.serieSubscription = this.chart.serieObservable.subscribe(value => {
-        this.chartRef.addSeries(value);
-      });
-      this.initialized = true;
+      this.chart.ref = Highcharts.chart(this.el.nativeElement, this.chart.options);
     }
   }
 
   private destroy() {
-    if (this.initialized) {
-      this.chartRef.destroy();
-      this.pointSubscription.unsubscribe();
-      this.serieSubscription.unsubscribe();
-      this.initialized = false;
+    if (this.chart && this.chart.ref) {
+      this.chart.ref.destroy();
     }
   }
 }
