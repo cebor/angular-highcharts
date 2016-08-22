@@ -107,13 +107,13 @@ Remove serie to the chart
 ### Using Highcharts modules
 To use Highcharts modules you can import a refernce of the `Highcharts` object and apply the module manually
 
-#### Target: commonjs (webpack)
+#### commonjs (webpack)
 ```typescript
 import { Highcharts } from 'angular-highcharts';
 require('highcharts/modules/exporting')(Highcharts);
 ```
 
-#### Target: system (SystemJS)
+#### system (SystemJS)
 ```typescript
 import { Highcharts } from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting';
