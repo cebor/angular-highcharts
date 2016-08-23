@@ -10,7 +10,6 @@ This is a Highcharts directive for Angular2.
 ```json
 {
   "node": ">=5",
-  "typings": ">=1.0",
   "angular2": ">=2.0.0-rc.1",
   "highcharts": ">=4.2"
 }
@@ -24,20 +23,33 @@ npm i angular-highcharts --save
 # install highcharts
 npm i highcharts --save
 
-# install required typings
-typings install dt~highcharts --global --save
+# install highcharts typings (optional)
+npm i @types/highcharts --save-dev
 ```
 
 ## Usage Example
 ```typescript
-import {ChartDirective, Chart} from 'angular-highcharts';
+// app.module.js
+import { ChartModule } from 'angular-highcharts';
+
+@NgModule({
+  imports: [
+    ...
+    ChartModule, // add ChartModule to your imports
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+
+// chart.component.js
+import { Chart } from 'angular-highcharts';
 
 @Component({
   ...
   template: `
     <button (click)="add()">Add Point!</button>
     <div [chart]="chart"></div>`,
-  directives: [ChartDirective]
   ...
 })
 export class ChartComponent {
