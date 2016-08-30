@@ -41,7 +41,9 @@ import { ChartModule } from 'angular-highcharts';
   ...
 })
 export class AppModule { }
+```
 
+```typescript
 // chart.component.js
 import { Chart } from 'angular-highcharts';
 
