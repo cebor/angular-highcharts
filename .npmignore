@@ -1,8 +1,6 @@
-typings/
 .editorconfig
 .travis.yml
 tsconfig.json
 tslint.json
-typings.json
 *.ts
 !*.d.ts
