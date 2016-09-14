@@ -1,4 +1,3 @@
-dist/
 .editorconfig
 .travis.yml
 tsconfig.json

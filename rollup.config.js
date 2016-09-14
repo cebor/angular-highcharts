@@ -3,7 +3,7 @@ export default {
   dest: 'dist/angular-highcharts.umd.js',
   format: 'umd',
   moduleName: 'ng.highcharts',
-  context: 'this',
+  context: 'window',
   external: [
     '@angular/core',
     'highcharts'
