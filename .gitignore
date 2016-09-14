@@ -1,5 +1,5 @@
 node_modules/
-typings/
+dist/
 index.js
 index.d.ts
 src/**/*.js
