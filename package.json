@@ -30,7 +30,7 @@
     "@angular/core": "2.0.0",
     "@types/highcharts": "^4.2.35",
     "rimraf": "^2.5.4",
-    "rollup": "^0.35.10",
+    "rollup": "^0.36.0",
     "rxjs": "5.0.0-beta.12",
     "tslint": "^3.15.1",
     "typescript": "^2.0.2",
