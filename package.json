@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@angular/core": "2.0.0-rc.7",
+    "@angular/core": "2.0.0",
     "@types/highcharts": "^4.2.35",
     "rimraf": "^2.5.4",
     "rollup": "^0.35.10",
