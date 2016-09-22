@@ -1,3 +1,5 @@
+import {Highcharts} from 'highcharts';
+
 export type Point = number | [number, number] | [string, number] | HighchartsDataPoint;
 export type ChartSerie = HighchartsSeriesOptions;
 
@@ -11,10 +13,10 @@ export class Chart {
     }
   }
 
-  addPoint(point: Point, serieIndex = 0, shift = false): void {
+  addPoint(point: Point, serieIndex = 0, redraw = true, shift = false): void {
     (<Point[]>this.options.series[serieIndex].data).push(point);
     if (this.ref) {
-      this.ref.series[serieIndex].addPoint(point, serieIndex, shift);
+      this.ref.series[serieIndex].addPoint(point, redraw, shift);
     }
   }
 
