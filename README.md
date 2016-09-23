@@ -10,7 +10,7 @@ This is a Highcharts directive for Angular2.
 ```json
 {
   "node": ">=5",
-  "angular2": ">=2.0.0-rc.1",
+  "angular2": ">=2.0.0",
   "highcharts": ">=4.2"
 }
 ```
@@ -104,7 +104,7 @@ addPoint(point: Point, [serieIndex: number = 0]): void
 Adds a point to a serie
 
 ```typescript
-removePoint(pointIndex: number, [serieIndex: number = 0]): void
+removePoint(pointIndex: number, [serieIndex: number = 0], [redraw: boolean = true], [shift: boolean = false]): void
 ```
 Removes a point from a serie
 
