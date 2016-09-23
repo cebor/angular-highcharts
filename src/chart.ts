@@ -1,5 +1,3 @@
-import {Highcharts} from 'highcharts';
-
 export type Point = number | [number, number] | [string, number] | HighchartsDataPoint;
 export type ChartSerie = HighchartsSeriesOptions;
 
