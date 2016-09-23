@@ -11,10 +11,10 @@ export class Chart {
     }
   }
 
-  addPoint(point: Point, serieIndex = 0): void {
+  addPoint(point: Point, serieIndex = 0, redraw = true, shift = false): void {
     (<Point[]>this.options.series[serieIndex].data).push(point);
     if (this.ref) {
-      this.ref.series[serieIndex].addPoint(point);
+      this.ref.series[serieIndex].addPoint(point, redraw, shift);
     }
   }
 
