@@ -4,7 +4,7 @@ import {
   Directive,
   Input,
   ElementRef,
-  OnInit,
+  AfterViewInit,
   OnDestroy,
   OnChanges,
   SimpleChange
@@ -15,12 +15,12 @@ import { Chart } from './chart';
 @Directive({
   selector: '[chart]'
 })
-export class ChartDirective implements OnInit, OnDestroy, OnChanges {
+export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
 
   constructor(private el: ElementRef) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.init();
   }
 
