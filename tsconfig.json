@@ -6,9 +6,6 @@
       "es2015",
       "dom"
     ],
-    "types": [
-      "highcharts"
-    ],
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
