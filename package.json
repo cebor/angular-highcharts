@@ -3,8 +3,8 @@
   "version": "0.6.6",
   "description": "Highcharts Directive for Angular2",
   "main": "dist/angular-highcharts.umd.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
+  "module": "dist/module/index.js",
+  "typings": "dist/module/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
     "clean": "rimraf index.js index.d.ts src/**/*.js src/**/*.d.ts",
@@ -27,13 +27,13 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@angular/core": "^2.0.2",
-    "@types/highcharts": "^4.2.37",
+    "@angular/core": "2.1.2",
+    "@types/highcharts": "^4.2.39",
     "rimraf": "^2.5.4",
-    "rollup": "^0.36.1",
+    "rollup": "^0.36.3",
     "rxjs": "5.0.0-beta.12",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.3",
-    "zone.js": "^0.6.21"
+    "typescript": "^2.0.8",
+    "zone.js": "^0.6.26"
   }
 }

@@ -1,10 +1,12 @@
-export type Point = number | [number, number] | [string, number] | HighchartsDataPoint;
-export type ChartSerie = HighchartsSeriesOptions;
+import { DataPoint, SeriesOptions, ChartObject, Options } from 'highcharts';
+
+export type Point = number | [number, number] | [string, number] | DataPoint;
+export type ChartSerie = SeriesOptions;
 
 export class Chart {
-  ref: HighchartsChartObject;
+  ref: ChartObject;
 
-  constructor(public options: HighchartsOptions) {
+  constructor(public options: Options) {
     // init series array if not set
     if (!this.options.series) {
       this.options.series = [];

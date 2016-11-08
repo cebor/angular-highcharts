@@ -10,14 +10,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "declaration": true,
-    "rootDir": "."
+    "rootDir": ".",
+    "outDir": "./dist/module"
   },
   "exclude": [
     "node_modules"
   ],
   "compileOnSave": false,
-  "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  "buildOnSave": false
 }

@@ -1,5 +1,5 @@
 export default {
-  entry: 'index.js',
+  entry: 'dist/module/index.js',
   dest: 'dist/angular-highcharts.umd.js',
   format: 'umd',
   moduleName: 'ng.highcharts',
