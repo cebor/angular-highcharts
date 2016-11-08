@@ -11,7 +11,7 @@
     "emitDecoratorMetadata": true,
     "declaration": true,
     "rootDir": ".",
-    "outDir": "./dist/module"
+    "outDir": "./dist"
   },
   "exclude": [
     "node_modules"

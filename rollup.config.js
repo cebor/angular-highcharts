@@ -1,6 +1,6 @@
 export default {
-  entry: 'dist/module/index.js',
-  dest: 'dist/angular-highcharts.umd.js',
+  entry: 'dist/index.js',
+  dest: 'dist/bundles/angular-highcharts.umd.js',
   format: 'umd',
   moduleName: 'ng.highcharts',
   context: 'window',
