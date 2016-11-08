@@ -1,6 +1,6 @@
 {
   "name": "angular-highcharts",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Highcharts Directive for Angular2",
   "main": "dist/bundles/angular-highcharts.umd.js",
   "module": "dist/index.js",
