@@ -11,11 +11,20 @@
     "emitDecoratorMetadata": true,
     "declaration": true,
     "rootDir": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "stripInternal": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "compileOnSave": false,
-  "buildOnSave": false
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "genDir": "./dist",
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "generateCodeForLibraries": false
+  }
 }
