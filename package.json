@@ -36,7 +36,7 @@
     "@angular/platform-server": "^2.4.1",
     "@types/highcharts": "^4.2.43",
     "rimraf": "^2.5.4",
-    "rollup": "^0.40.0",
+    "rollup": "^0.41.1",
     "rxjs": "^5.0.1",
     "tslint": "^4.1.1",
     "typescript": "~2.0.10",
