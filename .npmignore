@@ -2,6 +2,5 @@
 .travis.yml
 tsconfig.json
 tslint.json
-*.ngsummary.json
 *.ts
 !*.d.ts
