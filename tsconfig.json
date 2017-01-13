@@ -13,7 +13,8 @@
     "rootDir": ".",
     "outDir": "./dist",
     "skipLibCheck": true,
-    "stripInternal": true
+    "stripInternal": true,
+    "importHelpers": true
   },
   "exclude": [
     "node_modules",
