@@ -6,10 +6,12 @@ export default {
   context: 'window',
   external: [
     '@angular/core',
-    'highcharts'
+    'highcharts',
+    'tslib'
   ],
   globals: {
     '@angular/core': 'ng.core',
-    'highcharts': 'Highcharts'
+    'highcharts': 'Highcharts',
+    'tslib': 'tslib'
   }
 }
