@@ -24,7 +24,6 @@
   "angularCompilerOptions": {
     "genDir": "./dist",
     "annotateForClosureCompiler": true,
-    "strictMetadataEmit": true,
-    "generateCodeForLibraries": false
+    "strictMetadataEmit": true
   }
 }
