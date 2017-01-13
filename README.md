@@ -9,22 +9,21 @@ This is a Highcharts directive for Angular2.
 ## Requirements
 ```json
 {
-  "node": ">=5",
-  "angular2": ">=2.0.0",
-  "highcharts": ">=4.2"
+  "angular2": ">=2.4.0",
+  "highcharts": ">=5.0"
 }
 ```
 
 ## Installation
 ```bash
 # install angular-highcharts
-npm i angular-highcharts --save
+npm i --save angular-highcharts
 
-# install highcharts
-npm i highcharts --save
+# install highcharts and tslib
+npm i --save highcharts tslib
 
-# install highcharts typings (optional)
-npm i @types/highcharts --save-dev
+# install highcharts typings
+npm i --save-dev @types/highcharts
 ```
 
 ## Usage Example
