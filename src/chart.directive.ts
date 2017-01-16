@@ -44,6 +44,7 @@ export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
   private destroy() {
     if (this.chart && this.chart.ref) {
       this.chart.ref.destroy();
+      delete this.chart.ref;
     }
   }
 }
