@@ -1,3 +1,5 @@
+dist: trusty
+sudo: false
 language: node_js
 node_js:
   - '6'
@@ -10,3 +12,6 @@ deploy:
   on:
     tags: true
     repo: cebor/angular-highcharts
+cache:
+  directories:
+    - $HOME/.cache/yarn
