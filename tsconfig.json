@@ -12,8 +12,6 @@
     "declaration": true,
     "rootDir": ".",
     "outDir": "./dist",
-    "skipLibCheck": true,
-    "stripInternal": true,
     "importHelpers": true
   },
   "exclude": [
