@@ -7,8 +7,8 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
-    "clean": "rimraf index.js index.d.ts src/**/*.js src/**/*.d.ts",
-    "prebuild": "rimraf dist",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "build": "ngc && rollup -c",
     "lint": "tslint src/**/*.ts",
     "test": "npm run lint"
