@@ -30,7 +30,7 @@
   "devDependencies": {
     "@angular/compiler": "^2.4.5",
     "@angular/compiler-cli": "^2.4.5",
-    "@angular/core": "2.4.5",
+    "@angular/core": "^2.4.5",
     "@types/highcharts": "^4.2.46",
     "rimraf": "^2.5.4",
     "rollup": "^0.41.4",
