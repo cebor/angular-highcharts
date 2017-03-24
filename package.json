@@ -28,7 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "@angular/compiler": "^2.4.10",
-    "@angular/compiler-cli": "^2.4.10",
+    "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^2.4.10",
     "@types/highcharts": "^4.2.49",
     "rimraf": "^2.6.1",
