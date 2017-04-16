@@ -4,6 +4,7 @@
   "description": "Highcharts Directive for Angular",
   "module": "angular-highcharts.es5.js",
   "es2015": "angular-highcharts.js",
+  "typings": "angular-highcharts.d.ts",
   "author": "Felix Itzenplitz",
   "repository": {
     "type": "git",
