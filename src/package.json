@@ -1,0 +1,23 @@
+{
+  "name": "angular-highcharts",
+  "version": "2.0.0",
+  "description": "Highcharts Directive for Angular",
+  "module": "angular-highcharts.es5.js",
+  "es2015": "angular-highcharts.js",
+  "author": "Felix Itzenplitz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cebor/angular-highcharts.git"
+  },
+  "keywords": [
+    "angular",
+    "highcharts",
+    "chart",
+    "directive",
+    "component"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "^4.0.2"
+  }
+}

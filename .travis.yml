@@ -4,6 +4,8 @@ language: node_js
 node_js:
   - '6'
   - '7'
+before_deploy:
+  - cd ./dist
 deploy:
   provider: npm
   email: felix@stkn.org

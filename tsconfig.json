@@ -1,28 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "rootDir": ".",
-    "outDir": "./dist",
-    "importHelpers": true
-  },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "angularCompilerOptions": {
-    "genDir": "./dist",
-    "annotateForClosureCompiler": true,
-    "strictMetadataEmit": true
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "skipLibCheck": true
   }
 }
