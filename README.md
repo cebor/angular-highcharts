@@ -4,7 +4,7 @@
 [![NPM downloads][downloads-image]][downloads-url]
 [![Build Status][build-image]][build-url]
 
-This is a Highcharts directive for Angular2.
+This is a Highcharts directive for Angular
 
 ## Requirements
 ```json
