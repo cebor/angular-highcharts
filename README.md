@@ -19,8 +19,8 @@ This is a Highcharts directive for Angular2.
 # install angular-highcharts
 npm i --save angular-highcharts
 
-# install highcharts and tslib
-npm i --save highcharts tslib
+# install highcharts
+npm i --save highcharts
 
 # install highcharts typings
 npm i --save-dev @types/highcharts
