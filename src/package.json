@@ -1,6 +1,6 @@
 {
   "name": "angular-highcharts",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Highcharts Directive for Angular",
   "module": "angular-highcharts.es5.js",
   "es2015": "angular-highcharts.js",
