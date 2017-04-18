@@ -9,9 +9,7 @@
     "rootDir": ".",
     "skipLibCheck": true,
     // don't auto-discover @types/node, it results in a ///<reference in the .d.ts output
-    "types": [
-      "highcharts"
-    ]
+    "types": []
   },
   "files": [
     "./public_api.ts"

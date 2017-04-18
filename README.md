@@ -16,13 +16,10 @@ This is a Highcharts directive for Angular
 
 ## Installation
 ```bash
-# install angular-highcharts
-npm i --save angular-highcharts
+# install angular-highcharts and highcharts
+npm i --save angular-highcharts highcharts
 
-# install highcharts
-npm i --save highcharts
-
-# install highcharts typings
+# install highcharts typings (optional)
 npm i --save-dev @types/highcharts
 ```
 
