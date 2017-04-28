@@ -9,8 +9,8 @@ This is a Highcharts directive for Angular
 ## Requirements
 ```json
 {
-  "angular2": ">=4.0.2",
-  "highcharts": ">=5.0"
+  "angular2": ">=4.0.0",
+  "highcharts": ">=5.0.0"
 }
 ```
 
