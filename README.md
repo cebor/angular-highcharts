@@ -1,5 +1,7 @@
 # angular-highcharts
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cebor/angular-highcharts.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 [![Build Status][build-image]][build-url]
