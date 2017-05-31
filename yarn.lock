@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@angular/compiler-cli@^4.1.0":
+"@angular/compiler-cli@^4.1.3":
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.1.3.tgz#c2362ffdf65756471481f839fab675bcac213f96"
   dependencies:
@@ -10,11 +10,11 @@
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@^4.1.0":
+"@angular/compiler@^4.1.3":
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.1.3.tgz#d2dd30853b0cf4a54758b4a314632c231f9c94c3"
 
-"@angular/core@^4.1.0":
+"@angular/core@^4.1.3":
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.1.3.tgz#285498eb86ab7d0b6f982f8f9f487ef610013b35"
 
@@ -24,7 +24,7 @@
   dependencies:
     tsickle "^0.21.0"
 
-highcharts@^5.0.10:
+highcharts@^5.0.12:
   version v5.0.12
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.12.tgz#f73b970fe5c7f04100220b64aa7bd7fb019d11e2"
 
@@ -85,6 +85,6 @@ typescript@~2.3.1:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
-zone.js@^0.8.9:
+zone.js@^0.8.11:
   version "0.8.11"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.11.tgz#742befb17fbc49a571712b8c7d87e58ca26fd886"
