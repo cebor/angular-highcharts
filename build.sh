@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+cd "$(dirname "$0")"
 
 # Clean up previous distributions
 rm -rf dist
 rm -rf build
 
 # Variables
+VERSION="$(node -p "require('./package.json').version")"
 NGC="node node_modules/.bin/ngc"
 ROLLUP="node node_modules/.bin/rollup"
 
@@ -23,3 +25,6 @@ rsync -a --exclude=*.js build/ dist
 # Copy library package.json and README.md
 cp src/package.json dist/package.json
 cp README.md dist/README.md
+
+# Set dist/package.json version
+cd dist && npm --no-git-tag-version version $VERSION

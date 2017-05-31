@@ -1,6 +1,6 @@
 {
   "name": "angular-highcharts",
-  "version": "0.0.0",
+  "version": "3.1.0",
   "private": true,
   "scripts": {
     "build": "sh build.sh",
