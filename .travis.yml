@@ -12,4 +12,6 @@ deploy:
   on:
     tags: true
     repo: cebor/angular-highcharts
-cache: yarn
+cache:
+  directories:
+    - $HOME/.npm
