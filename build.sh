@@ -5,22 +5,31 @@ cd "$(dirname "$0")"
 rm -rf dist
 rm -rf build
 
-# Variables
-VERSION="$(node -p "require('./package.json').version")"
+# Binaries
 NGC="node node_modules/.bin/ngc"
 ROLLUP="node node_modules/.bin/rollup"
 
-# Run Angular Compiler
+# ES6
 $NGC -p src/tsconfig-build.json
-# Rollup angular-highcharts.js
-$ROLLUP build/angular-highcharts.js -o dist/angular-highcharts.js
+$ROLLUP build/angular-highcharts.js \
+  --output dist/angular-highcharts.js \
+  --format es \
+  --external "@angular/core,highcharts"
 
-# Repeat the process for es5 version
+# ES5
 $NGC -p src/tsconfig-es5.json
-$ROLLUP build/angular-highcharts.js -o dist/angular-highcharts.es5.js
+$ROLLUP build/angular-highcharts.js \
+  --output dist/angular-highcharts.es5.js \
+  --format es \
+  --external "@angular/core,highcharts"
 
-# Umd Bundle (legacy)
-$ROLLUP dist/angular-highcharts.es5.js -o dist/angular-highcharts.umd.js -f umd -n ng.highcharts -g "@angular/core:ng.core,highcharts:Highcharts"
+# UMD (legacy)
+$ROLLUP dist/angular-highcharts.es5.js \
+  --output dist/angular-highcharts.umd.js \
+  --format umd \
+  --external "@angular/core,highcharts" \
+  --globals "@angular/core:ng.core,highcharts:Highcharts" \
+  --name ng.highcharts
 
 # Copy non-js files from build
 rsync -a --exclude=*.js build/ dist
@@ -30,4 +39,5 @@ cp src/package.json dist/package.json
 cp README.md dist/README.md
 
 # Set dist/package.json version
+VERSION="$(node -p "require('./package.json').version")"
 cd dist && npm --no-git-tag-version version $VERSION
