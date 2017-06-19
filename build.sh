@@ -19,6 +19,9 @@ $ROLLUP build/angular-highcharts.js -o dist/angular-highcharts.js
 $NGC -p src/tsconfig-es5.json
 $ROLLUP build/angular-highcharts.js -o dist/angular-highcharts.es5.js
 
+# Umd Bundle (legacy)
+$ROLLUP dist/angular-highcharts.es5.js -o dist/angular-highcharts.umd.js -f umd -n ng.highcharts -g "@angular/core:ng.core,highcharts:Highcharts"
+
 # Copy non-js files from build
 rsync -a --exclude=*.js build/ dist
 
