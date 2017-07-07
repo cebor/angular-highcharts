@@ -133,7 +133,7 @@ exporting(Highcharts)
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
 ### Demo
-[Link](https://ng.stkn.org/chart)
+[Link](http://ng.stkn.org/chart)
 
 ### Coming soon
 * API Docs
