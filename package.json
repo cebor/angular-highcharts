@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "sh build.sh",
-    "postinstall": "npm run build"
+    "prepublishOnly": "npm run build && cd dist"
   },
   "devDependencies": {
     "@angular/compiler": "^4.2.6",
