@@ -8,6 +8,7 @@ cache: yarn
 before_deploy:
   - cd ./dist
 deploy:
+  skip_cleanup: true
   provider: npm
   email: felix@stkn.org
   api_key:
