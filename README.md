@@ -120,7 +120,8 @@ To use Highcharts modules you can import a refernce of the `Highcharts` object a
 #### commonjs (webpack)
 ```typescript
 import { Highcharts } from 'angular-highcharts';
-require('highcharts/modules/exporting')(Highcharts);
+import * as exporting from 'highcharts/modules/exporting.src.js';
+exporting(Highcharts)
 ```
 
 #### system (SystemJS)
