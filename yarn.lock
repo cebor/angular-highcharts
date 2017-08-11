@@ -2,35 +2,35 @@
 # yarn lockfile v1
 
 
-"@angular/compiler-cli@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.3.2.tgz#a9c4b94590c82d0e3f28b1de497be636e21c3cc6"
+"@angular/compiler-cli@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-4.3.4.tgz#3d16ec869c39f4aca18cac71dcf118a80f6208e6"
   dependencies:
-    "@angular/tsc-wrapped" "4.3.2"
+    "@angular/tsc-wrapped" "4.3.4"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
 
-"@angular/compiler@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.3.2.tgz#b7922d0b2087a82e7b516a1c111a5993054f68b3"
+"@angular/compiler@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-4.3.4.tgz#9b16ae785f22b918aa168db0555c05304baf9d77"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.3.2.tgz#ea78341c3501ad8f43b51ffb183e200dc19844c3"
+"@angular/core@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.3.4.tgz#42dd8046600f5a080a4e1212116b12fe97bcfcb4"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/tsc-wrapped@4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-4.3.2.tgz#81eb97d5cd4cc5c7a0a7a442561855bdc0569387"
+"@angular/tsc-wrapped@4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-4.3.4.tgz#86c14cec0ee7f25bb7a7f80270bffe19fe7acd63"
   dependencies:
     tsickle "^0.21.0"
 
-highcharts@^5.0.13:
-  version "5.0.13"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.13.tgz#80836cd8d55678caf234cc7feba81341d6e4b10c"
+highcharts@^5.0.14:
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.14.tgz#0ef14cca9f1345408568b533dae1478950d96810"
 
 minimist@0.0.8:
   version "0.0.8"
@@ -56,9 +56,9 @@ rollup@^0.45.2:
   dependencies:
     source-map-support "^0.4.0"
 
-rxjs@^5.4.2:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.2.tgz#2a3236fcbf03df57bae06fd6972fd99e5c08fcf7"
+rxjs@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
   dependencies:
     symbol-observable "^1.0.1"
 
