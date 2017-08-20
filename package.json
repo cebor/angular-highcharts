@@ -11,7 +11,7 @@
     "@angular/compiler-cli": "^4.3.5",
     "@angular/core": "^4.3.5",
     "highcharts": "^5.0.14",
-    "rollup": "^0.47.6",
+    "rollup": "^0.48.0",
     "rxjs": "^5.4.3",
     "typescript": "^2.4.2",
     "zone.js": "^0.8.16"
