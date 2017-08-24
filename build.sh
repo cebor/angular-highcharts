@@ -12,21 +12,21 @@ ROLLUP="node node_modules/.bin/rollup"
 # ES6
 $NGC -p src/tsconfig-build.json
 $ROLLUP build/angular-highcharts.js \
-  --output dist/angular-highcharts.js \
-  --format es \
+  --output.file dist/angular-highcharts.js \
+  --output.format es \
   --external "@angular/core,highcharts"
 
 # ES5
 $NGC -p src/tsconfig-es5.json
 $ROLLUP build/angular-highcharts.js \
-  --output dist/angular-highcharts.es5.js \
-  --format es \
+  --output.file dist/angular-highcharts.es5.js \
+  --output.format es \
   --external "@angular/core,highcharts"
 
 # UMD (legacy)
 $ROLLUP dist/angular-highcharts.es5.js \
-  --output dist/angular-highcharts.umd.js \
-  --format umd \
+  --output.file dist/angular-highcharts.umd.js \
+  --output.format umd \
   --external "@angular/core,highcharts" \
   --globals "@angular/core:ng.core,highcharts:Highcharts" \
   --name ng.highcharts
