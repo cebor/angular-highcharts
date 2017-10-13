@@ -1,2 +1,2 @@
-import Highcharts from 'highcharts';
+import * as Highcharts from 'highcharts';
 export { Highcharts };
