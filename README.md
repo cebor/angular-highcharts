@@ -9,7 +9,7 @@ This is a Highcharts directive for Angular
 ## Requirements
 ```json
 {
-  "angular2": ">=4.0.0",
+  "angular": ">=4.0.0",
   "highcharts": ">=5.0.0"
 }
 ```
@@ -67,7 +67,7 @@ export class ChartComponent {
       }]
     });
   
-  // add point to chart serie
+  // add point to chart series
   add() {
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }
