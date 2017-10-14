@@ -9,7 +9,7 @@ This is a Highcharts directive for Angular
 ## Requirements
 ```json
 {
-  "angular2": ">=4.0.0",
+  "angular": ">=4.0.0",
   "highcharts": ">=5.0.0"
 }
 ```
