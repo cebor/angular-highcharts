@@ -121,7 +121,7 @@ import exporting from 'highcharts/modules/exporting.src.js';
 
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useValue: [exporting]} // apply Highcharts Modules
+    { provide: HIGHCHARTS_MODULES, useValue: [exporting] } // apply Highcharts Modules
   ]
 })
 ```
