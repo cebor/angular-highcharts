@@ -25,30 +25,26 @@ npm i --save-dev @types/highcharts
 
 ## Usage Example
 ```typescript
-// app.module.js
+// app.module.ts
 import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   imports: [
-    ...
-    ChartModule, // add ChartModule to your imports
-    ...
-  ],
-  ...
+    ChartModule // add ChartModule to your imports
+  ]
 })
 export class AppModule { }
 ```
 
 ```typescript
-// chart.component.js
+// chart.component.ts
 import { Chart } from 'angular-highcharts';
 
 @Component({
-  ...
   template: `
     <button (click)="add()">Add Point!</button>
-    <div [chart]="chart"></div>`,
-  ...
+    <div [chart]="chart"></div>
+  `
 })
 export class ChartComponent {
   chart = new Chart({
@@ -119,16 +115,14 @@ To use Highcharts modules you can import a refernce of the `HighchartsModule` an
 
 #### Example
 ```typescript
+// app.module.ts
 import { ChartModule, MODULES } from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting.src.js';
 
 @NgModule({
   providers: [
-    ...
     { provide: MODULES, useValue: [exporting]} // apply Highcharts Modules
-    ...
-  ],
-  ...
+  ]
 })
 ```
 
