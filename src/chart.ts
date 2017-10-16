@@ -1,6 +1,6 @@
 import { DataPoint, SeriesOptions, ChartObject, Options } from 'highcharts';
 
-export type Point = number | [number, number] | [string, number] | DataPoint;
+export type Point = number | [number, number] | DataPoint;
 export type ChartSerie = SeriesOptions;
 
 export class Chart {

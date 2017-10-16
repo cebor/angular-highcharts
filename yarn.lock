@@ -28,9 +28,15 @@
   dependencies:
     tsickle "^0.21.0"
 
-highcharts@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-6.0.1.tgz#2cd8fb9d386d35966a07c1a88743aebfb15c128b"
+"@types/geojson@*":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.5.tgz#ef9f12277233399c7f32086818a56a84c8952f8f"
+
+"@types/highcharts@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.7.tgz#6353fb3c581b053b761f376ae0e7314a8f0e01bc"
+  dependencies:
+    "@types/geojson" "*"
 
 minimist@0.0.8:
   version "0.0.8"
