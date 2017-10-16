@@ -115,21 +115,23 @@ removeSerie(serieIndex: number): void
 Remove serie to the chart
 
 ### Using Highcharts modules
-To use Highcharts modules you can import a refernce of the `Highcharts` object and apply the module manually
+To use Highcharts modules you can import a refernce of the `HighchartsModule` and apply this module as a provider
 
-#### commonjs (webpack)
+#### Example
 ```typescript
-import { Highcharts } from 'angular-highcharts';
+import { ChartModule, MODULES } from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting.src.js';
-exporting(Highcharts)
+
+@NgModule({
+  providers: [
+    ...
+    { provide: MODULES, useValue: [exporting]} // apply Highcharts Modules
+    ...
+  ],
+  ...
+})
 ```
 
-#### system (SystemJS)
-```typescript
-import { Highcharts } from 'angular-highcharts';
-import exporting from 'highcharts/modules/exporting';
-exporting(Highcharts)
-```
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 

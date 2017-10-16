@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { Chart } from './chart';
+import { ChartService } from './chart.service';
 
 @Directive({
   selector: '[chart]'
@@ -18,9 +19,10 @@ import { Chart } from './chart';
 export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
 
-  constructor(private el: ElementRef) {}
+  constructor(private cs: ChartService, private el: ElementRef) {}
 
   ngAfterViewInit() {
+    this.cs.initModules();
     this.init();
   }
 
