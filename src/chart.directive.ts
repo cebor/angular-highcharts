@@ -1,17 +1,7 @@
-import { Highcharts } from './highcharts';
-
-import {
-  Directive,
-  Input,
-  ElementRef,
-  AfterViewInit,
-  OnDestroy,
-  OnChanges,
-  SimpleChange
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnChanges, OnDestroy, SimpleChange } from '@angular/core';
 
 import { Chart } from './chart';
-import { ChartService } from './chart.service';
+import { Highcharts } from './highcharts';
 
 @Directive({
   selector: '[chart]'
@@ -19,10 +9,9 @@ import { ChartService } from './chart.service';
 export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
   @Input() chart: Chart;
 
-  constructor(private cs: ChartService, private el: ElementRef) {}
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit() {
-    this.cs.initModules();
     this.init();
   }
 

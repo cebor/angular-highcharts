@@ -11,4 +11,8 @@ import { ChartService, HIGHCHARTS_MODULES }  from './chart.service';
     ChartService
   ]
 })
-export class ChartModule { }
+export class ChartModule {
+  constructor(private cs: ChartService) {
+    this.cs.initModules();
+  }
+}
