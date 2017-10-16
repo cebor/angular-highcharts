@@ -119,9 +119,14 @@ To use Highcharts modules you can import a refernce of the `HighchartsModule` an
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting.src.js';
 
+export function highchartsModules() {
+  // apply Highcharts Modules to this array
+  return [ exporting ];
+}
+
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useValue: [exporting] } // apply Highcharts Modules
+    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
   ]
 })
 ```
