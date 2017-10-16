@@ -116,12 +116,12 @@ To use Highcharts modules you can import a refernce of the `HighchartsModule` an
 #### Example
 ```typescript
 // app.module.ts
-import { ChartModule, MODULES } from 'angular-highcharts';
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
 import exporting from 'highcharts/modules/exporting.src.js';
 
 @NgModule({
   providers: [
-    { provide: MODULES, useValue: [exporting]} // apply Highcharts Modules
+    { provide: HIGHCHARTS_MODULES, useValue: [exporting]} // apply Highcharts Modules
   ]
 })
 ```
