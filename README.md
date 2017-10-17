@@ -111,7 +111,7 @@ removeSerie(serieIndex: number): void
 Remove serie to the chart
 
 ### Using Highcharts modules
-To use Highcharts modules you can import a refernce of the `HighchartsModule` and apply this module as a provider
+To use Highcharts modules you have to import them and provide them in a factory (required for aot).
 
 #### Example
 ```typescript
