@@ -129,6 +129,7 @@ export function highchartsModules() {
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
   ]
 })
+export class AppModule { }
 ```
 
 
