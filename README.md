@@ -117,7 +117,7 @@ To use Highcharts modules you have to import them and provide them in a factory 
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import exporting from 'highcharts/modules/exporting.src.js';
+import exporting from 'highcharts/modules/exporting.src';
 
 export function highchartsModules() {
   // apply Highcharts Modules to this array
