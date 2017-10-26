@@ -8,7 +8,7 @@
  */
 
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Highcharts }  from './highcharts';
+import Highcharts from './highcharts';
 
 export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 

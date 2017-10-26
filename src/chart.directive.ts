@@ -6,11 +6,10 @@
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
-
 import { AfterViewInit, Directive, ElementRef, Input, OnChanges, OnDestroy, SimpleChange } from '@angular/core';
 
 import { Chart } from './chart';
-import { Highcharts } from './highcharts';
+import Highcharts from './highcharts';
 
 @Directive({
   selector: '[chart]'

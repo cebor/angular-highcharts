@@ -1,2 +1,2 @@
 import * as Highcharts from 'highcharts';
-export { Highcharts };
+export default Highcharts;
