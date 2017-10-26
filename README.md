@@ -19,7 +19,7 @@ This is a Highcharts directive for Angular
 # install angular-highcharts and highcharts
 npm i --save angular-highcharts highcharts
 
-# install highcharts typings (optional)
+# install highcharts typings
 npm i --save-dev @types/highcharts
 ```
 
