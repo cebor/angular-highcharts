@@ -6,6 +6,12 @@
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
-export { Chart } from './chart';
+
+ /**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
 export { ChartModule } from './chart.module';
 export { HIGHCHARTS_MODULES } from './chart.service';
+export { Chart } from './chart';
