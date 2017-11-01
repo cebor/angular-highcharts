@@ -136,7 +136,8 @@ export class AppModule { }
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
 ### Demo
-[Link](http://ng.stkn.org/chart)
+* [Demo](http://ng.stkn.org/chart)
+* [Repository](https://github.com/cebor/angular-highcharts-demo)
 
 ### Coming soon
 * API Docs
