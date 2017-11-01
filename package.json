@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@angular/compiler": "^4.4.6",
-    "@angular/compiler-cli": "^4.4.6",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "^4.4.6",
     "@types/highcharts": "^5.0.9",
     "rollup": "^0.50.0",
