@@ -135,6 +135,15 @@ export class AppModule { }
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
+### Troubleshooting
+
+If you expiring typing errors while you build/serve your angular app the following could be helpful:
+
+```ts
+// override options type with <any>
+chart = new Chart(<any>{ // options here });
+```
+
 ### Demo
 * [Demo](http://ng.stkn.org/chart)
 * [Repository](https://github.com/cebor/angular-highcharts-demo)
