@@ -4,7 +4,9 @@
 [![NPM downloads][downloads-image]][downloads-url]
 [![Build Status][build-image]][build-url]
 
-This is a Highcharts directive for Angular
+This is a Highcharts directive for Angular.
+
+Do you use Angular 4? Please go [here](https://github.com/cebor/angular-highcharts/blob/4/README.md).
 
 ## Requirements
 ```json
