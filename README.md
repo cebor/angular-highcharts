@@ -6,7 +6,7 @@
 
 This is a Highcharts directive for Angular.
 
-For Angular 5 go (here)[https://github.com/cebor/angular-highcharts/blob/master/README.md].
+Do you use Angular 5? Please go [here](https://github.com/cebor/angular-highcharts/blob/master/README.md).
 
 ## Requirements
 ```json
