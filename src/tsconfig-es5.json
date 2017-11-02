@@ -8,7 +8,7 @@
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
-    "strictMetadataEmit": true,
+    "strictMetadataEmit": false,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "angular-highcharts.js",
     "flatModuleId": "angular-highcharts"
