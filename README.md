@@ -15,6 +15,19 @@ This is a Highcharts directive for Angular
 ```
 
 ## Installation
+
+### yarn
+
+```bash
+# install angular-highcharts and highcharts
+yarn add angular-highcharts highcharts
+
+# install highcharts typings
+yarn add --dev @types/highcharts
+```
+
+### npm
+
 ```bash
 # install angular-highcharts and highcharts
 npm i --save angular-highcharts highcharts
@@ -135,7 +148,7 @@ export class AppModule { }
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
-### Troubleshooting
+## Troubleshooting
 
 If you expiring typing errors while you build/serve your angular app the following could be helpful:
 
@@ -144,16 +157,16 @@ If you expiring typing errors while you build/serve your angular app the followi
 chart = new Chart(<any>{ // options here });
 ```
 
-### Demo
+## Demo
 * [Demo](http://ng.stkn.org/chart)
 * [Repository](https://github.com/cebor/angular-highcharts-demo)
 
-### Coming soon
+## Coming soon
 * API Docs
 * Highstocks support
 * Highmaps support
 
-### License
+## License
 MIT © Felix Itzenplitz
 
 [npm-image]: https://img.shields.io/npm/v/angular-highcharts.svg
