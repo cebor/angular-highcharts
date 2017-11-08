@@ -27,9 +27,9 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.6.tgz#3e02972728c69248c2af08d60a48cbb8680fffdf"
 
-"@types/highcharts@^5.0.9":
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.9.tgz#8793afcb57f058aff3ccebc4b8d8159c58fbc6a2"
+"@types/highcharts@^5.0.10":
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.10.tgz#378b02bee7f08d10821398830eab125d77f74eec"
   dependencies:
     "@types/geojson" "*"
 
@@ -802,9 +802,9 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rollup@^0.50.0:
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.50.0.tgz#4c158f4e780e6cb33ff0dbfc184a52cc58cd5f3b"
+rollup@^0.51.0:
+  version "0.51.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.51.0.tgz#bee110391dd42a48d61f31804807a80be4a085e5"
 
 rxjs@^5.5.2:
   version "5.5.2"
