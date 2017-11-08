@@ -12,7 +12,7 @@
  * @description
  * Entry point for all public APIs of this package.
  */
-export { default as Highcharts } from './highcharts'
+export { default as Highcharts } from './highcharts';
 export { ChartModule } from './chart.module';
 export { HIGHCHARTS_MODULES } from './chart.service';
 export { Chart } from './chart';
