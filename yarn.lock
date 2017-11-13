@@ -27,9 +27,9 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.6.tgz#3e02972728c69248c2af08d60a48cbb8680fffdf"
 
-"@types/highcharts@^5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.10.tgz#378b02bee7f08d10821398830eab125d77f74eec"
+"@types/highcharts@^5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.11.tgz#1ab3d429a8bedf572fecff4224bd2d970ef48312"
   dependencies:
     "@types/geojson" "*"
 
@@ -301,11 +301,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
 fsevents@^1.0.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.1.2.tgz#3282b713fb3ad80ede0e9fcf4611b5aa6fc033f4"
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.1.3.tgz#11f82318f5fe7bb2cd22965a108e9306208216d8"
   dependencies:
     nan "^2.3.0"
-    node-pre-gyp "^0.6.36"
+    node-pre-gyp "^0.6.39"
 
 fstream-ignore@^1.0.5:
   version "1.0.5"
@@ -599,7 +599,7 @@ nan@^2.3.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
 
-node-pre-gyp@^0.6.36:
+node-pre-gyp@^0.6.39:
   version "0.6.39"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.39.tgz#c00e96860b23c0e1420ac7befc5044e1d78d8649"
   dependencies:
@@ -802,9 +802,9 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rollup@^0.51.2:
-  version "0.51.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.51.2.tgz#6dfc8525ea71d1f6e0cbc94e06f258f85c4eb32d"
+rollup@^0.51.5:
+  version "0.51.5"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.51.5.tgz#5caf9101fcaefe344065701ece7de697631a8035"
 
 rxjs@^5.5.2:
   version "5.5.2"
