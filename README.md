@@ -162,8 +162,8 @@ chart = new Chart(<any>{ // options here });
 ```
 
 ## Demo
-* [Demo](http://ng.stkn.org/chart)
-* [Repository](https://github.com/cebor/angular-highcharts-demo)
+* [Demo](https://angular-9nkrgd.stackblitz.io)
+* [Code](https://stackblitz.com/edit/angular-9nkrgd)
 
 ## Coming soon
 * API Docs
