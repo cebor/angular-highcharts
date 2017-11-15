@@ -27,9 +27,9 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.6.tgz#3e02972728c69248c2af08d60a48cbb8680fffdf"
 
-"@types/highcharts@^5.0.11":
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.11.tgz#1ab3d429a8bedf572fecff4224bd2d970ef48312"
+"@types/highcharts@^5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.12.tgz#bcc7425efa3bf5ccd4def455dfe0f680e8bf3d7a"
   dependencies:
     "@types/geojson" "*"
 
@@ -596,8 +596,8 @@ ms@2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
 nan@^2.3.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
 
 node-pre-gyp@^0.6.39:
   version "0.6.39"
