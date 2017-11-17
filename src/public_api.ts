@@ -16,3 +16,5 @@ export { default as Highcharts } from './highcharts';
 export { ChartModule } from './chart.module';
 export { HIGHCHARTS_MODULES } from './chart.service';
 export { Chart } from './chart';
+export { StockChart } from './stockchart';
+export { MapChart } from './mapchart';

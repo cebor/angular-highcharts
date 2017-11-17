@@ -95,14 +95,14 @@ Type: `class`
 
 #### Constructor
 ```typescript
-new Chart(options: HighchartsOptions)
+new Chart(options: Options)
 ```
 
 #### Properties
 ```typescript
 ref: HighchartsChartObject
 ```
-References to the HighchartsChartObject - [Offical Chart API Docs](http://api.highcharts.com/highcharts#Chart)
+References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
 
 #### Methods
 ```typescript
@@ -125,10 +125,44 @@ removeSerie(serieIndex: number): void
 ```
 Remove serie to the chart
 
+### StockChart
+
+The Chart object.
+
+Type: `class`
+
+#### Constructor
+```typescript
+new StockChart(options)
+```
+
+#### Properties
+```typescript
+ref
+```
+References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+
+### MapChart
+
+The Chart object.
+
+Type: `class`
+
+#### Constructor
+```typescript
+new MapChart(options)
+```
+
+#### Properties
+```typescript
+ref
+```
+References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+
 ### Using Highcharts modules
 To use Highcharts modules you have to import them and provide them in a factory (required for aot). 
 You can find the list of available modules in the highcharts folder `ls -la node_modules/highcharts/modules`. Highcharts-more is the only exception, you find this module in the root folder.
-Don't forget to use the modules with the `.src` suffix, minimized highcharts modules are not importable. 
+Don't forget to use the modules with the `.src` suffix, minimized highcharts modules are not importable.
 
 #### Example
 ```typescript
@@ -147,6 +181,45 @@ export function highchartsModules() {
   ]
 })
 export class AppModule { }
+```
+
+### Highstock & Highmaps support
+
+For Highstock support load the following module
+```ts
+// app.module.ts
+import highstock from 'highcharts/modules/stock.src'; // see example above how to load
+```
+
+```ts
+// chart.component.ts
+import { StockChart } from 'angular-highcharts';
+
+@Component({
+  template: `
+    <div [chart]="stockChart"></div>
+  `
+})
+export class ChartComponent {
+  stockChart = new StockChart();
+```
+
+For Highmaps support load the following module
+```ts
+// app.module.ts
+import highmaps from 'highcharts/modules/map.src'; // see example above how to load
+```
+```ts
+// chart.component.ts
+import { MapChart } from 'angular-highcharts';
+
+@Component({
+  template: `
+    <div [chart]="mapChart"></div>
+  `
+})
+export class ChartComponent {
+  mapChart = new MapChart();
 ```
 
 
