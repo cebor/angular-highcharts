@@ -159,12 +159,12 @@ ref
 ```
 References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
 
-### Using Highcharts modules
+## Using Highcharts modules
 To use Highcharts modules you have to import them and provide them in a factory (required for aot). 
 You can find the list of available modules in the highcharts folder `ls -la node_modules/highcharts/modules`. Highcharts-more is the only exception, you find this module in the root folder.
 Don't forget to use the modules with the `.src` suffix, minimized highcharts modules are not importable.
 
-#### Example
+### Example
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
@@ -237,11 +237,6 @@ chart = new Chart(<any>{ // options here });
 ## Demo
 * [Demo](https://angular-9nkrgd.stackblitz.io)
 * [Code](https://stackblitz.com/edit/angular-9nkrgd)
-
-## Coming soon
-* API Docs
-* Highstocks support
-* Highmaps support
 
 ## License
 MIT © Felix Itzenplitz
