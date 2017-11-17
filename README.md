@@ -185,6 +185,8 @@ export class AppModule { }
 
 ### Highstock & Highmaps support
 
+#### Highstock
+
 For Highstock support load the following module
 ```ts
 // app.module.ts
@@ -201,8 +203,11 @@ import { StockChart } from 'angular-highcharts';
   `
 })
 export class ChartComponent {
-  stockChart = new StockChart();
+  stockChart = new StockChart({options});
+}
 ```
+
+### Highmaps
 
 For Highmaps support load the following module
 ```ts
@@ -219,7 +224,8 @@ import { MapChart } from 'angular-highcharts';
   `
 })
 export class ChartComponent {
-  mapChart = new MapChart();
+  mapChart = new MapChart({options});
+}
 ```
 
 
@@ -231,7 +237,7 @@ If you expiring typing errors while you build/serve your angular app the followi
 
 ```ts
 // override options type with <any>
-chart = new Chart(<any>{ // options here });
+chart = new Chart(<any>{options});
 ```
 
 ## Demo
