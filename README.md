@@ -207,6 +207,8 @@ export class ChartComponent {
 }
 ```
 
+[Example Demo](https://stackblitz.com/edit/angular-uzdc1r)
+
 ### Highmaps
 
 For Highmaps support load the following module
