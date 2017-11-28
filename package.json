@@ -7,11 +7,11 @@
     "postinstall": "npm run build"
   },
   "devDependencies": {
-    "@angular/compiler": "^5.0.2",
-    "@angular/compiler-cli": "^5.0.2",
-    "@angular/core": "^5.0.2",
+    "@angular/compiler": "^5.0.3",
+    "@angular/compiler-cli": "^5.0.3",
+    "@angular/core": "^5.0.3",
     "@types/highcharts": "^5.0.12",
-    "rollup": "^0.51.8",
+    "rollup": "^0.52.0",
     "rxjs": "^5.5.2",
     "typescript": "~2.4.2",
     "zone.js": "^0.8.18"
