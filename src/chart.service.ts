@@ -15,12 +15,11 @@ export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 @Injectable()
 export class ChartService {
 
-  constructor(@Inject(HIGHCHARTS_MODULES) private modules: any[]) {}
+  constructor(@Inject(HIGHCHARTS_MODULES) private hgcModules: any[]) {}
 
   initModules() {
-    this.modules.forEach(element => {
-      element(Highcharts);
+    this.hgcModules.forEach(hgcModule => {
+      hgcModule(Highcharts);
     });
   }
 }
-
