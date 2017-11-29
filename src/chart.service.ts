@@ -18,8 +18,8 @@ export class ChartService {
   constructor(@Inject(HIGHCHARTS_MODULES) private modules: any[]) {}
 
   initModules() {
-    this.modules.forEach(module => {
-      module(Highcharts);
+    this.modules.forEach(element => {
+      element(Highcharts);
     });
   }
 }
