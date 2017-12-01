@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@angular/compiler-cli@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.0.3.tgz#820fe95f5653c1418ad9ac9ca9e819a879cce4ae"
+"@angular/compiler-cli@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.0.4.tgz#054ea67b438c52cc73aa62978b852d0938758ba1"
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
     tsickle "^0.24.0"
 
-"@angular/compiler@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.0.3.tgz#45817c9a32b1b103c0307b0f55660f530f4a06aa"
+"@angular/compiler@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.0.4.tgz#7baf38945703a4cab9128d71eb3c8e38c13be1a4"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.0.3.tgz#2566400f6713bf1c39f7e00bc03a63280a87e66b"
+"@angular/core@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.0.4.tgz#e1a95b63dddbfb2acd70b89ab9c9662a18df6228"
   dependencies:
     tslib "^1.7.1"
 
@@ -256,9 +256,13 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extsprintf@1.3.0, extsprintf@^1.2.0:
+extsprintf@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
+
+extsprintf@^1.2.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
 filename-regex@^2.0.0:
   version "2.0.1"
