@@ -161,7 +161,8 @@ References to the HighchartsChartObject - [Offical Chart API Docs](https://api.h
 
 ## Using Highcharts modules
 To use Highcharts modules you have to import them and provide them in a factory (required for aot). 
-You can find the list of available modules in the highcharts folder `ls -la node_modules/highcharts/modules`. Highcharts-more is the only exception, you find this module in the root folder.
+You can find the list of available modules in the highcharts folder `ls -la node_modules/highcharts/modules`.
+**Hint:** Highcharts-more is a exception, you find this module in the root folder.
 Don't forget to use the modules with the `.src` suffix, minimized highcharts modules are not importable.
 
 ### Example
