@@ -10,12 +10,14 @@ import { AfterViewInit, Directive, ElementRef, Input, OnChanges, OnDestroy, Simp
 
 import { Chart } from './chart';
 import Highcharts from './highcharts';
+import { MapChart } from './mapchart';
+import { StockChart } from './stockchart';
 
 @Directive({
   selector: '[chart]'
 })
 export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
-  @Input() chart: Chart;
+  @Input() chart: Chart | StockChart | MapChart;
 
   constructor(private el: ElementRef) {}
 
@@ -36,7 +38,15 @@ export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
 
   private init() {
     if (this.chart instanceof Chart) {
-      this.chart.ref = Highcharts.chart(this.el.nativeElement, this.chart.options);
+      return this.chart.ref = Highcharts.chart(this.el.nativeElement, this.chart.options);
+    }
+
+    if (this.chart instanceof StockChart) {
+      return this.chart.ref = (<any>Highcharts).stockChart(this.el.nativeElement, this.chart.options);
+    }
+
+    if (this.chart instanceof MapChart) {
+      return this.chart.ref = (<any>Highcharts).mapChart(this.el.nativeElement, this.chart.options);
     }
   }
 
