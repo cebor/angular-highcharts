@@ -170,11 +170,12 @@ Don't forget to use the modules with the `.src` suffix, minimized highcharts mod
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import more from 'highcharts/highcharts-more.src';
 import exporting from 'highcharts/modules/exporting.src';
 
 export function highchartsModules() {
   // apply Highcharts Modules to this array
-  return [ exporting ];
+  return [ more, exporting ];
 }
 
 @NgModule({
