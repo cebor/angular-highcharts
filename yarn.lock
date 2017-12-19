@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@angular/compiler-cli@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.1.0.tgz#9512abf2515c7d3b7e9ee45650801ee78d63223e"
+"@angular/compiler-cli@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.1.1.tgz#579e6846ed493e7202e36eb5cea00cb1a61c927c"
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
     tsickle "^0.25.5"
 
-"@angular/compiler@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.1.0.tgz#23fe2914061487fcc909616b4dc5c24c5a8d47a1"
+"@angular/compiler@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.1.1.tgz#7d7953229739e68de74ea821685e1d5569527ef3"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.1.0.tgz#6f7596ad780418cecac527ae0508cfc1a36383a0"
+"@angular/core@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.1.1.tgz#b6a6e2b2284f86279f096d857253f6643098d908"
   dependencies:
     tslib "^1.7.1"
 
@@ -806,9 +806,9 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rollup@^0.52.1:
-  version "0.52.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.52.1.tgz#610e8e1be432f18fcfbfa865408a1cd7618cd707"
+rollup@^0.52.2:
+  version "0.52.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.52.2.tgz#d75bc6f37be02fd27cbb344e57e77b30042bd2cf"
 
 rxjs@^5.5.5:
   version "5.5.5"
