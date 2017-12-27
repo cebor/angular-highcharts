@@ -210,7 +210,7 @@ export class ChartComponent {
 }
 ```
 
-[Example Demo](https://stackblitz.com/edit/angular-uzdc1r)
+[Example Demo](https://stackblitz.com/edit/angular-highcharts-stock)
 
 ### Highmaps
 
