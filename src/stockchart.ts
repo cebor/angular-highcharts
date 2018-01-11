@@ -9,7 +9,6 @@
  * @author Felix Itzenplitz
  * @author Timothy A. Perez (contributor)
  */
-import { Highstock } from 'highcharts/modules/stock.src';
 import { Chart } from './chart';
 
 export class StockChart extends Chart {

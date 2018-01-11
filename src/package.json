@@ -19,9 +19,6 @@
     "component"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "highcharts": "^6.0.4"
-  },
   "peerDependencies": {
     "@angular/core": "^5.0.0"
   }
