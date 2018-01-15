@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@angular/compiler-cli@^5.1.2":
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.1.2.tgz#70addc11b6528f087abe809f94acedecdfc9c8f6"
+"@angular/compiler-cli@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.2.0.tgz#336b6d0127c69f25637cbcd82a4b76de6f3a2cce"
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
-    tsickle "^0.25.5"
+    tsickle "^0.26.0"
 
-"@angular/compiler@^5.1.2":
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.1.2.tgz#4dfd0dd7fab39a14a1a104097c2f6af470ddabdb"
+"@angular/compiler@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.2.0.tgz#3798795b97e60b47fdc0a150e062dedb4ac39467"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^5.1.2":
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.1.2.tgz#751070c0f4e5a8c4e2170204e08eca06391b84b1"
+"@angular/core@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.0.tgz#f91bf83de3e0defd621adcc007c25d7cd5a85af1"
   dependencies:
     tslib "^1.7.1"
 
@@ -27,9 +27,9 @@
   version "7946.0.0"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.0.tgz#e8bc74e8183d966455f82023f0c72e1072a952d0"
 
-"@types/highcharts@^5.0.13":
-  version "5.0.13"
-  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.13.tgz#368510217dae00c0d009f515aacdf20cf8b1a214"
+"@types/highcharts@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@types/highcharts/-/highcharts-5.0.15.tgz#c192223edcd78f92e369e82e2cd7def7727acaed"
   dependencies:
     "@types/geojson" "*"
 
@@ -722,8 +722,8 @@ randomatic@^1.1.3:
     kind-of "^4.0.0"
 
 rc@^1.1.7:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.2.tgz#d8ce9cb57e8d64d9c7badd9876c7c34cbe3c7077"
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.3.tgz#51575a900f8dd68381c710b4712c2154c3e2035b"
   dependencies:
     deep-extend "~0.4.0"
     ini "~1.3.0"
@@ -806,9 +806,9 @@ rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rollup@^0.53.3:
-  version "0.53.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.53.3.tgz#e7b6777623df912bd0ca30dc24be791d6ebc8e5a"
+rollup@^0.54.0:
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.54.0.tgz#0641b8154ba02706464285d2ead924c486b48ba9"
 
 rxjs@^5.5.6:
   version "5.5.6"
@@ -925,9 +925,9 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-tsickle@^0.25.5:
-  version "0.25.6"
-  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.25.6.tgz#b595db16b236721824eeeda8bb262365b47ef334"
+tsickle@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.26.0.tgz#40b30a2dd6abcb33b182e37596674bd1cfe4039c"
   dependencies:
     minimist "^1.2.0"
     mkdirp "^0.5.1"
@@ -948,9 +948,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
-typescript@~2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.3.tgz#df3dcdc38f3beb800d4bc322646b04a3f6ca7f0d"
+typescript@~2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
 uid-number@^0.0.6:
   version "0.0.6"
@@ -982,6 +982,6 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
-zone.js@^0.8.19:
-  version "0.8.19"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.19.tgz#a4b522cd9e8b7b616a638c297d720d4c7f292f71"
+zone.js@^0.8.20:
+  version "0.8.20"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
