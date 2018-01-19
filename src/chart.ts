@@ -28,17 +28,17 @@ export class Chart {
 
   /**
    * Add Point
-   * @param {number | [number, number] | Highcharts.DataPoint} point
-   * @param {number} [seriesIndex=0]
-   * @param {boolean} [redraw=true]
-   * @param {boolean} [shift=false]
-   * @returns {boolean}
+   * @param point         Highcharts.DataPoint, number touple or number
+   * @param seriesIndex   Index position of series. This defaults to 0.
+   * @param redraw        Flag whether or not to redraw point. This defaults to false.
+   * @param shift         Shift point to the start of series. This defaults to false.
+   * @returns             Whether or not point was added successfully.
    * @memberof Chart
    */
   public addPoint(
     point: Point,
     serieIndex: number = 0,
-    redraw: boolean = true,
+    redraw: boolean = false,
     shift: boolean = false
   ): boolean {
     if (
@@ -69,13 +69,17 @@ export class Chart {
 
   /**
    * Add Series
-   * @param {Highcharts.SeriesOptions} serieOptions
-   * @param {boolean} [redraw=true]
-   * @param {(boolean | Highcharts.Animation)} [animation]
-   * @returns {Highcharts.SeriesObject}
+   * @param serieOptions  Series Configuration
+   * @param redraw        Flag whether or not to redraw series. This defaults to true.
+   * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
+   * @returns             Newly created series object.
    * @memberof Chart
    */
-  public addSerie(serie: Highcharts.SeriesOptions, redraw = true, animation: boolean | Highcharts.Animation = false): Highcharts.SeriesObject {
+  public addSerie(
+    serie: Highcharts.SeriesOptions,
+    redraw = true,
+    animation: boolean | Highcharts.Animation = false
+  ): Highcharts.SeriesObject {
     if (!serie) {
       return null;
     }
@@ -94,9 +98,9 @@ export class Chart {
 
   /**
    * Remove Point
-   * @param {number} pointIndex - Index of Point
-   * @param {number} [serieIndex=0] - Specified Index of Series
-   * @returns {boolean}
+   * @param pointIndex    Index of Point
+   * @param serieIndex    Specified Index of Series. Defaults to 0.
+   * @returns             Whether or not point was removed successfully.
    * @memberof Chart
    */
   public removePoint(pointIndex: number, serieIndex = 0): boolean {
@@ -122,8 +126,8 @@ export class Chart {
 
   /**
    * Remove Series
-   * @param {number} serieIndex
-   * @returns {boolean}
+   * @param serieIndex    Index position of series to remove.
+   * @returns             Whether or not series was removed successfully.
    * @memberof Chart
    */
   public removeSerie(serieIndex: number): boolean {

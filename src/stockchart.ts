@@ -15,7 +15,6 @@ export class StockChart extends Chart {
   public ref: Highstock.ChartObject;
   public options: Highstock.Options;
 
-
   constructor(options: Highstock.Options = { series: [] }) {
     super(options);
   }
