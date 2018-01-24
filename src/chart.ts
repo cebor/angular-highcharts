@@ -5,56 +5,140 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
+ * @author Felix Itzenplitz
+ * @author Timothy A. Perez (contributor)
  */
-
-import { DataPoint, SeriesOptions, ChartObject, Options } from 'highcharts';
-
-export type Point = number | [number, number] | DataPoint;
-export type ChartSerie = SeriesOptions;
+export type Point = number | [number, number] | Highcharts.DataPoint;
 
 export class Chart {
-  ref: ChartObject;
+  public ref: Highcharts.ChartObject;
+  public options: Highcharts.Options;
 
-  constructor(public options: Options) {
+  constructor(options: Highcharts.Options = { series: [] }) {
     // init series array if not set
-    if (!this.options.series) {
-      this.options.series = [];
+    if (!options.hasOwnProperty('series')) {
+      options['series'] = [];
     }
+    this.options = options;
   }
 
-  addPoint(point: Point, serieIndex = 0, redraw = true, shift = false): void {
-    (<Point[]>this.options.series[serieIndex].data).push(point);
-    if (this.ref) {
+  ////////////////////////////
+  // PUBLIC
+  ////////////////////////////
+
+  /**
+   * Add Point
+   * @param point         Highcharts.DataPoint, number touple or number
+   * @param seriesIndex   Index position of series. This defaults to 0.
+   * @param redraw        Flag whether or not to redraw point. This defaults to true.
+   * @param shift         Shift point to the start of series. This defaults to false.
+   * @returns             Whether or not point was added successfully.
+   * @memberof Chart
+   */
+  public addPoint(
+    point: Point,
+    serieIndex: number = 0,
+    redraw: boolean = true,
+    shift: boolean = false
+  ): boolean {
+    if (
+      !this.ref ||
+      !this.options ||
+      !Array.isArray(this.options['series']) ||
+      this.options.series.length < serieIndex
+    ) {
+      // Case: Invalid State of Instance. Unable to Add Point Data
+      return false;
+    }
+
+    const seriesData = this.options.series[serieIndex]['data'];
+    const optionSeriesValid = seriesData && Array.isArray(seriesData);
+    const refSeriesValid =
+      this.ref.hasOwnProperty('series') && this.ref.series.length > serieIndex;
+
+    if (optionSeriesValid && refSeriesValid) {
+      // Case: Series Found, Add Point Data
+      this.options.series[serieIndex].data.push(point);
       this.ref.series[serieIndex].addPoint(point, redraw, shift);
+      return true;
+    } else {
+      // Case: Series Not Found, Unable to Add Point Data
+      return false;
     }
   }
 
-  removePoint(pointIndex: number, serieIndex = 0): void {
-    // TODO add try catch (empty)
-    (<Point[]>this.options.series[serieIndex].data).splice(pointIndex, 1);
-    if (this.ref) {
-      this.ref.series[serieIndex].removePoint(pointIndex, true);
+  /**
+   * Add Series
+   * @param serieOptions  Series Configuration
+   * @param redraw        Flag whether or not to redraw series. This defaults to true.
+   * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
+   * @returns             Whether or not serie was added successfully.
+   * @memberof Chart
+   */
+  public addSerie(
+    serie: Highcharts.SeriesOptions,
+    redraw = true,
+    animation: boolean | Highcharts.Animation = false
+  ): boolean {
+    if (!serie || !this.ref) {
+      return false
     }
-  }
 
-  addSerie(serie: ChartSerie): void {
     // init data array if not set
-    if (!serie.data) {
-      serie.data = [];
+    if (!serie.hasOwnProperty('data')) {
+      serie['data'] = [];
     }
 
     this.options.series.push(serie);
+    this.ref.addSeries(serie, redraw, animation);
 
-    if (this.ref) {
-      this.ref.addSeries(serie);
-    }
+    return true;
   }
 
-  removeSerie(serieIndex: number): void {
-    // TODO add try catch (empty)
-    this.options.series.splice(serieIndex, 1);
-    if (this.ref) {
-      this.ref.series[serieIndex].remove(true);
+  /**
+   * Remove Point
+   * @param pointIndex    Index of Point
+   * @param serieIndex    Specified Index of Series. Defaults to 0.
+   * @returns             Whether or not point was removed successfully.
+   * @memberof Chart
+   */
+  public removePoint(pointIndex: number, serieIndex = 0): boolean {
+    const optionsPointExists =
+      this.ref.options.series.length > serieIndex &&
+      this.options.series[serieIndex].data.length > pointIndex;
+    const refSeriesExists = this.ref.series.length > serieIndex;
+
+    if (!this.ref || !optionsPointExists || !refSeriesExists) {
+      return false;
     }
+
+    // Remove Point from Angular Highcharts StockChart Instance Options
+    this.options.series[serieIndex].data.splice(pointIndex, 1);
+    // Remove Point in Actual Highstock Chart Instance
+    this.ref.series[serieIndex].removePoint(pointIndex, true);
+
+    return true;
+  }
+
+  /**
+   * Remove Series
+   * @param serieIndex    Index position of series to remove.
+   * @returns             Whether or not series was removed successfully.
+   * @memberof Chart
+   */
+  public removeSerie(serieIndex: number): boolean {
+    if (
+      !this.ref ||
+      !(this.options.series.length > serieIndex) ||
+      !(this.ref.series.length > serieIndex)
+    ) {
+      return false;
+    }
+
+    // Case: Removing Series
+    this.options.series.splice(serieIndex, 1);
+    this.ref.series[serieIndex].remove(true);
+
+    return true;
   }
 }

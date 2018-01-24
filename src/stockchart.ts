@@ -5,11 +5,17 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
+ *
+ * @author Felix Itzenplitz
+ * @author Timothy A. Perez (contributor)
  */
-import { ChartObject, Options } from 'highcharts';
+import { Chart } from './chart';
 
-export class StockChart {
-  ref;
+export class StockChart extends Chart {
+  public ref: Highstock.ChartObject;
+  public options: Highstock.Options;
 
-  constructor(public options) { }
+  constructor(options: Highstock.Options = { series: [] }) {
+    super(options);
+  }
 }
