@@ -32,7 +32,6 @@ export class Chart {
    * @param seriesIndex   Index position of series. This defaults to 0.
    * @param redraw        Flag whether or not to redraw point. This defaults to true.
    * @param shift         Shift point to the start of series. This defaults to false.
-   * @returns             Whether or not point was added successfully.
    * @memberof Chart
    */
   public addPoint(
@@ -40,30 +39,13 @@ export class Chart {
     serieIndex: number = 0,
     redraw: boolean = true,
     shift: boolean = false
-  ): boolean {
-    if (
-      !this.ref ||
-      !this.options ||
-      !Array.isArray(this.options['series']) ||
-      this.options.series.length < serieIndex
-    ) {
-      // Case: Invalid State of Instance. Unable to Add Point Data
-      return false;
+  ): void {
+    if (this.options.series.length > serieIndex) {
+      this.options.series[serieIndex].data.push(point);
     }
 
-    const seriesData = this.options.series[serieIndex]['data'];
-    const optionSeriesValid = seriesData && Array.isArray(seriesData);
-    const refSeriesValid =
-      this.ref.hasOwnProperty('series') && this.ref.series.length > serieIndex;
-
-    if (optionSeriesValid && refSeriesValid) {
-      // Case: Series Found, Add Point Data
-      this.options.series[serieIndex].data.push(point);
+    if (this.ref && this.ref.series.length > serieIndex) {
       this.ref.series[serieIndex].addPoint(point, redraw, shift);
-      return true;
-    } else {
-      // Case: Series Not Found, Unable to Add Point Data
-      return false;
     }
   }
 
@@ -72,73 +54,61 @@ export class Chart {
    * @param serieOptions  Series Configuration
    * @param redraw        Flag whether or not to redraw series. This defaults to true.
    * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
-   * @returns             Whether or not serie was added successfully.
    * @memberof Chart
    */
   public addSerie(
     serie: Highcharts.SeriesOptions,
     redraw = true,
     animation: boolean | Highcharts.Animation = false
-  ): boolean {
-    if (!serie || !this.ref) {
-      return false
-    }
-
-    // init data array if not set
-    if (!serie.hasOwnProperty('data')) {
-      serie['data'] = [];
-    }
+  ): void {
 
     this.options.series.push(serie);
-    this.ref.addSeries(serie, redraw, animation);
 
-    return true;
+    if (this.ref) {
+      this.ref.addSeries(serie, redraw, animation);
+    }
   }
 
   /**
    * Remove Point
    * @param pointIndex    Index of Point
    * @param serieIndex    Specified Index of Series. Defaults to 0.
-   * @returns             Whether or not point was removed successfully.
    * @memberof Chart
    */
-  public removePoint(pointIndex: number, serieIndex = 0): boolean {
+  public removePoint(pointIndex: number, serieIndex = 0): void {
     const optionsPointExists =
       this.ref.options.series.length > serieIndex &&
       this.options.series[serieIndex].data.length > pointIndex;
     const refSeriesExists = this.ref.series.length > serieIndex;
 
-    if (!this.ref || !optionsPointExists || !refSeriesExists) {
-      return false;
+    if (
+      this.options.series.length > serieIndex &&
+      this.options.series[serieIndex].data.length > pointIndex
+    ) {
+      this.options.series[serieIndex].data.splice(pointIndex, 1);
     }
 
-    // Remove Point from Angular Highcharts StockChart Instance Options
-    this.options.series[serieIndex].data.splice(pointIndex, 1);
-    // Remove Point in Actual Highstock Chart Instance
-    this.ref.series[serieIndex].removePoint(pointIndex, true);
-
-    return true;
+    if (
+      this.ref &&
+      this.ref.series.length > serieIndex &&
+      this.ref.series[serieIndex].data.length > pointIndex
+    ) {
+      this.ref.series[serieIndex].removePoint(pointIndex, true);
+    }
   }
 
   /**
    * Remove Series
    * @param serieIndex    Index position of series to remove.
-   * @returns             Whether or not series was removed successfully.
    * @memberof Chart
    */
-  public removeSerie(serieIndex: number): boolean {
-    if (
-      !this.ref ||
-      !(this.options.series.length > serieIndex) ||
-      !(this.ref.series.length > serieIndex)
-    ) {
-      return false;
+  public removeSerie(serieIndex: number): void {
+    if (this.options.series.length > serieIndex) {
+      this.options.series.splice(serieIndex, 1);
     }
 
-    // Case: Removing Series
-    this.options.series.splice(serieIndex, 1);
-    this.ref.series[serieIndex].remove(true);
-
-    return true;
+    if (this.ref && this.ref.series.length > serieIndex) {
+      this.ref.series[serieIndex].remove(true);
+    }
   }
 }
