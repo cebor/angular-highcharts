@@ -3,6 +3,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "rootDir": "./src",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "highcharts",
+      "highcharts/highstock"
+    ]
   }
 }
