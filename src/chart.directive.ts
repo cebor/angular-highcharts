@@ -52,11 +52,13 @@ export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
 
   private destroy() {
     if (this.chart && this.chart.ref) {
-      // sync options back
-      this.chart.options = this.chart.ref.options;
-
-      this.chart.ref.destroy();
+      const ref = this.chart.ref;
       delete this.chart.ref;
+
+      // sync options back
+      this.chart.options = ref.options;
+
+      ref.destroy();
     }
   }
 }

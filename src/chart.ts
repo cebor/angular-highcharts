@@ -52,12 +52,14 @@ export class Chart {
     redraw: boolean = true,
     shift: boolean = false
   ): void {
-    if (this.options.series.length > serieIndex) {
-      this.options.series[serieIndex].data.push(point);
-    }
-
     if (this.ref && this.ref.series.length > serieIndex) {
       this.ref.series[serieIndex].addPoint(point, redraw, shift);
+      return;
+    }
+
+    // keep options in snyc if chart is not initialized
+    if (this.options.series.length > serieIndex) {
+      this.options.series[serieIndex].data.push(point);
     }
   }
 
@@ -73,12 +75,13 @@ export class Chart {
     redraw = true,
     animation: boolean | Highcharts.Animation = false
   ): void {
-
-    this.options.series.push(serie);
-
     if (this.ref) {
       this.ref.addSeries(serie, redraw, animation);
+      return;
     }
+
+    // keep options in snyc if chart is not initialized
+    this.options.series.push(serie);
   }
 
   /**
@@ -89,18 +92,20 @@ export class Chart {
    */
   public removePoint(pointIndex: number, serieIndex = 0): void {
     if (
-      this.options.series.length > serieIndex &&
-      this.options.series[serieIndex].data.length > pointIndex
-    ) {
-      this.options.series[serieIndex].data.splice(pointIndex, 1);
-    }
-
-    if (
       this.ref &&
       this.ref.series.length > serieIndex &&
       this.ref.series[serieIndex].data.length > pointIndex
     ) {
       this.ref.series[serieIndex].removePoint(pointIndex, true);
+      return;
+    }
+
+    // keep options in snyc if chart is not initialized
+    if (
+      this.options.series.length > serieIndex &&
+      this.options.series[serieIndex].data.length > pointIndex
+    ) {
+      this.options.series[serieIndex].data.splice(pointIndex, 1);
     }
   }
 
@@ -110,12 +115,15 @@ export class Chart {
    * @memberof Chart
    */
   public removeSerie(serieIndex: number): void {
+    if (this.ref && this.ref.series.length > serieIndex) {
+      this.ref.series[serieIndex].remove(true);
+      return;
+    }
+
+    // keep options in snyc if chart is not initialized
     if (this.options.series.length > serieIndex) {
       this.options.series.splice(serieIndex, 1);
     }
 
-    if (this.ref && this.ref.series.length > serieIndex) {
-      this.ref.series[serieIndex].remove(true);
-    }
   }
 }
