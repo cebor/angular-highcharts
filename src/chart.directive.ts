@@ -19,7 +19,7 @@ import { StockChart } from './stockchart';
 export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
   @Input() chart: Chart | StockChart | MapChart;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   ngAfterViewInit() {
     this.init();
@@ -29,7 +29,7 @@ export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
     this.destroy();
   }
 
-  ngOnChanges(changes: {[propName: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     if (!changes['chart'].isFirstChange()) {
       this.destroy();
       this.init();

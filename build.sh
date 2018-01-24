@@ -14,21 +14,21 @@ $NGC -p src/tsconfig-build.json
 $ROLLUP build/angular-highcharts.js \
   --output.file dist/angular-highcharts.js \
   --output.format es \
-  --external "@angular/core,highcharts"
+  --external "@angular/core,highcharts,highcharts/highstock"
 
 # ES5
 $NGC -p src/tsconfig-es5.json
 $ROLLUP build/angular-highcharts.js \
   --output.file dist/angular-highcharts.es5.js \
   --output.format es \
-  --external "@angular/core,highcharts"
+  --external "@angular/core,highcharts,highcharts/highstock"
 
 # UMD (legacy)
 $ROLLUP dist/angular-highcharts.es5.js \
   --output.file dist/angular-highcharts.umd.js \
   --output.format umd \
-  --external "@angular/core,highcharts" \
-  --globals "@angular/core:ng.core,highcharts:Highcharts" \
+  --external "@angular/core,highcharts,highcharts/highstock" \
+  --globals "@angular/core:ng.core,highcharts:Highcharts,highcharts/highstock:Highstock" \
   --name ng.highcharts
 
 # Copy non-js files from build
