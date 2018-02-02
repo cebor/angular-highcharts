@@ -6,7 +6,7 @@
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
-import { AfterViewInit, Directive, ElementRef, Input, OnChanges, OnDestroy, SimpleChange } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnChanges, OnDestroy, SimpleChange, SimpleChanges, OnInit } from '@angular/core';
 
 import { Chart } from './chart';
 import Highcharts from './highcharts';
@@ -16,12 +16,12 @@ import { StockChart } from './stockchart';
 @Directive({
   selector: '[chart]'
 })
-export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
+export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart | StockChart | MapChart;
 
   constructor(private el: ElementRef) { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.init();
   }
 
@@ -29,8 +29,8 @@ export class ChartDirective implements AfterViewInit, OnDestroy, OnChanges {
     this.destroy();
   }
 
-  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-    if (!changes['chart'].isFirstChange()) {
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes.chart.isFirstChange()) {
       this.destroy();
       this.init();
     }
