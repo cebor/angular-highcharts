@@ -21,6 +21,7 @@ $NGC -p src/tsconfig-es5.json
 $ROLLUP build/angular-highcharts.js \
   --output.file dist/angular-highcharts.es5.js \
   --output.format es \
+  --context window \
   --external "@angular/core,highcharts,highcharts/highstock"
 
 # UMD (legacy)

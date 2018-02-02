@@ -21,19 +21,19 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
 
   constructor(private el: ElementRef) { }
 
-  ngOnInit() {
-    this.init();
-  }
-
-  ngOnDestroy() {
-    this.destroy();
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if (!changes.chart.isFirstChange()) {
       this.destroy();
       this.init();
     }
+  }
+
+  ngOnInit() {
+    this.init();
+  }
+
+  ngOnDestroy() {
+    this.destroy(true);
   }
 
   private init() {
@@ -50,15 +50,14 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  private destroy() {
+  private destroy(sync = false) {
     if (this.chart && this.chart.ref) {
-      const ref = this.chart.ref;
+      if (sync) {
+        this.chart.options = this.chart.ref.options;
+      }
+
+      this.chart.ref.destroy();
       delete this.chart.ref;
-
-      // sync options back
-      this.chart.options = ref.options;
-
-      ref.destroy();
     }
   }
 }
