@@ -11,11 +11,11 @@
  */
 import { Chart } from './chart';
 
-export class StockChart extends Chart {
+export class StockChart {
   public ref: Highstock.ChartObject;
   public options: Highstock.Options;
 
   constructor(options: Highstock.Options = { series: [] }) {
-    super(options);
+    this.options = options;
   }
 }
