@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "sh build.sh",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
     "@angular/compiler": "^5.2.6",
