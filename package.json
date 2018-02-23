@@ -3,9 +3,7 @@
   "version": "5.2.10",
   "private": true,
   "scripts": {
-    "build": "sh build.sh",
-    "postinstall": "npm run build",
-    "test": "echo \"Error: no test specified\""
+    "build": "./build.sh"
   },
   "devDependencies": {
     "@angular/compiler": "^5.2.6",
