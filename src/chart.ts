@@ -70,7 +70,7 @@ export class Chart {
    * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
    * @memberof Chart
    */
-  public addSerie(
+  public addSeries(
     serie: Highcharts.SeriesOptions,
     redraw = true,
     animation: boolean | Highcharts.Animation = false
