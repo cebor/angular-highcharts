@@ -6,9 +6,8 @@
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
-
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import Highcharts from './highcharts';
+import { Highcharts } from './highcharts';
 
 export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 
