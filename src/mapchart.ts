@@ -6,10 +6,8 @@
  * found in the LICENSE file at
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
-import { ChartObject, Options } from 'highcharts';
-
 export class MapChart {
   ref;
 
-  constructor(public options) { }
+  constructor(public options) {}
 }

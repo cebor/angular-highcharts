@@ -9,8 +9,6 @@
  * @author Felix Itzenplitz
  * @author Timothy A. Perez (contributor)
  */
-import { Chart } from './chart';
-
 export class StockChart {
   public ref: Highstock.ChartObject;
   public options: Highstock.Options;

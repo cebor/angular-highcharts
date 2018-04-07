@@ -124,6 +124,5 @@ export class Chart {
     if (this.options.series.length > serieIndex) {
       this.options.series.splice(serieIndex, 1);
     }
-
   }
 }
