@@ -7,7 +7,6 @@
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 import { NgModule } from '@angular/core';
-
 import { ChartDirective } from './chart.directive';
 import { ChartService, HIGHCHARTS_MODULES } from './chart.service';
 
