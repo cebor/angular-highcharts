@@ -18,7 +18,7 @@ import { StockChart } from './stockchart';
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart | StockChart | MapChart;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (!changes.chart.isFirstChange()) {
