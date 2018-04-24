@@ -15,11 +15,8 @@ import { ChartService, HIGHCHARTS_MODULES } from './chart.service';
   exports: [ChartDirective],
   declarations: [ChartDirective],
   providers: [
-    {
-      provide: HIGHCHARTS_MODULES,
-      useValue: []
-    }
-    , ChartService
+    { provide: HIGHCHARTS_MODULES, useValue: [] },
+    ChartService
   ]
 })
 export class ChartModule {
