@@ -9,5 +9,5 @@
 export class MapChart {
   ref;
 
-  constructor(public options) {}
+  constructor(public options) { }
 }
