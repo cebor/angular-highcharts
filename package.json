@@ -6,12 +6,12 @@
     "build": "./build.sh"
   },
   "devDependencies": {
-    "@angular/compiler": "^5.2.9",
-    "@angular/compiler-cli": "^5.2.9",
-    "@angular/core": "^5.2.9",
-    "@types/highcharts": "^5.0.21",
+    "@angular/compiler": "^5.2.10",
+    "@angular/compiler-cli": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@types/highcharts": "^5.0.22",
     "rollup": "^0.58.2",
-    "rxjs": "^5.5.10",
+    "rxjs": "^6.0.0",
     "typescript": "~2.6.2",
     "zone.js": "^0.8.25"
   }
