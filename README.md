@@ -170,17 +170,12 @@ Don't forget to use the modules with the `.src` suffix, minimized highcharts mod
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import more from 'highcharts/highcharts-more.src';
-import exporting from 'highcharts/modules/exporting.src';
-
-export function highchartsModules() {
-  // apply Highcharts Modules to this array
-  return [ more, exporting ];
-}
+import * as more from 'highcharts/highcharts-more.src';
+import * as exporting from 'highcharts/modules/exporting.src';
 
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting ]) } // add as factory to your providers
   ]
 })
 export class AppModule { }
@@ -193,7 +188,12 @@ export class AppModule { }
 For Highstock support load the following module
 ```ts
 // app.module.ts
-import highstock from 'highcharts/modules/stock.src'; // see example above how to load
+import * as highstock from 'highcharts/modules/stock.src';
+
+@NgModule({
+  providers: [
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ]) }
+...
 ```
 
 ```ts
@@ -217,7 +217,12 @@ export class ChartComponent {
 For Highmaps support load the following module
 ```ts
 // app.module.ts
-import highmaps from 'highcharts/modules/map.src'; // see example above how to load
+import * as highmaps from 'highcharts/modules/map.src';
+
+@NgModule({
+  providers: [
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ]) }
+...
 ```
 ```ts
 // chart.component.ts
