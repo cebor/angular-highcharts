@@ -1,8 +1,8 @@
 # angular-highcharts
 
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][downloads-image]][downloads-url]
-[![Build Status][build-image]][build-url]
+[![NPM version](https://img.shields.io/npm/v/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
+[![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
+[![Build Status](https://travis-ci.org/cebor/angular-highcharts.svg?branch=master)](https://travis-ci.org/cebor/angular-highcharts)
 
 This is a Highcharts directive for Angular.
 
@@ -251,10 +251,3 @@ chart = new Chart(<any>{options});
 
 ## License
 MIT © Felix Itzenplitz
-
-[npm-image]: https://img.shields.io/npm/v/angular-highcharts.svg
-[npm-url]: https://npmjs.org/package/angular-highcharts
-[downloads-image]: https://img.shields.io/npm/dt/angular-highcharts.svg
-[downloads-url]: https://npmjs.org/package/angular-highcharts
-[build-image]: https://travis-ci.org/cebor/angular-highcharts.svg?branch=master
-[build-url]: https://travis-ci.org/cebor/angular-highcharts
