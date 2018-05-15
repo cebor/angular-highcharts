@@ -18,7 +18,7 @@ import { StockChart } from './stockchart';
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart | StockChart | MapChart;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (!changes.chart.isFirstChange()) {
@@ -37,15 +37,21 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
 
   private init() {
     if (this.chart instanceof Chart) {
-      return this.chart.ref = Highcharts.chart(this.el.nativeElement, this.chart.options);
+      return Highcharts.chart(this.el.nativeElement, this.chart.options, chart => {
+        (<Chart>this.chart).initChartRef(chart);
+      });
     }
 
     if (this.chart instanceof StockChart) {
-      return this.chart.ref = (<any>Highcharts).stockChart(this.el.nativeElement, this.chart.options);
+      return (this.chart.ref = (<any>Highcharts).stockChart(this.el.nativeElement, this.chart.options, chart => {
+        (<StockChart>this.chart).initChartRef(chart);
+      }));
     }
 
     if (this.chart instanceof MapChart) {
-      return this.chart.ref = (<any>Highcharts).mapChart(this.el.nativeElement, this.chart.options);
+      return (this.chart.ref = (<any>Highcharts).mapChart(this.el.nativeElement, this.chart.options, chart => {
+        (<MapChart>this.chart).initChartRef(chart);
+      }));
     }
   }
 

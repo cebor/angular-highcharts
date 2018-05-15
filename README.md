@@ -9,6 +9,7 @@ This is a Highcharts directive for Angular.
 Do you use Angular 4? Please go [here](https://github.com/cebor/angular-highcharts/blob/4/README.md).
 
 ## Requirements
+
 ```json
 {
   "angular": ">=5.0.0",
@@ -39,6 +40,7 @@ npm i --save-dev @types/highcharts
 ```
 
 ## Usage Example
+
 ```typescript
 // app.module.ts
 import { ChartModule } from 'angular-highcharts';
@@ -48,7 +50,7 @@ import { ChartModule } from 'angular-highcharts';
     ChartModule // add ChartModule to your imports
   ]
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 ```typescript
@@ -63,21 +65,23 @@ import { Chart } from 'angular-highcharts';
 })
 export class ChartComponent {
   chart = new Chart({
-      chart: {
-        type: 'line'
-      },
-      title: {
-        text: 'Linechart'
-      },
-      credits: {
-        enabled: false
-      },
-      series: [{
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Linechart'
+    },
+    credits: {
+      enabled: false
+    },
+    series: [
+      {
         name: 'Line 1',
         data: [1, 2, 3]
-      }]
-    });
-  
+      }
+    ]
+  });
+
   // add point to chart serie
   add() {
     this.chart.addPoint(Math.floor(Math.random() * 10));
@@ -94,35 +98,49 @@ The Chart object.
 Type: `class`
 
 #### Constructor
+
 ```typescript
 new Chart(options: Options)
 ```
 
 #### Properties
+
 ```typescript
-ref: HighchartsChartObject
+ref: Highcharts.ChartObject;
 ```
-References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+
+Deprecated. Please use `ref$`.
+
+```typescript
+ref$: Observeable<Highcharts.ChartObject>
+```
+
+Observeable that emits a HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
 
 #### Methods
+
 ```typescript
 addPoint(point: Point, [serieIndex: number = 0]): void
 ```
+
 Adds a point to a serie
 
 ```typescript
 removePoint(pointIndex: number, [serieIndex: number = 0], [redraw: boolean = true], [shift: boolean = false]): void
 ```
+
 Removes a point from a serie
 
 ```typescript
 addSerie(serie: ChartSerie): void
 ```
+
 Adds a serie to the chart
 
 ```typescript
 removeSerie(serieIndex: number): void
 ```
+
 Remove serie to the chart
 
 ### StockChart
@@ -132,15 +150,24 @@ The Chart object.
 Type: `class`
 
 #### Constructor
+
 ```typescript
-new StockChart(options)
+new StockChart(options);
 ```
 
 #### Properties
+
 ```typescript
-ref
+ref: Highstock.ChartObject;
 ```
-References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+
+Deprecated. Please use `ref$`.
+
+```typescript
+ref$: Observeable<Highstock.ChartObject>
+```
+
+Observeable that emits a HighstockChartObject
 
 ### MapChart
 
@@ -149,24 +176,35 @@ The Chart object.
 Type: `class`
 
 #### Constructor
+
 ```typescript
-new MapChart(options)
+new MapChart(options);
 ```
 
 #### Properties
+
 ```typescript
-ref
+ref;
 ```
-References to the HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+
+Deprecated. Please use `ref$`.
+
+```typescript
+ref$;
+```
+
+Observeable that emits a HighmapsChartObject
 
 ## Using Highcharts modules
-To use Highcharts modules you have to import them and provide them in a factory (required for aot). 
+
+To use Highcharts modules you have to import them and provide them in a factory (required for aot).
 You can find the list of available modules in the highcharts folder `ls -la node_modules/highcharts/modules`.
 
 **Hint:** Highcharts-more is a exception, you find this module in the root folder.
 Don't forget to use the modules with the `.src` suffix, minimized highcharts modules are not importable.
 
 ### Example
+
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
@@ -186,6 +224,7 @@ export class AppModule { }
 #### Highstock
 
 For Highstock support load the following module
+
 ```ts
 // app.module.ts
 import * as highstock from 'highcharts/modules/stock.src';
@@ -206,7 +245,7 @@ import { StockChart } from 'angular-highcharts';
   `
 })
 export class ChartComponent {
-  stockChart = new StockChart({options});
+  stockChart = new StockChart({ options });
 }
 ```
 
@@ -215,6 +254,7 @@ export class ChartComponent {
 ### Highmaps
 
 For Highmaps support load the following module
+
 ```ts
 // app.module.ts
 import * as highmaps from 'highcharts/modules/map.src';
@@ -224,6 +264,7 @@ import * as highmaps from 'highcharts/modules/map.src';
     { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ]) }
 ...
 ```
+
 ```ts
 // chart.component.ts
 import { MapChart } from 'angular-highcharts';
@@ -234,10 +275,9 @@ import { MapChart } from 'angular-highcharts';
   `
 })
 export class ChartComponent {
-  mapChart = new MapChart({options});
+  mapChart = new MapChart({ options });
 }
 ```
-
 
 Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
 
@@ -247,12 +287,14 @@ If you expiring typing errors while you build/serve your angular app the followi
 
 ```ts
 // override options type with <any>
-chart = new Chart(<any>{options});
+chart = new Chart(<any>{ options });
 ```
 
 ## Demo
+
 * [Demo](https://angular-9nkrgd.stackblitz.io)
 * [Code](https://stackblitz.com/edit/angular-9nkrgd)
 
 ## License
+
 MIT © Felix Itzenplitz

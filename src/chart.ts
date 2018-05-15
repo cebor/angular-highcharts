@@ -1,3 +1,5 @@
+import { AsyncSubject, Observable } from 'rxjs';
+
 /**
  * @license
  * Copyright Felix Itzenplitz. All Rights Reserved.
@@ -14,6 +16,9 @@ export class Chart {
   private _options: Highcharts.Options;
 
   public ref: Highcharts.ChartObject;
+
+  private refSubject: AsyncSubject<Highcharts.ChartObject> = new AsyncSubject();
+  public ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
 
   set options(value: Highcharts.Options) {
     this._options = value;
@@ -46,12 +51,7 @@ export class Chart {
    * @param shift         Shift point to the start of series. This defaults to false.
    * @memberof Chart
    */
-  public addPoint(
-    point: Point,
-    serieIndex: number = 0,
-    redraw: boolean = true,
-    shift: boolean = false
-  ): void {
+  public addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
     if (this.ref && this.ref.series.length > serieIndex) {
       this.ref.series[serieIndex].addPoint(point, redraw, shift);
       return;
@@ -91,20 +91,13 @@ export class Chart {
    * @memberof Chart
    */
   public removePoint(pointIndex: number, serieIndex = 0): void {
-    if (
-      this.ref &&
-      this.ref.series.length > serieIndex &&
-      this.ref.series[serieIndex].data.length > pointIndex
-    ) {
+    if (this.ref && this.ref.series.length > serieIndex && this.ref.series[serieIndex].data.length > pointIndex) {
       this.ref.series[serieIndex].removePoint(pointIndex, true);
       return;
     }
 
     // keep options in snyc if chart is not initialized
-    if (
-      this.options.series.length > serieIndex &&
-      this.options.series[serieIndex].data.length > pointIndex
-    ) {
+    if (this.options.series.length > serieIndex && this.options.series[serieIndex].data.length > pointIndex) {
       this.options.series[serieIndex].data.splice(pointIndex, 1);
     }
   }
@@ -124,5 +117,12 @@ export class Chart {
     if (this.options.series.length > serieIndex) {
       this.options.series.splice(serieIndex, 1);
     }
+  }
+
+  initChartRef(chart: Highcharts.ChartObject): void {
+    // TODO: implement reinit
+    this.refSubject.next(chart);
+    this.ref = chart;
+    this.refSubject.complete();
   }
 }

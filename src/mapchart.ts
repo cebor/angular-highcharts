@@ -1,3 +1,5 @@
+import { AsyncSubject, Observable } from "rxjs";
+
 /**
  * @license
  * Copyright Felix Itzenplitz. All Rights Reserved.
@@ -7,7 +9,17 @@
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class MapChart {
-  ref;
+  public ref: any;
 
-  constructor(public options) { }
+  private refSubject: AsyncSubject<any> = new AsyncSubject();
+  public ref$: Observable<any> = this.refSubject.asObservable();
+
+  constructor(public options) {}
+
+  initChartRef(chart: any): void {
+    // TODO: implement reinit
+    this.refSubject.next(chart);
+    this.ref = chart;
+    this.refSubject.complete();
+  }
 }
