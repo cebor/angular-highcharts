@@ -44,7 +44,7 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     if (this.chart instanceof StockChart) {
-      (<any>Highcharts).stockChart(this.el.nativeElement, chart => {
+      (<any>Highcharts).stockChart(this.el.nativeElement, this.chart.options, chart => {
         (<StockChart>this.chart).initChartRef(chart);
       });
       return;
