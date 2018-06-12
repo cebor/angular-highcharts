@@ -6,13 +6,11 @@
 
 This is a Highcharts directive for Angular.
 
-Do you use Angular 4? Please go [here](https://github.com/cebor/angular-highcharts/blob/4/README.md).
-
 ## Requirements
 
 ```json
 {
-  "angular": ">=5.0.0",
+  "angular": ">=6.0.0",
   "highcharts": ">=6.0.0"
 }
 ```
@@ -37,6 +35,18 @@ npm i --save angular-highcharts highcharts
 
 # install highcharts typings
 npm i --save-dev @types/highcharts
+```
+
+### angular4 & angular5 support
+For angular4 and angular5 you have to install a specific version of angular-highcharts.
+```bash
+# angular4
+yarn add angular-highcharts@4
+npm i angular-highcharts@4
+
+# angular5
+yarn add angular-highcharts@5
+npm i angular-highcharts@5
 ```
 
 ## Usage Example
