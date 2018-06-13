@@ -23,9 +23,9 @@ export class Chart {
   set options(value: Highcharts.Options) {
     this._options = value;
 
-    if (this.ref) {
-      this.ref.update(value);
-    }
+    this.ref$.subscribe(chart => {
+      chart.update(value)
+    });
   }
   get options(): Highcharts.Options {
     if (this.ref) {
