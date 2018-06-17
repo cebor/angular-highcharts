@@ -223,7 +223,7 @@ import * as exporting from 'highcharts/modules/exporting.src';
 
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting ]) } // add as factory to your providers
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ more, exporting ] } // add as factory to your providers
   ]
 })
 export class AppModule { }
@@ -299,7 +299,7 @@ If you expiring typing errors while you build/serve your angular app the followi
 // override options type with <any>
 chart = new Chart(<any>{ options });
 ```
-
+This is very useful when using `gauge chart` type.
 ## Demo
 
 * [Demo](https://angular-9nkrgd.stackblitz.io)
