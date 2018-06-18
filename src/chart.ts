@@ -13,27 +13,12 @@ import { AsyncSubject, Observable } from 'rxjs';
 export type Point = number | [number, number] | Highcharts.DataPoint;
 
 export class Chart {
-  private _options: Highcharts.Options;
+  public options: Highcharts.Options;
 
   public ref: Highcharts.ChartObject;
 
   private refSubject: AsyncSubject<Highcharts.ChartObject> = new AsyncSubject();
   public ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
-
-  set options(value: Highcharts.Options) {
-    this._options = value;
-
-    this.ref$.subscribe(chart => {
-      chart.update(value)
-    });
-  }
-  get options(): Highcharts.Options {
-    if (this.ref) {
-      return this.ref.options;
-    }
-
-    return this._options;
-  }
 
   constructor(options: Highcharts.Options = { series: [] }) {
     // init series array if not set
@@ -79,9 +64,6 @@ export class Chart {
       this.ref.addSeries(serie, redraw, animation);
       return;
     }
-
-    // keep options in snyc if chart is not initialized
-    this.options.series.push(serie);
   }
 
   /**
@@ -95,11 +77,6 @@ export class Chart {
       this.ref.series[serieIndex].removePoint(pointIndex, true);
       return;
     }
-
-    // keep options in snyc if chart is not initialized
-    if (this.options.series.length > serieIndex && this.options.series[serieIndex].data.length > pointIndex) {
-      this.options.series[serieIndex].data.splice(pointIndex, 1);
-    }
   }
 
   /**
@@ -112,11 +89,6 @@ export class Chart {
       this.ref.series[serieIndex].remove(true);
       return;
     }
-
-    // keep options in snyc if chart is not initialized
-    if (this.options.series.length > serieIndex) {
-      this.options.series.splice(serieIndex, 1);
-    }
   }
 
   initChartRef(chart: Highcharts.ChartObject): void {
@@ -124,5 +96,6 @@ export class Chart {
     this.refSubject.next(chart);
     this.ref = chart;
     this.refSubject.complete();
+    this.refSubject
   }
 }

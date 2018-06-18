@@ -32,7 +32,7 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnDestroy() {
-    this.destroy(true);
+    this.destroy();
   }
 
   private init() {
@@ -58,14 +58,9 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  private destroy(sync = false) {
-    if (this.chart && this.chart.ref) {
-      if (sync) {
-        this.chart.options = this.chart.ref.options;
-      }
-
-      this.chart.ref.destroy();
-      delete this.chart.ref;
-    }
+  private destroy() {
+    this.chart.options = this.chart.ref.options;
+    this.chart.ref.destroy();
+    delete this.chart.ref;
   }
 }
