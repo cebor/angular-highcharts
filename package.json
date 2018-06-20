@@ -10,7 +10,7 @@
     "@angular/compiler-cli": "^6.0.5",
     "@angular/core": "^6.0.5",
     "@types/highcharts": "^5.0.22",
-    "rollup": "^0.60.7",
+    "rollup": "^0.61.0",
     "rxjs": "^6.2.1",
     "typescript": "~2.7.2",
     "zone.js": "^0.8.25"
