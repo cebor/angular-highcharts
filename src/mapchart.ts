@@ -30,12 +30,10 @@ export class MapChart {
   }
 
   destroyChart() {
-    this.ref$.subscribe(chart => {
-      this.options = chart.options;
-      chart.destroy();
-
-      // TODO: remove - deprecated
+    if (this.ref) {
+      this.options = this.ref.options;
+      this.ref.destroy();
       this.ref = undefined;
-    });
+    }
   }
 }
