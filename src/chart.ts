@@ -37,15 +37,11 @@ export class Chart {
    * @memberof Chart
    */
   public addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
-    if (this.ref && this.ref.series.length > serieIndex) {
-      this.ref.series[serieIndex].addPoint(point, redraw, shift);
-      return;
-    }
-
-    // keep options in snyc if chart is not initialized
-    if (this.options.series.length > serieIndex) {
-      this.options.series[serieIndex].data.push(point);
-    }
+    this.ref$.subscribe(chart => {
+      if (chart.series.length > serieIndex) {
+        chart.series[serieIndex].addPoint(point, redraw, shift);
+      }
+    });
   }
 
   /**
@@ -60,10 +56,9 @@ export class Chart {
     redraw = true,
     animation: boolean | Highcharts.Animation = false
   ): void {
-    if (this.ref) {
-      this.ref.addSeries(serie, redraw, animation);
-      return;
-    }
+    this.ref$.subscribe(chart => {
+      chart.addSeries(serie, redraw, animation);
+    });
   }
 
   /**
@@ -73,10 +68,11 @@ export class Chart {
    * @memberof Chart
    */
   public removePoint(pointIndex: number, serieIndex = 0): void {
-    if (this.ref && this.ref.series.length > serieIndex && this.ref.series[serieIndex].data.length > pointIndex) {
-      this.ref.series[serieIndex].removePoint(pointIndex, true);
-      return;
-    }
+    this.ref$.subscribe(chart => {
+      if (chart.series.length > serieIndex && chart.series[serieIndex].data.length > pointIndex) {
+        chart.series[serieIndex].removePoint(pointIndex, true);
+      }
+    });
   }
 
   /**
@@ -85,10 +81,11 @@ export class Chart {
    * @memberof Chart
    */
   public removeSerie(serieIndex: number): void {
-    if (this.ref && this.ref.series.length > serieIndex) {
-      this.ref.series[serieIndex].remove(true);
-      return;
-    }
+    this.ref$.subscribe(chart => {
+      if (chart.series.length > serieIndex) {
+        chart.series[serieIndex].remove(true);
+      }
+    });
   }
 
   initChartRef(chart: Highcharts.ChartObject): void {
@@ -96,6 +93,5 @@ export class Chart {
     this.refSubject.next(chart);
     this.ref = chart;
     this.refSubject.complete();
-    this.refSubject
   }
 }
