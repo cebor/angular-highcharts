@@ -15,7 +15,7 @@ import { Highcharts } from './highcharts';
 export type Point = number | [number, number] | Highcharts.DataPoint;
 
 export class Chart {
-  public options: Highcharts.Options;
+  private options: Highcharts.Options;
 
   public ref: Highcharts.ChartObject;
 

@@ -16,7 +16,7 @@ export class MapChart {
   private refSubject: AsyncSubject<any> = new AsyncSubject();
   public ref$: Observable<any> = this.refSubject.asObservable();
 
-  constructor(public options) {}
+  constructor(private options) {}
 
   initChart(el: ElementRef): void {
     // TODO: implement reinit

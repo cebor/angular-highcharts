@@ -19,11 +19,7 @@ export class StockChart {
   private refSubject: AsyncSubject<Highstock.ChartObject> = new AsyncSubject();
   public ref$: Observable<Highstock.ChartObject> = this.refSubject.asObservable();
 
-  public options: Highstock.Options;
-
-  constructor(options: Highstock.Options = { series: [] }) {
-    this.options = options;
-  }
+  constructor(private options: Highstock.Options = { series: [] }) {}
 
   initChart(el: ElementRef): void {
     // TODO: implement reinit
