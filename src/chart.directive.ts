@@ -8,7 +8,6 @@
  */
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Chart } from './chart';
-import { Highcharts } from './highcharts';
 import { MapChart } from './mapchart';
 import { StockChart } from './stockchart';
 
@@ -36,31 +35,10 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   private init() {
-    if (this.chart instanceof Chart) {
-      Highcharts.chart(this.el.nativeElement, this.chart.options, chart => {
-        (<Chart>this.chart).initChartRef(chart);
-      });
-      return;
-    }
-
-    if (this.chart instanceof StockChart) {
-      (<any>Highcharts).stockChart(this.el.nativeElement, this.chart.options, chart => {
-        (<StockChart>this.chart).initChartRef(chart);
-      });
-      return;
-    }
-
-    if (this.chart instanceof MapChart) {
-      (<any>Highcharts).mapChart(this.el.nativeElement, this.chart.options, chart => {
-        (<MapChart>this.chart).initChartRef(chart);
-      });
-      return;
-    }
+    this.chart.initChart(this.el);
   }
 
   private destroy() {
-    this.chart.options = this.chart.ref.options;
-    this.chart.ref.destroy();
-    delete this.chart.ref;
+    this.chart.destroyChart();
   }
 }

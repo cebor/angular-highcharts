@@ -1,4 +1,6 @@
+import { ElementRef } from '@angular/core';
 import { AsyncSubject, Observable } from 'rxjs';
+import { Highcharts } from './highcharts';
 
 /**
  * @license
@@ -88,10 +90,24 @@ export class Chart {
     });
   }
 
-  initChartRef(chart: Highcharts.ChartObject): void {
+  initChart(el: ElementRef): void {
     // TODO: implement reinit
-    this.refSubject.next(chart);
-    this.ref = chart;
-    this.refSubject.complete();
+
+    Highcharts.chart(el.nativeElement, this.options, chart => {
+      this.refSubject.next(chart);
+      // TODO: remove - deprecated
+      this.ref = chart;
+      this.refSubject.complete();
+    });
+  }
+
+  destroyChart() {
+    this.ref$.subscribe(chart => {
+      this.options = chart.options;
+      chart.destroy();
+
+      // TODO: remove - deprecated
+      this.ref = undefined;
+    });
   }
 }
