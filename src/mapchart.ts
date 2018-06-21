@@ -18,11 +18,8 @@ export class MapChart {
   constructor(private options) {}
 
   init(el: ElementRef): void {
-    // TODO: implement reinit
-
     (<any>Highcharts).mapChart(el.nativeElement, this.options, chart => {
       this.refSubject.next(chart);
-      // TODO: remove - deprecated
       this.ref = chart;
       this.refSubject.complete();
     });
@@ -33,6 +30,10 @@ export class MapChart {
       this.options = this.ref.options;
       this.ref.destroy();
       this.ref = undefined;
+
+      // new init subject
+      this.refSubject = new AsyncSubject();
+      this.ref$ = this.refSubject.asObservable();
     }
   }
 }
