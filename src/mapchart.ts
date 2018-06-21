@@ -11,14 +11,14 @@ import { Highcharts } from './highcharts';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class MapChart {
-  public ref: any;
+  ref: any;
 
   private refSubject: AsyncSubject<any> = new AsyncSubject();
-  public ref$: Observable<any> = this.refSubject.asObservable();
+  ref$: Observable<any> = this.refSubject.asObservable();
 
   constructor(private options) {}
 
-  initChart(el: ElementRef): void {
+  init(el: ElementRef): void {
     // TODO: implement reinit
 
     (<any>Highcharts).mapChart(el.nativeElement, this.options, chart => {
@@ -29,7 +29,7 @@ export class MapChart {
     });
   }
 
-  destroyChart() {
+  destroy() {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();

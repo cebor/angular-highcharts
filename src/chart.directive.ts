@@ -35,10 +35,14 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   private init() {
-    this.chart.initChart(this.el);
+    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart) {
+      this.chart.init(this.el);
+    }
   }
 
   private destroy() {
-    this.chart.destroyChart();
+    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart) {
+      this.chart.destroy();
+    }
   }
 }

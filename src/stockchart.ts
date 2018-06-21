@@ -14,14 +14,14 @@ import { Highcharts } from './highcharts';
  * @author Timothy A. Perez (contributor)
  */
 export class StockChart {
-  public ref: Highstock.ChartObject;
+  ref: Highstock.ChartObject;
 
   private refSubject: AsyncSubject<Highstock.ChartObject> = new AsyncSubject();
-  public ref$: Observable<Highstock.ChartObject> = this.refSubject.asObservable();
+  ref$: Observable<Highstock.ChartObject> = this.refSubject.asObservable();
 
   constructor(private options: Highstock.Options = { series: [] }) {}
 
-  initChart(el: ElementRef): void {
+  init(el: ElementRef): void {
     // TODO: implement reinit
 
     (<any>Highcharts).stockChart(el.nativeElement, this.options, chart => {
@@ -32,7 +32,7 @@ export class StockChart {
     });
   }
 
-  destroyChart() {
+  destroy() {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();

@@ -15,20 +15,12 @@ import { Highcharts } from './highcharts';
 export type Point = number | [number, number] | Highcharts.DataPoint;
 
 export class Chart {
-  private options: Highcharts.Options;
-
-  public ref: Highcharts.ChartObject;
+  ref: Highcharts.ChartObject;
 
   private refSubject: AsyncSubject<Highcharts.ChartObject> = new AsyncSubject();
-  public ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
+  ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
 
-  constructor(options: Highcharts.Options = { series: [] }) {
-    // init series array if not set
-    if (!options.series) {
-      options.series = [];
-    }
-    this.options = options;
-  }
+  constructor(private options: Highcharts.Options = { series: [] }) {}
 
   /**
    * Add Point
@@ -38,7 +30,7 @@ export class Chart {
    * @param shift         Shift point to the start of series. This defaults to false.
    * @memberof Chart
    */
-  public addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
+  addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
     this.ref$.subscribe(chart => {
       if (chart.series.length > serieIndex) {
         chart.series[serieIndex].addPoint(point, redraw, shift);
@@ -53,7 +45,7 @@ export class Chart {
    * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
    * @memberof Chart
    */
-  public addSerie(
+  addSerie(
     serie: Highcharts.SeriesOptions,
     redraw = true,
     animation: boolean | Highcharts.Animation = false
@@ -69,7 +61,7 @@ export class Chart {
    * @param serieIndex    Specified Index of Series. Defaults to 0.
    * @memberof Chart
    */
-  public removePoint(pointIndex: number, serieIndex = 0): void {
+  removePoint(pointIndex: number, serieIndex = 0): void {
     this.ref$.subscribe(chart => {
       if (chart.series.length > serieIndex && chart.series[serieIndex].data.length > pointIndex) {
         chart.series[serieIndex].removePoint(pointIndex, true);
@@ -82,7 +74,7 @@ export class Chart {
    * @param serieIndex    Index position of series to remove.
    * @memberof Chart
    */
-  public removeSerie(serieIndex: number): void {
+  removeSerie(serieIndex: number): void {
     this.ref$.subscribe(chart => {
       if (chart.series.length > serieIndex) {
         chart.series[serieIndex].remove(true);
@@ -90,7 +82,7 @@ export class Chart {
     });
   }
 
-  initChart(el: ElementRef): void {
+  init(el: ElementRef): void {
     // TODO: implement reinit
 
     Highcharts.chart(el.nativeElement, this.options, chart => {
@@ -101,10 +93,11 @@ export class Chart {
     });
   }
 
-  destroyChart() {
+  destroy() {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();
+      // TODO: remove - deprecated
       this.ref = undefined;
     }
   }
