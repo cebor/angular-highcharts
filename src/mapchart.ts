@@ -11,10 +11,9 @@ import { Highcharts } from './highcharts';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class MapChart {
-  ref: any;
-
   private refSubject: AsyncSubject<any> = new AsyncSubject();
   ref$: Observable<any> = this.refSubject.asObservable();
+  ref: any;
 
   constructor(private options) {}
 

@@ -15,10 +15,9 @@ import { Highcharts } from './highcharts';
 export type Point = number | [number, number] | Highcharts.DataPoint;
 
 export class Chart {
-  ref: Highcharts.ChartObject;
-
   private refSubject: AsyncSubject<Highcharts.ChartObject> = new AsyncSubject();
   ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
+  ref: Highcharts.ChartObject;
 
   constructor(private options: Highcharts.Options = { series: [] }) {}
 
@@ -83,11 +82,8 @@ export class Chart {
   }
 
   init(el: ElementRef): void {
-    // TODO: implement reinit
-
     Highcharts.chart(el.nativeElement, this.options, chart => {
       this.refSubject.next(chart);
-      // TODO: remove - deprecated
       this.ref = chart;
       this.refSubject.complete();
     });
@@ -97,8 +93,11 @@ export class Chart {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();
-      // TODO: remove - deprecated
       this.ref = undefined;
+
+      // new init subject
+      this.refSubject = new AsyncSubject();
+      this.ref$ = this.refSubject.asObservable();
     }
   }
 }

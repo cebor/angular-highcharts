@@ -14,10 +14,9 @@ import { Highcharts } from './highcharts';
  * @author Timothy A. Perez (contributor)
  */
 export class StockChart {
-  ref: Highstock.ChartObject;
-
   private refSubject: AsyncSubject<Highstock.ChartObject> = new AsyncSubject();
   ref$: Observable<Highstock.ChartObject> = this.refSubject.asObservable();
+  ref: Highstock.ChartObject;
 
   constructor(private options: Highstock.Options = { series: [] }) {}
 
