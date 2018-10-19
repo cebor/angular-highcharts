@@ -1,11 +1,6 @@
 {
   "name": "angular-highcharts",
-  "version": "0.0.0-PLACEHOLDER",
-  "description": "Highcharts Directive for Angular",
-  "module": "angular-highcharts.es5.js",
-  "es2015": "angular-highcharts.js",
-  "main": "angular-highcharts.umd.js",
-  "typings": "angular-highcharts.d.ts",
+  "version": "7.0.0",
   "author": "Felix Itzenplitz",
   "repository": {
     "type": "git",
@@ -20,6 +15,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/core": "^6.0.0"
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
   }
 }
