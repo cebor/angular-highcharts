@@ -5,7 +5,7 @@ cache: yarn
 script:
   - npm run build_lib
 before_deploy:
-  - cd ./dist
+  - cd ./dist/angular-highcharts
 deploy:
   skip_cleanup: true
   provider: npm
