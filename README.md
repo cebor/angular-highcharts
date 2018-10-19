@@ -142,16 +142,16 @@ removePoint(pointIndex: number, [serieIndex: number = 0], [redraw: boolean = tru
 Removes a point from a serie
 
 ```typescript
-addSerie(serie: ChartSerie): void
+addSeries(series: ChartSerie): void
 ```
 
-Adds a serie to the chart
+Adds a series to the chart
 
 ```typescript
-removeSerie(serieIndex: number): void
+removeSeries(seriesIndex: number): void
 ```
 
-Remove serie to the chart
+Remove series from the chart
 
 ### StockChart
 
