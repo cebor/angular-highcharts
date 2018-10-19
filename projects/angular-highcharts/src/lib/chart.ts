@@ -27,7 +27,6 @@ export class Chart {
    * @param serieIndex    Index position of series. This defaults to 0.
    * @param redraw        Flag whether or not to redraw point. This defaults to true.
    * @param shift         Shift point to the start of series. This defaults to false.
-   * @memberof Chart
    */
   addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
     this.ref$.subscribe(chart => {
@@ -39,18 +38,17 @@ export class Chart {
 
   /**
    * Add Series
-   * @param serie         Series Configuration
+   * @param series         Series Configuration
    * @param redraw        Flag whether or not to redraw series. This defaults to true.
    * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
-   * @memberof Chart
    */
-  addSerie(
-    serie: Highcharts.SeriesOptions,
+  addSeries(
+    series: Highcharts.SeriesOptions,
     redraw = true,
     animation: boolean | Highcharts.Animation = false
   ): void {
     this.ref$.subscribe(chart => {
-      chart.addSeries(serie, redraw, animation);
+      chart.addSeries(series, redraw, animation);
     });
   }
 
@@ -58,7 +56,6 @@ export class Chart {
    * Remove Point
    * @param pointIndex    Index of Point
    * @param serieIndex    Specified Index of Series. Defaults to 0.
-   * @memberof Chart
    */
   removePoint(pointIndex: number, serieIndex = 0): void {
     this.ref$.subscribe(chart => {
@@ -70,13 +67,12 @@ export class Chart {
 
   /**
    * Remove Series
-   * @param serieIndex    Index position of series to remove.
-   * @memberof Chart
+   * @param seriesIndex    Index position of series to remove.
    */
-  removeSerie(serieIndex: number): void {
+  removeSeries(seriesIndex: number): void {
     this.ref$.subscribe(chart => {
-      if (chart.series.length > serieIndex) {
-        chart.series[serieIndex].remove(true);
+      if (chart.series.length > seriesIndex) {
+        chart.series[seriesIndex].remove(true);
       }
     });
   }

@@ -10,7 +10,7 @@ This is a Highcharts directive for Angular.
 
 ```json
 {
-  "angular": ">=6.0.0",
+  "angular": ">=7.0.0",
   "highcharts": ">=6.0.0"
 }
 ```
@@ -37,16 +37,16 @@ npm i --save angular-highcharts highcharts
 npm i --save-dev @types/highcharts
 ```
 
-### angular4 & angular5 support
+### angular5 & angular6 support
 For angular4 and angular5 you have to install a specific version of angular-highcharts.
 ```bash
-# angular4
-yarn add angular-highcharts@4
-npm i angular-highcharts@4
-
 # angular5
 yarn add angular-highcharts@5
 npm i angular-highcharts@5
+
+# angular6
+yarn add angular-highcharts@6
+npm i angular-highcharts@6
 ```
 
 ## Usage Example
