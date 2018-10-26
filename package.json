@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build_lib": "ng build angular-highcharts",
+    "build_lib": "ng build angular-highcharts && cp README.md dist/angular-highcharts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
