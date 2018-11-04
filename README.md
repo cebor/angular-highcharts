@@ -38,7 +38,7 @@ npm i --save-dev @types/highcharts
 ```
 
 ### angular5 & angular6 support
-For angular4 and angular5 you have to install a specific version of angular-highcharts.
+For angular5 and angular6 you have to install a specific version of angular-highcharts.
 ```bash
 # angular5
 yarn add angular-highcharts@5
