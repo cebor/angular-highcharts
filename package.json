@@ -33,7 +33,7 @@
     "@angular/compiler-cli": "~7.0.1",
     "@angular/language-service": "~7.0.1",
     "@types/highcharts": "^5.0.31",
-    "@types/jasmine": "~2.8.8",
+    "@types/jasmine": "~3.0.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.1",
     "codelyzer": "~4.5.0",
