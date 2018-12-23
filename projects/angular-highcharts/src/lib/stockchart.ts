@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
+import * as Highstock from 'highcharts/highstock';
 import { AsyncSubject, Observable } from 'rxjs';
-import { Highcharts } from './highcharts';
 
 /**
  * @license
@@ -14,18 +14,19 @@ import { Highcharts } from './highcharts';
  * @author Timothy A. Perez (contributor)
  */
 export class StockChart {
-  private refSubject: AsyncSubject<Highstock.ChartObject> = new AsyncSubject();
-  ref$: Observable<Highstock.ChartObject> = this.refSubject.asObservable();
-  ref: Highstock.ChartObject;
-
+  private refSubject: AsyncSubject<Highstock.Chart> = new AsyncSubject();
+  ref$: Observable<Highstock.Chart> = this.refSubject.asObservable();
+  ref: Highstock.Chart;
   constructor(private options: Highstock.Options = { series: [] }) {}
 
   init(el: ElementRef): void {
-    (<any>Highcharts).stockChart(el.nativeElement, this.options, chart => {
-      this.refSubject.next(chart);
-      this.ref = chart;
-      this.refSubject.complete();
-    });
+    if (!this.ref) {
+      Highstock.stockChart(el.nativeElement, this.options, chart => {
+        this.refSubject.next(chart);
+        this.ref = chart;
+        this.refSubject.complete();
+      });
+    }
   }
 
   destroy() {

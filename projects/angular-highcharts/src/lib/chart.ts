@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
+import * as Highcharts from 'highcharts';
 import { AsyncSubject, Observable } from 'rxjs';
-import { Highcharts } from './highcharts';
 
 /**
  * @license
@@ -12,12 +12,12 @@ import { Highcharts } from './highcharts';
  * @author Felix Itzenplitz
  * @author Timothy A. Perez (contributor)
  */
-export type Point = number | [number, number] | Highcharts.DataPoint;
+export type Point = number | [number, number] | Highcharts.Point;
 
 export class Chart {
-  private refSubject: AsyncSubject<Highcharts.ChartObject> = new AsyncSubject();
-  ref$: Observable<Highcharts.ChartObject> = this.refSubject.asObservable();
-  ref: Highcharts.ChartObject;
+  private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
+  ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
+  ref: Highcharts.Chart;
 
   constructor(private options: Highcharts.Options = { series: [] }) {}
 
@@ -38,15 +38,11 @@ export class Chart {
 
   /**
    * Add Series
-   * @param series         Series Configuration
+   * @param series        Series Configuration
    * @param redraw        Flag whether or not to redraw series. This defaults to true.
    * @param animation     Whether to apply animation, and optionally animation configuration. This defaults to false.
    */
-  addSeries(
-    series: Highcharts.SeriesOptions,
-    redraw = true,
-    animation: boolean | Highcharts.Animation = false
-  ): void {
+  addSeries(series: Highcharts.SeriesOptionsType, redraw = true, animation: boolean): void {
     this.ref$.subscribe(chart => {
       chart.addSeries(series, redraw, animation);
     });
@@ -78,11 +74,13 @@ export class Chart {
   }
 
   init(el: ElementRef): void {
-    Highcharts.chart(el.nativeElement, this.options, chart => {
-      this.refSubject.next(chart);
-      this.ref = chart;
-      this.refSubject.complete();
-    });
+    if (!this.ref) {
+      Highcharts.chart(el.nativeElement, this.options, chart => {
+        this.refSubject.next(chart);
+        this.ref = chart;
+        this.refSubject.complete();
+      });
+    }
   }
 
   destroy() {

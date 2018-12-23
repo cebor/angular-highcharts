@@ -2,9 +2,9 @@
  * Public API Surface of angular-highcharts
  */
 
-export { Highcharts } from './lib/highcharts';
+export { Chart } from './lib/chart';
 export { ChartModule } from './lib/chart.module';
 export { HIGHCHARTS_MODULES } from './lib/chart.service';
-export { Chart } from './lib/chart';
-export { StockChart } from './lib/stockchart';
 export { MapChart } from './lib/mapchart';
+export { StockChart } from './lib/stockchart';
+

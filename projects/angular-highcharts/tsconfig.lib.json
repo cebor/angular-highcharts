@@ -11,10 +11,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "types": [
-      "highcharts",
-      "highcharts/highstock"
-    ],
+    "types": [],
     "lib": [
       "dom",
       "es2018"

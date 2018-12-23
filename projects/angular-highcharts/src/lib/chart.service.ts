@@ -7,7 +7,7 @@
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Highcharts } from './highcharts';
+import * as Highcharts from 'highcharts';
 
 export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 

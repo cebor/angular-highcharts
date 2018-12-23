@@ -28,7 +28,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       series: [
         {
           name: 'Line 1',
-          data: [1, 2, 3]
+          data: [1, 2, 3],
+          type: 'line'
         }
       ]
     });

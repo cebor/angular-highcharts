@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
+import * as Highmaps from 'highcharts/highmaps';
 import { AsyncSubject, Observable } from 'rxjs';
-import { Highcharts } from './highcharts';
 
 /**
  * @license
@@ -18,11 +18,13 @@ export class MapChart {
   constructor(private options) {}
 
   init(el: ElementRef): void {
-    (<any>Highcharts).mapChart(el.nativeElement, this.options, chart => {
-      this.refSubject.next(chart);
-      this.ref = chart;
-      this.refSubject.complete();
-    });
+    if (!this.ref) {
+      Highmaps.mapChart(el.nativeElement, this.options, chart => {
+        this.refSubject.next(chart);
+        this.ref = chart;
+        this.refSubject.complete();
+      });
+    }
   }
 
   destroy() {
