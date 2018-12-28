@@ -1,6 +1,8 @@
 import { ElementRef } from '@angular/core';
-import * as Highstock from 'highcharts/highstock';
+import * as Highcharts from 'highcharts';
+import * as Highstock from 'highcharts/highstock.src';
 import { AsyncSubject, Observable } from 'rxjs';
+
 
 /**
  * @license
@@ -21,7 +23,7 @@ export class StockChart {
 
   init(el: ElementRef): void {
     if (!this.ref) {
-      Highstock.stockChart(el.nativeElement, this.options, chart => {
+      Highcharts.stockChart(el.nativeElement, this.options, chart => {
         this.refSubject.next(chart);
         this.ref = chart;
         this.refSubject.complete();

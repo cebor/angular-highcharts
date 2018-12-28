@@ -1,5 +1,6 @@
 import { ElementRef } from '@angular/core';
-import * as Highmaps from 'highcharts/highmaps';
+import * as Highcharts from 'highcharts';
+import * as Highmaps from 'highcharts/highmaps.src';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**
@@ -11,15 +12,15 @@ import { AsyncSubject, Observable } from 'rxjs';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class MapChart {
-  private refSubject: AsyncSubject<any> = new AsyncSubject();
-  ref$: Observable<any> = this.refSubject.asObservable();
-  ref: any;
+  private refSubject: AsyncSubject<Highmaps.Chart> = new AsyncSubject();
+  ref$: Observable<Highmaps.Chart> = this.refSubject.asObservable();
+  ref: Highmaps.Chart;
 
-  constructor(private options) {}
+  constructor(private options: Highmaps.Options = { series: [] }) {}
 
   init(el: ElementRef): void {
     if (!this.ref) {
-      Highmaps.mapChart(el.nativeElement, this.options, chart => {
+      Highcharts.mapChart(el.nativeElement, this.options, chart => {
         this.refSubject.next(chart);
         this.ref = chart;
         this.refSubject.complete();
