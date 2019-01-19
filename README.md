@@ -31,7 +31,7 @@ yarn add --dev @types/highcharts
 
 ```bash
 # install angular-highcharts and highcharts
-npm i --save angular-highcharts highcharts
+npm i --save angular-highcharts highcharts@6
 
 # install highcharts typings
 npm i --save-dev @types/highcharts
