@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import * as Highstock from 'highcharts/highstock.src';
+import * as Highstock from 'highcharts/highstock';
 import { AsyncSubject, Observable } from 'rxjs';
 
 

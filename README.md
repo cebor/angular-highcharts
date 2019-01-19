@@ -8,10 +8,12 @@ This is a Highcharts directive for Angular.
 
 ## Requirements
 
+**Warning: This version (7.x.x) of `angular-highcharts` only runs with versions of Highcharts greater than `7`. And also be sure to remove `@types/highcharts` from your dependencies.**
+
 ```json
 {
   "angular": ">=7.0.0",
-  "highcharts": ">=6.0.0"
+  "highcharts": ">=7.0.2"
 }
 ```
 
@@ -22,9 +24,6 @@ This is a Highcharts directive for Angular.
 ```bash
 # install angular-highcharts and highcharts
 yarn add angular-highcharts highcharts
-
-# install highcharts typings
-yarn add --dev @types/highcharts
 ```
 
 ### npm
@@ -32,9 +31,6 @@ yarn add --dev @types/highcharts
 ```bash
 # install angular-highcharts and highcharts
 npm i --save angular-highcharts highcharts
-
-# install highcharts typings
-npm i --save-dev @types/highcharts
 ```
 
 ### angular5 & angular6 support
