@@ -229,6 +229,18 @@ export class AppModule { }
 
 #### Highstock
 
+For Highstock support load the following module
+
+```ts
+// app.module.ts
+import * as highstock from 'highcharts/modules/stock.src';
+
+@NgModule({
+  providers: [
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ]) }
+...
+```
+
 ```ts
 // chart.component.ts
 import { StockChart } from 'angular-highcharts';
@@ -246,6 +258,18 @@ export class ChartComponent {
 [Example Demo](https://stackblitz.com/edit/angular-highcharts-stock)
 
 ### Highmaps
+
+For Highmaps support load the following module
+
+```ts
+// app.module.ts
+import * as highmaps from 'highcharts/modules/map.src';
+
+@NgModule({
+  providers: [
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ]) }
+...
+```
 
 ```ts
 // chart.component.ts
