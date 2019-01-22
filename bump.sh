@@ -3,8 +3,6 @@ cd "$(dirname "$0")"
 
 bump=$1
 
-ng build angular-highcharts
-
 cd projects/angular-highcharts
 npm --no-git-tag-version version "$bump" > /tmp/version.txt
 echo "$(< /tmp/version.txt)"
