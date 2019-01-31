@@ -10,6 +10,14 @@
     "@angular-devkit/core" "7.2.2"
     rxjs "6.3.3"
 
+"@angular-devkit/architect@0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.13.0.tgz#47a9c76ca4c01c357a8670810f29a45e906447cd"
+  integrity sha512-oDBrWlfKh/0t2ag4T8gz9xzPMItxfctinlsHxhw7dPQ+etq1mIcWgQkiKiDrz4l46YiGipBRlC55j+6f37omAA==
+  dependencies:
+    "@angular-devkit/core" "7.3.0"
+    rxjs "6.3.3"
+
 "@angular-devkit/build-angular@~0.12.2":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.12.2.tgz#4776f535633227848c4bda34b1e8f89574c33746"
@@ -64,15 +72,15 @@
   optionalDependencies:
     node-sass "4.10.0"
 
-"@angular-devkit/build-ng-packagr@~0.12.2":
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.12.2.tgz#fbec8bb5cc1ed14d3a19cadb966bc7a91712482e"
-  integrity sha512-9U+rLHCwFfuprzR7/4r7HOyoF8Bq0Y3C4PG2V0CYziBgEQvc7zH6z5qcGk92QFmZnwmMtaEZrAD1/DwhgIVXbw==
+"@angular-devkit/build-ng-packagr@~0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.13.0.tgz#b02d4793bf6f1720f2defb5fecdca1377c0a15b0"
+  integrity sha512-Up7p300FJS7HJmZOvNZXzYsBRPqMJJKQGaOeINDPBsQFHcxIt4LQmQsqUa/4DEczR9Z2/KhlduXbNI+c7wmlgg==
   dependencies:
-    "@angular-devkit/architect" "0.12.2"
-    "@angular-devkit/core" "7.2.2"
+    "@angular-devkit/architect" "0.13.0"
+    "@angular-devkit/core" "7.3.0"
     rxjs "6.3.3"
-    semver "5.5.1"
+    semver "5.6.0"
 
 "@angular-devkit/build-optimizer@0.12.2":
   version "0.12.2"
@@ -99,6 +107,17 @@
   integrity sha512-gDF8iXiPN870WuBMl7bCQ5+Qz5SjGL/qMcvP4hli5hkn+kMAhgG38ligUK1bbhPQUJ+Z/nSOEmyv8gLHO09SZg==
   dependencies:
     ajv "6.6.2"
+    chokidar "2.0.4"
+    fast-json-stable-stringify "2.0.0"
+    rxjs "6.3.3"
+    source-map "0.7.3"
+
+"@angular-devkit/core@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.3.0.tgz#fc272e39b4c307833e9a7db77007418a246f5410"
+  integrity sha512-b0qtAUpgqLpWY8W6vWRv1aj6bXkZCP1rvywl8i8TbGMY67CWRcy5J3fNAMmjiZS+LJixFlIXYf4iOydglyJMfg==
+  dependencies:
+    ajv "6.7.0"
     chokidar "2.0.4"
     fast-json-stable-stringify "2.0.0"
     rxjs "6.3.3"
@@ -625,6 +644,16 @@ ajv@6.6.2:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+ajv@6.7.0, ajv@^6.1.0, ajv@^6.5.5:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.7.0.tgz#e3ce7bb372d6577bb1839f1dfdfcbf5ad2948d96"
+  integrity sha512-RZXPviBTtfmtka9n9sy1N5M5b82CbxWIR6HIis4s3WQTXDJamc/0gpCWNGz6EWdWp4DOfjzJfhz/AS9zVPjjWg==
+  dependencies:
+    fast-deep-equal "^2.0.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
 ajv@^5.0.0:
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
@@ -634,16 +663,6 @@ ajv@^5.0.0:
     fast-deep-equal "^1.0.0"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
-
-ajv@^6.1.0, ajv@^6.5.5:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.7.0.tgz#e3ce7bb372d6577bb1839f1dfdfcbf5ad2948d96"
-  integrity sha512-RZXPviBTtfmtka9n9sy1N5M5b82CbxWIR6HIis4s3WQTXDJamc/0gpCWNGz6EWdWp4DOfjzJfhz/AS9zVPjjWg==
-  dependencies:
-    fast-deep-equal "^2.0.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
 
 amdefine@>=0.0.4:
   version "1.0.1"
@@ -6636,7 +6655,7 @@ semver-intersect@1.4.0:
   dependencies:
     semver "^5.0.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.0, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
+"semver@2 || 3 || 4 || 5", semver@5.6.0, semver@^5.0.0, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
