@@ -237,7 +237,7 @@ import * as highstock from 'highcharts/modules/stock.src';
 
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ]) }
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ] }
 ...
 ```
 
