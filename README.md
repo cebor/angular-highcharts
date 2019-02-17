@@ -267,7 +267,7 @@ import * as highmaps from 'highcharts/modules/map.src';
 
 @NgModule({
   providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ]) }
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ] }
 ...
 ```
 
