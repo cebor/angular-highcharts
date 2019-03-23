@@ -44,7 +44,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^4.7.1",
-    "protractor": "~5.4.2",
+    "protractor": "~6.0.0",
     "ts-node": "~8.0.2",
     "tsickle": "^0.34.3",
     "tslib": "^1.9.0",
