@@ -8,12 +8,12 @@ This is a Highcharts directive for Angular.
 
 ## Requirements
 
-**Warning: This version (7.x.x) of `angular-highcharts` only runs with versions of Highcharts greater than `7`. And also be sure to remove `@types/highcharts` from your dependencies.**
+**Warning: This version (8.x.x) of `angular-highcharts` only runs with versions of Highcharts greater than `8`. And also be sure to remove `@types/highcharts` from your dependencies.**
 
 ```json
 {
-  "angular": ">=7.0.0",
-  "highcharts": ">=7.0.2"
+  "angular": ">=8.0.0",
+  "highcharts": ">=7.0.0"
 }
 ```
 
