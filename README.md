@@ -293,7 +293,7 @@ If you expiring typing errors while you build/serve your angular app the followi
 
 ```ts
 // override options type with <any>
-chart = new Chart(<any>{ options });
+chart = new Chart({ options } as any);
 ```
 This is very useful when using `gauge chart` type.
 ## Demo
