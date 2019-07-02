@@ -10,6 +10,14 @@
     "@angular-devkit/core" "8.0.1"
     rxjs "6.4.0"
 
+"@angular-devkit/architect@0.801.0":
+  version "0.801.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.801.0.tgz#c21b1288d7aa4042656a4efbc98be146f7d9f430"
+  integrity sha512-3EQtRfa5IL2aVWPLr17QNwCoh+0URuQd4t2cEPw0eqfNNSQxjNKcA8AUvpXU+YNvstZ46lSzbM9q/RekJGeA1A==
+  dependencies:
+    "@angular-devkit/core" "8.1.0"
+    rxjs "6.4.0"
+
 "@angular-devkit/build-angular@~0.800.0":
   version "0.800.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-0.800.1.tgz#1c203c37a7cdf0f47215ad9b74aa4d4c6ec27d69"
@@ -65,12 +73,12 @@
     webpack-subresource-integrity "1.1.0-rc.6"
     worker-plugin "3.1.0"
 
-"@angular-devkit/build-ng-packagr@~0.800.0":
-  version "0.800.1"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.800.1.tgz#d8edd0cfef2ce1fc89f8e29c4471de975afa07d1"
-  integrity sha512-pu7W3K657j/U+GgUAPlif3atBVsgL7MJwYI5Utal3ISm/AmiviMMpYqHxxbc1a0Y8O4TeMpq7SK6T6oEUo7fIw==
+"@angular-devkit/build-ng-packagr@~0.801.0":
+  version "0.801.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.801.0.tgz#80c0c42934781b5e14412b9f83e40819d85a2c26"
+  integrity sha512-SVrldhI9PihXe/OFnl8KpijMvBHDXIUwDbWJs/MVX1rMkWQ0f3lEIOyt9TXGOC5g+/0PaWG01gbVmnfG1tiF1A==
   dependencies:
-    "@angular-devkit/architect" "0.800.1"
+    "@angular-devkit/architect" "0.801.0"
     rxjs "6.4.0"
 
 "@angular-devkit/build-optimizer@0.800.1":
@@ -101,6 +109,17 @@
     ajv "6.10.0"
     fast-json-stable-stringify "2.0.0"
     magic-string "0.25.2"
+    rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/core@8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.1.0.tgz#eb91d2f620ae75533c301e549249ae2287f6e2f6"
+  integrity sha512-Xdtkrs62WMMR1BnSfpBvwjapRYalvArewAi7NXo0QxIFWPhQGbgSqT5PJMie4V3vHHNMbcC9cPzjKGjwwF8FHw==
+  dependencies:
+    ajv "6.10.0"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.3"
     rxjs "6.4.0"
     source-map "0.7.3"
 
@@ -4257,6 +4276,13 @@ magic-string@0.25.2, magic-string@^0.25.0, magic-string@^0.25.2:
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.2.tgz#139c3a729515ec55e96e69e82a11fe890a293ad9"
   integrity sha512-iLs9mPjh9IuTtRsqqhNGYcZXGei0Nh/A4xirrsqW7c+QhKVFL2vm7U09ru6cHRD22azaP/wMDgI+HCqbETMTtg==
+  dependencies:
+    sourcemap-codec "^1.4.4"
+
+magic-string@0.25.3:
+  version "0.25.3"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.3.tgz#34b8d2a2c7fec9d9bdf9929a3fd81d271ef35be9"
+  integrity sha512-6QK0OpF/phMz0Q2AxILkX2mFhi7m+WMwTRg0LQKq/WBB0cDP4rYH3Wp4/d3OTXlrPLVJT/RFqj8tFeAR4nk8AA==
   dependencies:
     sourcemap-codec "^1.4.4"
 
