@@ -3,11 +3,12 @@ language: node_js
 node_js: 10
 cache: yarn
 script:
-- npm run build_lib
+  - npm run build_lib
 before_deploy:
-- cd ./dist/angular-highcharts
+  - cd ./dist/angular-highcharts
 deploy:
   skip_cleanup: true
+  edge: true
   provider: npm
   email: felix@stkn.org
   api_key:
