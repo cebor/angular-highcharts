@@ -8,8 +8,6 @@ This is a Highcharts directive for Angular.
 
 ## Requirements
 
-**Warning: This version (8.x.x) of `angular-highcharts` only runs with versions of Angular greater than `8` and Highcharts greater than `7`. And also be sure to remove `@types/highcharts` from your dependencies.**
-
 ```json
 {
   "angular": ">=8.0.0",
@@ -31,18 +29,6 @@ yarn add angular-highcharts highcharts
 ```bash
 # install angular-highcharts and highcharts
 npm i --save angular-highcharts highcharts
-```
-
-### angular5 & angular6 support
-For angular5 and angular6 you have to install a specific version of angular-highcharts.
-```bash
-# angular5
-yarn add angular-highcharts@5
-npm i angular-highcharts@5
-
-# angular6
-yarn add angular-highcharts@6
-npm i angular-highcharts@6
 ```
 
 ## Usage Example

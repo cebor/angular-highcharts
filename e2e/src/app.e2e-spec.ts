@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to lib-angular-highcharts!');
+    expect(page.getTitleText()).toEqual('lib-angular-highcharts app is running!');
   });
 
   afterEach(async () => {
