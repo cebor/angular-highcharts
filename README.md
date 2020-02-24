@@ -98,16 +98,16 @@ new Chart(options: Options)
 #### Properties
 
 ```typescript
-ref: Highcharts.ChartObject;
+ref: Highcharts.Chart;
 ```
 
 Deprecated. Please use `ref$`.
 
 ```typescript
-ref$: Observeable<Highcharts.ChartObject>
+ref$: Observeable<Highcharts.Chart>
 ```
 
-Observeable that emits a HighchartsChartObject - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+Observeable that emits a Highcharts.Chart - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
 
 #### Methods
 
@@ -150,16 +150,16 @@ new StockChart(options);
 #### Properties
 
 ```typescript
-ref: Highstock.ChartObject;
+ref: Highstock.Chart;
 ```
 
 Deprecated. Please use `ref$`.
 
 ```typescript
-ref$: Observeable<Highstock.ChartObject>
+ref$: Observeable<Highstock.Chart>
 ```
 
-Observeable that emits a HighstockChartObject
+Observeable that emits a Highstock.Chart
 
 ### MapChart
 
@@ -185,7 +185,7 @@ Deprecated. Please use `ref$`.
 ref$;
 ```
 
-Observeable that emits a HighmapsChartObject
+Observeable that emits a Highmaps.Chart
 
 ## Using Highcharts modules
 
