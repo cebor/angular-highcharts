@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
 [![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
-[![Build Status](https://travis-ci.org/cebor/angular-highcharts.svg?branch=master)](https://travis-ci.org/cebor/angular-highcharts)
+![](https://github.com/cebor/angular-highcharts/workflows/Node.js%20Package/badge.svg)
 
 This is a Highcharts directive for Angular.
 
