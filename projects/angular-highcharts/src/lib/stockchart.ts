@@ -24,9 +24,11 @@ export class StockChart {
   init(el: ElementRef): void {
     if (!this.ref) {
       Highcharts.stockChart(el.nativeElement, this.options, chart => {
-        this.refSubject.next(chart);
-        this.ref = chart;
-        this.refSubject.complete();
+        if (!this.ref) { // TODO: workaround for doubled callbacks on exporting charts: issue #238
+          this.refSubject.next(chart);
+          this.ref = chart;
+          this.refSubject.complete();
+        }
       });
     }
   }
