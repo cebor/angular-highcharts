@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import * as Highcharts from 'highcharts';
+//import * as Highcharts from 'highcharts';
 import * as Highstock from 'highcharts/highstock';
 import { AsyncSubject, Observable } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class StockChart {
 
   init(el: ElementRef): void {
     if (!this.ref) {
-      Highcharts.stockChart(el.nativeElement, this.options, chart => {
+      Highstock.stockChart(el.nativeElement, this.options, chart => {
         if (!this.ref) { // TODO: workaround for doubled callbacks on exporting charts: issue #238
           this.refSubject.next(chart);
           this.ref = chart;
