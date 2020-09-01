@@ -10,7 +10,7 @@ This is a Highcharts directive for Angular.
 
 ```json
 {
-  "angular": ">=8.0.0",
+  "angular": ">=10.0.0",
   "highcharts": ">=7.0.0"
 }
 ```
