@@ -10,7 +10,7 @@ cd ..
 cd ..
 
 git add projects/angular-highcharts/package.json
-git commit -m "Bump to $(< /tmp/version.txt)"
-git tag -a "$(< /tmp/version.txt)" -m "$(< /tmp/version.txt)"
+git commit -m "Bump to v$(< /tmp/version.txt)"
+git tag -a "v$(< /tmp/version.txt)" -m "v$(< /tmp/version.txt)"
 
 rm /tmp/version.txt
