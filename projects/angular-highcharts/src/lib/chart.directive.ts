@@ -10,12 +10,13 @@ import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChang
 import { Chart } from './chart';
 import { MapChart } from './mapchart';
 import { StockChart } from './stockchart';
+import { HighchartsGantt } from './highcharts-gantt';
 
 @Directive({
   selector: '[chart]'
 })
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
-  @Input() chart: Chart | StockChart | MapChart;
+  @Input() chart: Chart | StockChart | MapChart | HighchartsGantt;
 
   constructor(private el: ElementRef) {}
 
@@ -35,13 +36,15 @@ export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   private init() {
-    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart) {
+    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart
+      || this.chart instanceof HighchartsGantt) {
       this.chart.init(this.el);
     }
   }
 
   private destroy() {
-    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart) {
+    if (this.chart instanceof Chart || this.chart instanceof StockChart || this.chart instanceof MapChart
+      || this.chart instanceof HighchartsGantt) {
       this.chart.destroy();
     }
   }
