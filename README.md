@@ -4,7 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
 ![](https://github.com/cebor/angular-highcharts/workflows/Node.js%20Package/badge.svg)
 
-This is a Highcharts directive for Angular.
+This is a directive for an easy usage of [Highcharts](https://www.highcharts.com/) with angular.
 
 ## Requirements
 
