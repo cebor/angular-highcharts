@@ -1,5 +1,6 @@
 import { ElementRef } from '@angular/core';
-import * as Highcharts from 'highcharts/highcharts-gantt';
+import { Chart, Options } from 'highcharts/highcharts.src';
+import { Highcharts } from 'highcharts/modules/gantt.src';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**
@@ -11,16 +12,17 @@ import { AsyncSubject, Observable } from 'rxjs';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class HighchartsGantt {
-  private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
-  ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
-  ref: Highcharts.Chart;
+  private refSubject: AsyncSubject<Chart> = new AsyncSubject();
+  ref$: Observable<Chart> = this.refSubject.asObservable();
+  ref: Chart;
 
-  constructor(private options: Highcharts.Options = { series: [] }) {}
+  constructor(private options: Options = { series: [] }) {}
 
   init(el: ElementRef): void {
     if (!this.ref) {
-      Highcharts.ganttChart(el.nativeElement, this.options, chart => {
-        if (!this.ref) { // TODO: workaround for doubled callbacks on exporting charts: issue #238
+      Highcharts.ganttChart(el.nativeElement, this.options, (chart) => {
+        if (!this.ref) {
+          // TODO: workaround for doubled callbacks on exporting charts: issue #238
           this.refSubject.next(chart);
           this.ref = chart;
           this.refSubject.complete();

@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
-// import * as Highcharts from 'highcharts';
-import * as Highmaps from 'highcharts/highmaps';
+import { Chart, Options } from 'highcharts/highcharts.src';
+import { Highcharts } from 'highcharts/modules/map.src';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**
@@ -12,16 +12,17 @@ import { AsyncSubject, Observable } from 'rxjs';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class MapChart {
-  private refSubject: AsyncSubject<Highmaps.Chart> = new AsyncSubject();
-  ref$: Observable<Highmaps.Chart> = this.refSubject.asObservable();
-  ref: Highmaps.Chart;
+  private refSubject: AsyncSubject<Chart> = new AsyncSubject();
+  ref$: Observable<Chart> = this.refSubject.asObservable();
+  ref: Chart;
 
-  constructor(private options: Highmaps.Options = { series: [] }) {}
+  constructor(private options: Options = { series: [] }) {}
 
   init(el: ElementRef): void {
     if (!this.ref) {
-      Highmaps.mapChart(el.nativeElement, this.options, chart => {
-        if (!this.ref) { // TODO: workaround for doubled callbacks on exporting charts: issue #238
+      Highcharts.mapChart(el.nativeElement, this.options, (chart) => {
+        if (!this.ref) {
+          // TODO: workaround for doubled callbacks on exporting charts: issue #238
           this.refSubject.next(chart);
           this.ref = chart;
           this.refSubject.complete();

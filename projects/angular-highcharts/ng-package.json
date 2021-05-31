@@ -5,9 +5,9 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "highcharts": "Highcharts",
-      "highcharts/highmaps": "Highmaps",
-      "highcharts/highstock": "Highstock",
-      "highcharts/highcharts-gantt": "HighchartsGantt"
+      "highcharts/modules/map.src": "Highmaps",
+      "highcharts/modules/stock.src": "Highstock",
+      "highcharts/modules/gantt.src": "HighchartsGantt"
     }
   }
 }
