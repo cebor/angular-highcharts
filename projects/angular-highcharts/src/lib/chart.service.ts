@@ -8,6 +8,9 @@
  */
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import * as Highstock from 'highcharts/highstock';
+import * as Highmaps from 'highcharts/highmaps';
+import * as HighchartsGnatt from 'highcharts/highcharts-gantt';
 
 export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 
@@ -17,7 +20,7 @@ export class ChartService {
 
   initModules() {
     this.chartModules.forEach(chartModule => {
-      chartModule(Highcharts);
+      [Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(chartModule);
     });
   }
 }

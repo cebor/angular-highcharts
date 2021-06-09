@@ -10,8 +10,8 @@ This is a directive for an easy usage of [Highcharts](https://www.highcharts.com
 
 ```json
 {
-  "angular": ">=10.0.0",
-  "highcharts": ">=7.0.0"
+  "angular": ">=12.0.0",
+  "highcharts": ">=9.0.0"
 }
 ```
 
@@ -211,69 +211,9 @@ import * as exporting from 'highcharts/modules/exporting.src';
 export class AppModule { }
 ```
 
-### Highstock & Highmaps support
-
-#### Highstock
-
-For Highstock support load the following module
-
-```ts
-// app.module.ts
-import * as highstock from 'highcharts/modules/stock.src';
-
-@NgModule({
-  providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highstock ] }
-...
-```
-
-```ts
-// chart.component.ts
-import { StockChart } from 'angular-highcharts';
-
-@Component({
-  template: `
-    <div [chart]="stockChart"></div>
-  `
-})
-export class ChartComponent {
-  stockChart = new StockChart({ options });
-}
-```
-
-[Example Demo](https://stackblitz.com/edit/angular-highcharts-stock)
-
-### Highmaps
-
-For Highmaps support load the following module
-
-```ts
-// app.module.ts
-import * as highmaps from 'highcharts/modules/map.src';
-
-@NgModule({
-  providers: [
-    { provide: HIGHCHARTS_MODULES, useFactory: () => [ highmaps ] }
-...
-```
-
-```ts
-// chart.component.ts
-import { MapChart } from 'angular-highcharts';
-
-@Component({
-  template: `
-    <div [chart]="mapChart"></div>
-  `
-})
-export class ChartComponent {
-  mapChart = new MapChart({ options });
-}
-```
-
-Offical Highcharts NPM Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
-
 ## Troubleshooting
+
+### Compile Issues
 
 If you expiring typing errors while you build/serve your angular app the following could be helpful:
 
@@ -282,6 +222,11 @@ If you expiring typing errors while you build/serve your angular app the followi
 chart = new Chart({ options } as any);
 ```
 This is very useful when using `gauge chart` type.
+
+### Loading Highcharts Modules manually
+
+See Official Highcharts Docs: http://www.highcharts.com/docs/getting-started/install-from-npm
+
 ## Demo
 
 * [Demo](https://angular-9nkrgd.stackblitz.io)
