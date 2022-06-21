@@ -16,22 +16,22 @@ import { HighchartsGantt } from './highcharts-gantt';
   selector: '[chart]'
 })
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
-  @Input() chart: Chart | StockChart | MapChart | HighchartsGantt;
+  @Input() chart: Chart | StockChart | MapChart | HighchartsGantt | undefined;
 
   constructor(private el: ElementRef) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (!changes.chart.isFirstChange()) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['chart']?.isFirstChange()) {
       this.destroy();
       this.init();
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy();
   }
 

@@ -1,4 +1,5 @@
 import { ElementRef } from '@angular/core';
+import * as Highmaps from 'highcharts/highmaps';
 //import * as Highcharts from 'highcharts';
 import * as Highstock from 'highcharts/highstock';
 import { AsyncSubject, Observable } from 'rxjs';
@@ -18,7 +19,10 @@ import { AsyncSubject, Observable } from 'rxjs';
 export class StockChart {
   private refSubject: AsyncSubject<Highstock.Chart> = new AsyncSubject();
   ref$: Observable<Highstock.Chart> = this.refSubject.asObservable();
-  ref: Highstock.Chart;
+  /**
+   * @deprecated Deprecated. Please use `ref$`.
+   */
+  ref: Highmaps.Chart | undefined;
   constructor(private options: Highstock.Options = { series: [] }) {}
 
   init(el: ElementRef): void {
@@ -33,7 +37,7 @@ export class StockChart {
     }
   }
 
-  destroy() {
+  destroy(): void {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();
