@@ -14,7 +14,10 @@ import { AsyncSubject, Observable } from 'rxjs';
 export class MapChart {
   private refSubject: AsyncSubject<Highmaps.Chart> = new AsyncSubject();
   ref$: Observable<Highmaps.Chart> = this.refSubject.asObservable();
-  ref: Highmaps.Chart;
+  /**
+   * @deprecated Deprecated. Please use `ref$`.
+   */
+  ref: Highmaps.Chart | undefined;
 
   constructor(private options: Highmaps.Options = { series: [] }) {}
 
@@ -30,7 +33,7 @@ export class MapChart {
     }
   }
 
-  destroy() {
+  destroy(): void {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();

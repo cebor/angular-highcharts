@@ -10,8 +10,8 @@ This is a directive for an easy usage of [Highcharts](https://www.highcharts.com
 
 ```json
 {
-  "angular": ">=14.0.0",
-  "highcharts": ">=9.0.0"
+  "angular": "^14.0.2",
+  "highcharts": "^10.1.0"
 }
 ```
 
@@ -104,10 +104,10 @@ ref: Highcharts.Chart;
 Deprecated. Please use `ref$`.
 
 ```typescript
-ref$: Observeable<Highcharts.Chart>
+ref$: Observable<Highcharts.Chart>
 ```
 
-Observeable that emits a Highcharts.Chart - [Offical Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
+Observable that emits a Highcharts.Chart - [Official Chart API Docs](https://api.highcharts.com/class-reference/Highcharts.Chart)
 
 #### Methods
 
@@ -156,10 +156,10 @@ ref: Highstock.Chart;
 Deprecated. Please use `ref$`.
 
 ```typescript
-ref$: Observeable<Highstock.Chart>
+ref$: Observable<Highstock.Chart>
 ```
 
-Observeable that emits a Highstock.Chart
+Observable that emits a Highstock.Chart
 
 ### MapChart
 
@@ -185,7 +185,7 @@ Deprecated. Please use `ref$`.
 ref$;
 ```
 
-Observeable that emits a Highmaps.Chart
+Observable that emits a Highmaps.Chart
 
 ## Using Highcharts modules
 

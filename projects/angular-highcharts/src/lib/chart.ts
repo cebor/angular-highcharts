@@ -17,7 +17,10 @@ export type Point = number | [number, number] | Highcharts.Point;
 export class Chart {
   private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
   ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
-  ref: Highcharts.Chart;
+  /**
+   * @deprecated Deprecated. Please use `ref$`.
+   */
+  ref: Highcharts.Chart | undefined;
 
   constructor(private options: Highcharts.Options = { series: [] }) {}
 
@@ -85,7 +88,7 @@ export class Chart {
     }
   }
 
-  destroy() {
+  destroy(): void {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();
