@@ -13,7 +13,10 @@ import { AsyncSubject, Observable } from 'rxjs';
 export class HighchartsGantt {
   private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
   ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
-  ref: Highcharts.Chart;
+  /**
+   * @deprecated Deprecated. Please use `ref$`.
+   */
+  ref: Highcharts.Chart | undefined;
 
   constructor(private options: Highcharts.Options = { series: [] }) {}
 
@@ -29,7 +32,7 @@ export class HighchartsGantt {
     }
   }
 
-  destroy() {
+  destroy(): void {
     if (this.ref) {
       this.options = this.ref.options;
       this.ref.destroy();

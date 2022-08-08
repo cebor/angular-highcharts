@@ -7,8 +7,8 @@ import { Chart, StockChart } from 'angular-highcharts';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  chart: Chart;
-  stockChart: StockChart;
+  chart!: Chart;
+  stockChart!: StockChart;
   hidden = false;
 
   toggle() {
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.init();
     console.log('on init');
     this.chart.ref$.subscribe(chart => {
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     console.log('after view init');
     this.chart.ref$.subscribe(chart => {
       console.log(chart);
