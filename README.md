@@ -10,7 +10,7 @@ This is a directive for an easy usage of [Highcharts](https://www.highcharts.com
 
 ```json
 {
-  "angular": "^14.0.2",
+  "angular": "^15.0.4",
   "highcharts": "^10.1.0"
 }
 ```
