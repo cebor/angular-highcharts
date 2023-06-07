@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Chart, StockChart } from 'angular-highcharts';
+import { Chart, StockChart } from '../../projects/angular-highcharts/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -81,14 +81,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.init();
     console.log('on init');
-    this.chart.ref$.subscribe(chart => {
+    this.chart.ref$.subscribe((chart: any) => {
       console.log(chart);
     });
   }
 
   ngAfterViewInit(): void {
     console.log('after view init');
-    this.chart.ref$.subscribe(chart => {
+    this.chart.ref$.subscribe((chart: any) => {
       console.log(chart);
     });
   }
