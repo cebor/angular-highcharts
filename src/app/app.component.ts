@@ -7,6 +7,8 @@ import { Chart, StockChart } from 'angular-highcharts';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  title = 'lib-angular-highcharts';
+
   chart!: Chart;
   stockChart!: StockChart;
   hidden = false;
