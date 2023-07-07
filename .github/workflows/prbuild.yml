@@ -14,6 +14,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - run: yarn
-      - run: yarn run build_lib
-      - run: yarn run build
+      - run: npm install
+      - run: npm run build_lib
+      - run: npm run build

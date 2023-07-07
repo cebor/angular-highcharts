@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - run: yarn
-      - run: yarn run build_lib
-      - run: yarn publish
+      - run: npm install
+      - run: npm run build_lib
+      - run: npm publish
         working-directory: ./dist/angular-highcharts
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
