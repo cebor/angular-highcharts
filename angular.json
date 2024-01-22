@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lib-angular-highcharts:build:production"
+              "buildTarget": "lib-angular-highcharts:build:production"
             },
             "development": {
-              "browserTarget": "lib-angular-highcharts:build:development"
+              "buildTarget": "lib-angular-highcharts:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lib-angular-highcharts:build"
+            "buildTarget": "lib-angular-highcharts:build"
           }
         },
         "test": {
