@@ -13,7 +13,8 @@ import { StockChart } from './stockchart';
 import { HighchartsGantt } from './highcharts-gantt';
 
 @Directive({
-  selector: '[chart]'
+    selector: '[chart]',
+    standalone: false
 })
 export class ChartDirective implements OnInit, OnDestroy, OnChanges {
   @Input() chart: Chart | StockChart | MapChart | HighchartsGantt | undefined;
