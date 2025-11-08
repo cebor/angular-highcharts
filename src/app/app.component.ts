@@ -1,11 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Chart, StockChart } from 'angular-highcharts';
+import { ChartModule } from 'angular-highcharts';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: false
+    standalone: true,
+    imports: [ChartModule]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'lib-angular-highcharts';
