@@ -24,7 +24,7 @@ By participating in this project, you are expected to uphold our Code of Conduct
 
 ### Prerequisites
 
-- Node.js >= 16
+- Node.js >= 18.19.0
 - npm
 - Git
 
@@ -245,11 +245,12 @@ Avoid using the deprecated `ref` property.
 
 ### Highcharts Module Imports
 
-Highcharts modules must be imported with `.src.` extension for AOT compatibility:
+Highcharts modules must be imported with `.src.` extension and default imports (Highcharts 12.x+):
 
 ```typescript
-import * as exporting from 'highcharts/modules/exporting.src';  // ✓
-import * as exporting from 'highcharts/modules/exporting';       // ✗
+import exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 12.x+)
+import * as exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 11.x, still supported)
+import exporting from 'highcharts/modules/exporting';       // ✗
 ```
 
 ### Documentation

@@ -20,7 +20,11 @@ export class ChartService {
 
   initModules() {
     this.chartModules.forEach(chartModule => {
-      [Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(chartModule);
+      // Handle both old and new Highcharts module formats
+      const moduleFunc = typeof chartModule === 'function' ? chartModule : chartModule?.default;
+      if (moduleFunc && typeof moduleFunc === 'function') {
+        [Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(moduleFunc);
+      }
     });
   }
 }

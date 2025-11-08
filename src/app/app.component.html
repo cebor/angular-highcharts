@@ -2,5 +2,9 @@
 <button (click)="init()">Init</button>
 <button (click)="toggle()">{{ hidden ? 'Show' : 'Hide' }}</button>
 <button (click)="add()">Add Point!</button>
-<div [chart]="chart" *ngIf="!hidden"></div>
-<div [chart]="stockChart" *ngIf="!hidden"></div>
+@if (!hidden) {
+  <div [chart]="chart"></div>
+}
+@if (!hidden) {
+  <div [chart]="stockChart"></div>
+}

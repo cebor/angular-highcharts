@@ -101,10 +101,11 @@ chart = new Chart({ ...options } as any);
 ```
 
 ### Module Imports Must Use `.src` Suffix
-Highcharts modules must be imported with `.src.` extension for AOT compatibility:
+Highcharts modules must be imported with `.src.` extension for AOT compatibility. Use default imports for Highcharts 12.x+:
 ```typescript
-import * as exporting from 'highcharts/modules/exporting.src';  // ✓
-import * as exporting from 'highcharts/modules/exporting';       // ✗
+import exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 12.x+)
+import * as exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 11.x, still supported)
+import exporting from 'highcharts/modules/exporting';       // ✗
 ```
 Exception: `highcharts-more.src` is in root, not modules folder
 
@@ -119,11 +120,11 @@ All methods subscribe to `ref$` internally, so they're safe to call immediately 
 
 ## Key Files Reference
 - `projects/angular-highcharts/src/public-api.ts` - library exports (what users import)
-- `projects/angular-highcharts/package.json` - library version (17.0.1) and peer dependencies
+- `projects/angular-highcharts/package.json` - library version (20.0.0) and peer dependencies
 - Root `package.json` - dev dependencies and build scripts (workspace-level)
 - `angular.json` - defines two projects: `lib-angular-highcharts` (demo app) and `angular-highcharts` (library)
 
 ## Compatibility Requirements
-- Angular: >=17.0.0 (peer dependency in library package.json)
-- Highcharts: ^10.3.3+ (user-installed peer dependency)
-- Node: >=16 (engine requirement)
+- Angular: >=20.0.0 (peer dependency in library package.json)
+- Highcharts: >=11.0.0 (user-installed peer dependency)
+- Node: >=18.19.0 (engine requirement)

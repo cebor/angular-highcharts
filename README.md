@@ -22,8 +22,8 @@ An Angular wrapper for [Highcharts](https://www.highcharts.com/), providing easy
 
 | Package | Version |
 |---------|---------|
-| Angular | >=17.0.0 |
-| Highcharts | >=10.3.3 |
+| Angular | >=20.0.0 |
+| Highcharts | >=11.0.0 |
 
 ## Installation
 
@@ -364,10 +364,10 @@ Popular modules include:
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import * as more from 'highcharts/highcharts-more.src';
-import * as exporting from 'highcharts/modules/exporting.src';
-import * as exportData from 'highcharts/modules/export-data.src';
-import * as accessibility from 'highcharts/modules/accessibility.src';
+import more from 'highcharts/highcharts-more.src';
+import exporting from 'highcharts/modules/exporting.src';
+import exportData from 'highcharts/modules/export-data.src';
+import accessibility from 'highcharts/modules/accessibility.src';
 
 @NgModule({
   imports: [ChartModule],
@@ -422,11 +422,11 @@ This is particularly useful for:
 
 **Problem:** `Cannot find module 'highcharts/modules/exporting.src'`
 
-**Solution:** Ensure you're using the `.src` suffix:
+**Solution:** Ensure you're using the `.src` suffix and default imports (Highcharts 12.x+):
 
 ```typescript
-// ✅ Correct
-import * as exporting from 'highcharts/modules/exporting.src';
+// ✅ Correct (Highcharts 12.x+)
+import exporting from 'highcharts/modules/exporting.src';
 
 // ❌ Wrong
 import * as exporting from 'highcharts/modules/exporting';
