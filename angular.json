@@ -29,14 +29,22 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "browser": "src/main.ts"
+            "browser": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "highcharts",
+              "highcharts/highstock",
+              "highcharts/highmaps",
+              "highcharts/highcharts-gantt",
+              "highcharts/highcharts-more.src",
+              "highcharts/modules/exporting.src"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 },
                 {
