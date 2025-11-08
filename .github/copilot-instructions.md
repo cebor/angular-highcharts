@@ -35,9 +35,12 @@ Each class implements the **same lifecycle pattern**:
 ```typescript
 // Users provide modules as factory
 { provide: HIGHCHARTS_MODULES, useFactory: () => [more, exporting] }
-// Service applies them to all Highcharts variants
-[Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(chartModule);
+
+// Service applies them to all Highcharts variants (default imports)
+const moduleFunc = typeof chartModule === 'function' ? chartModule : chartModule?.default;
+[Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(moduleFunc);
 ```
+Note: Conditional check handles both namespace imports (Highcharts 11.x) and default imports (Highcharts 12.x+)
 
 ## Development Workflows
 
@@ -100,14 +103,29 @@ When using gauge or non-standard chart types, cast options to `<any>` to avoid T
 chart = new Chart({ ...options } as any);
 ```
 
-### Module Imports Must Use `.src` Suffix
-Highcharts modules must be imported with `.src.` extension for AOT compatibility. Use default imports for Highcharts 12.x+:
+### Import Style: Default Imports (Highcharts 12.x+)
+**Library uses default imports internally** for all Highcharts variants:
 ```typescript
-import exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 12.x+)
-import * as exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 11.x, still supported)
-import exporting from 'highcharts/modules/exporting';       // ✗
+import Highcharts from 'highcharts';                    // ✓ (library internal)
+import Highstock from 'highcharts/highstock';           // ✓ (library internal)
+import Highmaps from 'highcharts/highmaps';             // ✓ (library internal)
+import HighchartsGantt from 'highcharts/highcharts-gantt'; // ✓ (library internal)
 ```
-Exception: `highcharts-more.src` is in root, not modules folder
+
+**Users can use either style for module registration**:
+```typescript
+// Default imports (recommended for Highcharts 12.x+)
+import exporting from 'highcharts/modules/exporting.src';  // ✓ 
+import more from 'highcharts/highcharts-more.src';         // ✓
+
+// Namespace imports (still works, backward compatible)
+import * as exporting from 'highcharts/modules/exporting.src';  // ✓
+```
+
+**Important rules**:
+- Always use `.src.` suffix for modules (AOT compatibility)
+- `highcharts-more.src` is in root, not modules folder
+- ChartService handles both import styles via conditional check: `typeof chartModule === 'function' ? chartModule : chartModule?.default`
 
 ### Chart Manipulation Methods
 `Chart` class provides convenience methods that internally use `ref$`:

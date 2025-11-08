@@ -1,24 +1,87 @@
-# AngularHighcharts
+# angular-highcharts
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+[![NPM version](https://img.shields.io/npm/v/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
+[![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
+![Build Status](https://github.com/cebor/angular-highcharts/workflows/Node.js%20Package/badge.svg)
 
-## Code scaffolding
+An Angular wrapper for [Highcharts](https://www.highcharts.com/), providing easy integration of Highcharts, Highstock, Highmaps, and Highcharts Gantt charts into your Angular applications.
 
-Run `ng generate component component-name --project angular-highcharts` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-highcharts`.
-> Note: Don't forget to add `--project angular-highcharts` or else it will be added to the default project in your `angular.json` file.
+## Requirements
 
-## Build
+- Angular >=20.0.0
+- Highcharts >=11.0.0
 
-Run `ng build angular-highcharts` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Publishing
+```bash
+npm install --save angular-highcharts highcharts
+```
 
-After building your library with `ng build angular-highcharts`, go to the dist folder `cd dist/angular-highcharts` and run `npm publish`.
+## Quick Start
 
-## Running unit tests
+### 1. Import the Module
 
-Run `ng test angular-highcharts` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { ChartModule } from 'angular-highcharts';
 
-## Further help
+@NgModule({
+  imports: [ChartModule]
+})
+export class AppModule {}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 2. Create a Chart
+
+```typescript
+import { Component } from '@angular/core';
+import { Chart } from 'angular-highcharts';
+
+@Component({
+  selector: 'app-chart',
+  template: '<div [chart]="chart"></div>'
+})
+export class ChartComponent {
+  chart = new Chart({
+    chart: { type: 'line' },
+    title: { text: 'My Chart' },
+    series: [{ name: 'Data', data: [1, 2, 3], type: 'line' }]
+  });
+}
+```
+
+## Using Highcharts Modules
+
+Import modules with `.src` suffix using default imports (Highcharts 12.x+):
+
+```typescript
+import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
+import more from 'highcharts/highcharts-more.src';
+import exporting from 'highcharts/modules/exporting.src';
+
+@NgModule({
+  imports: [ChartModule],
+  providers: [
+    { provide: HIGHCHARTS_MODULES, useFactory: () => [more, exporting] }
+  ]
+})
+export class AppModule {}
+```
+
+**Note:** Both default imports (Highcharts 12.x+) and namespace imports (Highcharts 11.x) are supported:
+```typescript
+// Default import (recommended)
+import exporting from 'highcharts/modules/exporting.src';
+
+// Namespace import (still supported)
+import * as exporting from 'highcharts/modules/exporting.src';
+```
+
+## Documentation
+
+For full documentation, examples, and API reference, visit:
+- [GitHub Repository](https://github.com/cebor/angular-highcharts)
+- [Official Highcharts Docs](https://www.highcharts.com/docs)
+
+## License
+
+MIT © [Felix Itzenplitz](https://github.com/cebor)

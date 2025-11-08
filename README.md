@@ -280,7 +280,7 @@ Direct reference to the chart. **Deprecated** - use `ref$` observable instead.
 
 ```typescript
 import { MapChart } from 'angular-highcharts';
-import * as worldMap from '@highcharts/map-collection/custom/world.geo.json';
+import worldMap from '@highcharts/map-collection/custom/world.geo.json';
 
 mapChart = new MapChart({
   chart: {
@@ -339,8 +339,9 @@ Highcharts provides additional modules for extended functionality (exporting, 3D
 ### Important Notes
 
 1. **Use `.src` suffix**: Import modules with `.src.` in the path for AOT compatibility
-2. **Factory pattern**: Provide modules using a factory function (required for AOT)
-3. **Location**: Most modules are in `highcharts/modules/`, except `highcharts-more.src` which is in the root
+2. **Default imports**: Use default imports for Highcharts 12.x+ (recommended)
+3. **Factory pattern**: Provide modules using a factory function (required for AOT)
+4. **Location**: Most modules are in `highcharts/modules/`, except `highcharts-more.src` which is in the root
 
 ### Available Modules
 
@@ -422,15 +423,20 @@ This is particularly useful for:
 
 **Problem:** `Cannot find module 'highcharts/modules/exporting.src'`
 
-**Solution:** Ensure you're using the `.src` suffix and default imports (Highcharts 12.x+):
+**Solution:** Ensure you're using the `.src` suffix and default imports:
 
 ```typescript
-// ✅ Correct (Highcharts 12.x+)
+// ✅ Correct - Default import (Highcharts 12.x+, recommended)
 import exporting from 'highcharts/modules/exporting.src';
 
-// ❌ Wrong
-import * as exporting from 'highcharts/modules/exporting';
+// ✅ Also works - Namespace import (Highcharts 11.x, still supported)
+import * as exporting from 'highcharts/modules/exporting.src';
+
+// ❌ Wrong - Missing .src suffix
+import exporting from 'highcharts/modules/exporting';
 ```
+
+**Note:** This library now uses default imports internally for compatibility with Highcharts 12.x+, but both import styles work for module registration.
 
 ### Chart Not Rendering
 

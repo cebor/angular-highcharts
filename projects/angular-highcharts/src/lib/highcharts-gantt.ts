@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import * as Highcharts from 'highcharts/highcharts-gantt';
+import Highcharts from 'highcharts/highcharts-gantt';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**

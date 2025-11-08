@@ -29,15 +29,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "browser": "src/main.ts",
-            "allowedCommonJsDependencies": [
-              "highcharts",
-              "highcharts/highstock",
-              "highcharts/highmaps",
-              "highcharts/highcharts-gantt",
-              "highcharts/highcharts-more.src",
-              "highcharts/modules/exporting.src"
-            ]
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {

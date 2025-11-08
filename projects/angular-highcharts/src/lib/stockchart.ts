@@ -1,7 +1,5 @@
 import { ElementRef } from '@angular/core';
-import * as Highmaps from 'highcharts/highmaps';
-//import * as Highcharts from 'highcharts';
-import * as Highstock from 'highcharts/highstock';
+import Highstock from 'highcharts/highstock';
 import { AsyncSubject, Observable } from 'rxjs';
 
 
@@ -22,7 +20,7 @@ export class StockChart {
   /**
    * @deprecated Deprecated. Please use `ref$`.
    */
-  ref: Highmaps.Chart | undefined;
+  ref: Highstock.Chart | undefined;
   constructor(private options: Highstock.Options = { series: [] }) {}
 
   init(el: ElementRef): void {

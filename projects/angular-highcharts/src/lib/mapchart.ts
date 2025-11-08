@@ -1,6 +1,5 @@
 import { ElementRef } from '@angular/core';
-// import * as Highcharts from 'highcharts';
-import * as Highmaps from 'highcharts/highmaps';
+import Highmaps from 'highcharts/highmaps';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**

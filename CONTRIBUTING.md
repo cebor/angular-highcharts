@@ -243,15 +243,33 @@ this.chart.ref$.subscribe(chart => {
 
 Avoid using the deprecated `ref` property.
 
-### Highcharts Module Imports
+### Highcharts Imports
 
-Highcharts modules must be imported with `.src.` extension and default imports (Highcharts 12.x+):
+**Library code uses default imports** for all Highcharts variants:
 
 ```typescript
-import exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 12.x+)
-import * as exporting from 'highcharts/modules/exporting.src';  // ✓ (Highcharts 11.x, still supported)
+// In library code (chart.ts, stockchart.ts, etc.)
+import Highcharts from 'highcharts';                    // ✓
+import Highstock from 'highcharts/highstock';           // ✓
+import Highmaps from 'highcharts/highmaps';             // ✓
+import HighchartsGantt from 'highcharts/highcharts-gantt'; // ✓
+```
+
+**For Highcharts module registration**, users can use either import style:
+
+```typescript
+// Default imports (Highcharts 12.x+, recommended)
+import exporting from 'highcharts/modules/exporting.src';  // ✓
+import more from 'highcharts/highcharts-more.src';         // ✓
+
+// Namespace imports (Highcharts 11.x, still supported)
+import * as exporting from 'highcharts/modules/exporting.src';  // ✓
+
+// Wrong - Missing .src suffix
 import exporting from 'highcharts/modules/exporting';       // ✗
 ```
+
+**Important**: The library's `ChartService` handles both import styles automatically via a conditional check.
 
 ### Documentation
 
