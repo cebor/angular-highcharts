@@ -1,4 +1,4 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 
 import { AppComponent } from './app/app.component';
@@ -13,7 +13,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(ChartModule),
+    provideZoneChangeDetection(),importProvidersFrom(ChartModule),
     { provide: HIGHCHARTS_MODULES, useFactory: () => [more, exporting] }
   ]
 }).catch(err => console.error(err));
