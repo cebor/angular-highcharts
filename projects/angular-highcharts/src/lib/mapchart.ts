@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import Highmaps from 'highcharts/highmaps';
+import Highmaps from 'highcharts/esm/highmaps.src';
 import { AsyncSubject, Observable } from 'rxjs';
 
 /**
