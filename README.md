@@ -338,17 +338,18 @@ Highcharts provides additional modules for extended functionality (exporting, 3D
 
 ### Important Notes
 
-1. **Use `.src` suffix**: Import modules with `.src.` in the path for AOT compatibility
-2. **Default imports**: Use default imports for Highcharts 12.x+ (recommended)
-3. **Factory pattern**: Provide modules using a factory function (required for AOT)
-4. **Location**: Most modules are in `highcharts/modules/`, except `highcharts-more.src` which is in the root
+1. **Use ESM imports**: Import from `highcharts/esm/` for proper tree-shaking and module resolution
+2. **Use `.src` suffix**: Import modules with `.src.` in the path for AOT compatibility
+3. **Default imports**: Use default imports (recommended) or namespace imports
+4. **Factory pattern**: Provide modules using a factory function (required for AOT)
+5. **Location**: Most modules are in `highcharts/esm/modules/`, except `highcharts-more.src` which is in the root
 
 ### Available Modules
 
-You can find available modules in your `node_modules/highcharts/modules/` directory:
+You can find available modules in your `node_modules/highcharts/esm/modules/` directory:
 
 ```bash
-ls -la node_modules/highcharts/modules/
+ls -la node_modules/highcharts/esm/modules/
 ```
 
 Popular modules include:
@@ -365,10 +366,10 @@ Popular modules include:
 ```typescript
 // app.module.ts
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import more from 'highcharts/highcharts-more.src';
-import exporting from 'highcharts/modules/exporting.src';
-import exportData from 'highcharts/modules/export-data.src';
-import accessibility from 'highcharts/modules/accessibility.src';
+import more from 'highcharts/esm/highcharts-more.src';
+import exporting from 'highcharts/esm/modules/exporting.src';
+import exportData from 'highcharts/esm/modules/export-data.src';
+import accessibility from 'highcharts/esm/modules/accessibility.src';
 
 @NgModule({
   imports: [ChartModule],
@@ -426,17 +427,17 @@ This is particularly useful for:
 **Solution:** Ensure you're using the `.src` suffix and default imports:
 
 ```typescript
-// ✅ Correct - Default import (Highcharts 12.x+, recommended)
-import exporting from 'highcharts/modules/exporting.src';
+// ✅ Correct - ESM default import (recommended)
+import exporting from 'highcharts/esm/modules/exporting.src';
 
-// ✅ Also works - Namespace import (Highcharts 11.x, still supported)
-import * as exporting from 'highcharts/modules/exporting.src';
+// ✅ Also works - Namespace import (still supported)
+import * as exporting from 'highcharts/esm/modules/exporting.src';
 
 // ❌ Wrong - Missing .src suffix
-import exporting from 'highcharts/modules/exporting';
+import exporting from 'highcharts/esm/modules/exporting';
 ```
 
-**Note:** This library now uses default imports internally for compatibility with Highcharts 12.x+, but both import styles work for module registration.
+**Note:** This library uses ESM imports internally (`highcharts/esm/...`). Both default and namespace import styles work for module registration.
 
 ### Chart Not Rendering
 
