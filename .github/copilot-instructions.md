@@ -103,27 +103,28 @@ When using gauge or non-standard chart types, cast options to `<any>` to avoid T
 chart = new Chart({ ...options } as any);
 ```
 
-### Import Style: Default Imports (Highcharts 12.x+)
-**Library uses default imports internally** for all Highcharts variants:
+### Import Style: ESM Imports (Highcharts 12.x+)
+**Library uses ESM default imports internally** for all Highcharts variants:
 ```typescript
-import Highcharts from 'highcharts';                    // ✓ (library internal)
-import Highstock from 'highcharts/highstock';           // ✓ (library internal)
-import Highmaps from 'highcharts/highmaps';             // ✓ (library internal)
-import HighchartsGantt from 'highcharts/highcharts-gantt'; // ✓ (library internal)
+import Highcharts from 'highcharts/esm/highcharts.src';           // ✓ (library internal)
+import Highstock from 'highcharts/esm/highstock.src';             // ✓ (library internal)
+import Highmaps from 'highcharts/esm/highmaps.src';               // ✓ (library internal)
+import HighchartsGantt from 'highcharts/esm/highcharts-gantt.src'; // ✓ (library internal)
 ```
 
 **Users can use either style for module registration**:
 ```typescript
-// Default imports (recommended for Highcharts 12.x+)
-import exporting from 'highcharts/modules/exporting.src';  // ✓ 
-import more from 'highcharts/highcharts-more.src';         // ✓
+// Default imports with ESM (recommended for Highcharts 12.x+)
+import exporting from 'highcharts/esm/modules/exporting.src';  // ✓ 
+import more from 'highcharts/esm/highcharts-more.src';         // ✓
 
-// Namespace imports (still works, backward compatible)
-import * as exporting from 'highcharts/modules/exporting.src';  // ✓
+// Namespace imports with ESM (still works, backward compatible)
+import * as exporting from 'highcharts/esm/modules/exporting.src';  // ✓
 ```
 
 **Important rules**:
-- Always use `.src.` suffix for modules (AOT compatibility)
+- Always use `/esm/` path for proper tree-shaking and module resolution
+- Always use `.src` suffix for modules (AOT compatibility)
 - `highcharts-more.src` is in root, not modules folder
 - ChartService handles both import styles via conditional check: `typeof chartModule === 'function' ? chartModule : chartModule?.default`
 
@@ -138,11 +139,11 @@ All methods subscribe to `ref$` internally, so they're safe to call immediately 
 
 ## Key Files Reference
 - `projects/angular-highcharts/src/public-api.ts` - library exports (what users import)
-- `projects/angular-highcharts/package.json` - library version (20.0.0) and peer dependencies
+- `projects/angular-highcharts/package.json` - library version (21.0.2) and peer dependencies
 - Root `package.json` - dev dependencies and build scripts (workspace-level)
 - `angular.json` - defines two projects: `lib-angular-highcharts` (demo app) and `angular-highcharts` (library)
 
 ## Compatibility Requirements
-- Angular: >=20.0.0 (peer dependency in library package.json)
-- Highcharts: >=11.0.0 (user-installed peer dependency)
+- Angular: >=21.0.0 (peer dependency in library package.json)
+- Highcharts: >=11.0.0 (user-installed peer dependency, 12.x+ recommended for ESM)
 - Node: >=18.19.0 (engine requirement)
