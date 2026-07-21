@@ -134,8 +134,18 @@ chart re-render identically after a hide/show toggle.
 
 ### Version management
 
-`./bump.sh patch` (or `minor` / `major`) updates
-`projects/angular-highcharts/package.json`, commits, and creates a git tag.
+**The library version must only be changed via `./bump.sh` — never by
+hand-editing `projects/angular-highcharts/package.json`.** The script bumps the
+version, commits the change, and creates the matching annotated git tag
+(`vX.Y.Z`) in one step, keeping the version, the commit, and the tag in sync.
+
+```bash
+./bump.sh patch   # or `minor` / `major`
+```
+
+Note that `bump.sh` bumps *relative to the current version* (e.g. `major` on
+`22.0.0` produces `23.0.0`). To only tag the existing version without bumping,
+create the tag directly: `git tag -a vX.Y.Z -m vX.Y.Z`.
 
 ### Upgrading Angular
 
