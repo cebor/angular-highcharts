@@ -8,7 +8,8 @@
     "build_lib": "ng build angular-highcharts --configuration production && cp README.md dist/angular-highcharts",
     "test": "ng test",
     "test:lib": "ng test angular-highcharts",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "release": "cd projects/angular-highcharts && release-it"
   },
   "private": true,
   "engines": {
@@ -44,6 +45,7 @@
     "istanbul-lib-instrument": "^6.0.3",
     "jsdom": "^26.1.0",
     "ng-packagr": "^22.0.1",
+    "release-it": "^20.2.1",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.65.0",
     "vitest": "^4.0.8"

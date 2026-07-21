@@ -1,0 +1,17 @@
+{
+  "git": {
+    "requireBranch": "master",
+    "requireCleanWorkingDir": true,
+    "requireUpstream": false,
+    "commitMessage": "Bump to v${version}",
+    "tagName": "v${version}",
+    "tagAnnotation": "v${version}",
+    "push": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": false
+  }
+}

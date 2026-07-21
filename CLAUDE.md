@@ -134,18 +134,33 @@ chart re-render identically after a hide/show toggle.
 
 ### Version management
 
-**The library version must only be changed via `./bump.sh` — never by
-hand-editing `projects/angular-highcharts/package.json`.** The script bumps the
-version, commits the change, and creates the matching annotated git tag
-(`vX.Y.Z`) in one step, keeping the version, the commit, and the tag in sync.
+**The library version must only be changed via `npm run release` (release-it) —
+never by hand-editing `projects/angular-highcharts/package.json`.** This keeps
+the version, the commit, and the git tag in sync and guards against the common
+mistakes (wrong branch, dirty tree, overshooting the version).
 
 ```bash
-./bump.sh patch   # or `minor` / `major`
+npm run release -- 22.1.0   # explicit target version (preferred)
+npm run release -- minor    # or `patch` / `major` (relative convenience)
+npm run release             # interactive: prompts for the increment
 ```
 
-Note that `bump.sh` bumps *relative to the current version* (e.g. `major` on
-`22.0.0` produces `23.0.0`). To only tag the existing version without bumping,
-create the tag directly: `git tag -a vX.Y.Z -m vX.Y.Z`.
+release-it **shows the resulting version and asks for confirmation before it
+commits and tags**, so an accidental bump is visible and abortable *before*
+anything is written. It creates a `Bump to vX.Y.Z` commit and an annotated
+`vX.Y.Z` tag, but **does not push** (config: `git.push` and `npm.publish` are
+off). Finish a release yourself:
+
+```bash
+git push --follow-tags      # pushes the commit + tag → CI publishes to npm
+```
+
+Config lives in `projects/angular-highcharts/.release-it.json`; the `release`
+script runs release-it from the library directory so it bumps that package's
+`package.json`. Publishing is done by `.github/workflows/npmpublish.yml` on the
+pushed `v*` tag — never `npm publish` locally.
+
+Preview without side effects: `npm run release -- 22.1.0 --dry-run`.
 
 ### Upgrading Angular
 
