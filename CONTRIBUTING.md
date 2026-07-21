@@ -5,6 +5,7 @@ Thank you for your interest in contributing to Angular Highcharts! This document
 ## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
+- [Reporting Security Issues](#reporting-security-issues)
 - [Getting Started](#getting-started)
 - [Development Workflow](#development-workflow)
 - [Commit Guidelines](#commit-guidelines)
@@ -19,6 +20,11 @@ By participating in this project, you are expected to uphold our Code of Conduct
 - Welcome newcomers and help them get started
 - Focus on what is best for the community
 - Show empathy towards other community members
+
+## Reporting Security Issues
+
+Please **do not** report security vulnerabilities through public GitHub issues.
+See our [Security Policy](SECURITY.md) for how to report them privately.
 
 ## Getting Started
 
