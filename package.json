@@ -7,6 +7,7 @@
     "build": "ng build",
     "build_lib": "ng build angular-highcharts --configuration production && cp README.md dist/angular-highcharts",
     "test": "ng test",
+    "test:lib": "ng test angular-highcharts",
     "lint": "ng lint"
   },
   "private": true,
@@ -25,8 +26,7 @@
     "@standard-schema/spec": "^1.0.0",
     "highcharts": "^12.4.0",
     "rxjs": "^7.8.2",
-    "tslib": "^2.6.0",
-    "zone.js": "~0.15.1"
+    "tslib": "^2.6.0"
   },
   "devDependencies": {
     "@angular-eslint/builder": "^22.1.0",
@@ -37,20 +37,15 @@
     "@angular/build": "^22.0.7",
     "@angular/cli": "^22.0.7",
     "@angular/compiler-cli": "^22.0.7",
-    "@types/jasmine": "^5.1.12",
     "@typescript-eslint/eslint-plugin": "^8.65.0",
     "@typescript-eslint/parser": "^8.65.0",
     "angular-eslint": "^22.1.0",
     "eslint": "^9.28.0",
     "istanbul-lib-instrument": "^6.0.3",
-    "jasmine-core": "^5.12.1",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.1",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "^2.1.0",
+    "jsdom": "^26.1.0",
     "ng-packagr": "^22.0.1",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.65.0"
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.0.8"
   }
 }

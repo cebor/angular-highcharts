@@ -17,9 +17,7 @@
               "base": "dist/lib-angular-highcharts"
             },
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -43,12 +41,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -81,22 +73,15 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "buildTarget": "lib-angular-highcharts:build:development",
+            "runner": "vitest",
+            "providersFile": "src/test-providers.ts",
+            "include": [
+              "src/**/*.spec.ts"
+            ]
           }
         },
         "lint": {
@@ -132,10 +117,24 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/angular-highcharts/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-highcharts/karma.conf.js"
+            "buildTarget": "lib-angular-highcharts:build:development",
+            "runner": "vitest",
+            "providersFile": "projects/angular-highcharts/src/test-providers.ts",
+            "include": [
+              "projects/angular-highcharts/src/**/*.spec.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/angular-highcharts/**/*.ts",
+              "projects/angular-highcharts/**/*.html"
+            ]
           }
         }
       }
@@ -148,12 +147,6 @@
     ]
   },
   "schematics": {
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
-    },
     "@schematics/angular:component": {
       "type": "component"
     },

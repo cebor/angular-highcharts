@@ -11,7 +11,7 @@ import { AsyncSubject, Observable } from 'rxjs';
  * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
  */
 export class HighchartsGantt {
-  private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
+  private refSubject = new AsyncSubject<Highcharts.Chart>();
   ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
   /**
    * @deprecated Deprecated. Please use `ref$`.

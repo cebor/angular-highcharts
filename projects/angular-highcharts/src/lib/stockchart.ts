@@ -15,7 +15,7 @@ import { AsyncSubject, Observable } from 'rxjs';
  * @author Timothy A. Perez (contributor)
  */
 export class StockChart {
-  private refSubject: AsyncSubject<Highstock.Chart> = new AsyncSubject();
+  private refSubject = new AsyncSubject<Highstock.Chart>();
   ref$: Observable<Highstock.Chart> = this.refSubject.asObservable();
   /**
    * @deprecated Deprecated. Please use `ref$`.

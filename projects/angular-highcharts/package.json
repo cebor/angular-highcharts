@@ -16,7 +16,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": ">=22.0.0",
-    "@angular/core": ">=22.0.0"
+    "@angular/core": ">=22.0.0",
+    "highcharts": ">=12.0.0"
   },
   "dependencies": {
     "tslib": "^2.6.0"

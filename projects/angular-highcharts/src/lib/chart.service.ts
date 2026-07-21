@@ -10,9 +10,9 @@ import { Inject, Injectable, InjectionToken } from '@angular/core';
 import Highcharts from 'highcharts/esm/highcharts.src';
 import Highstock from 'highcharts/esm/highstock.src';
 import Highmaps from 'highcharts/esm/highmaps.src';
-import HighchartsGnatt from 'highcharts/esm/highcharts-gantt.src';
+import HighchartsGantt from 'highcharts/esm/highcharts-gantt.src';
 
-export let HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
+export const HIGHCHARTS_MODULES = new InjectionToken<any[]>('HighchartsModules');
 
 @Injectable()
 export class ChartService {
@@ -23,7 +23,7 @@ export class ChartService {
       // Handle both old and new Highcharts module formats
       const moduleFunc = typeof chartModule === 'function' ? chartModule : chartModule?.default;
       if (moduleFunc && typeof moduleFunc === 'function') {
-        [Highcharts, Highstock, Highmaps, HighchartsGnatt].forEach(moduleFunc);
+        [Highcharts, Highstock, Highmaps, HighchartsGantt].forEach(moduleFunc);
       }
     });
   }

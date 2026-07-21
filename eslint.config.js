@@ -5,10 +5,7 @@ const angular = require('angular-eslint');
 
 module.exports = tseslint.config(
   {
-    // The published library sources are excluded from linting (previously via
-    // .eslintrc.json "ignorePatterns"). The app-prefixed selector rules below
-    // are meant for the demo app, not the library's public API.
-    ignores: ['projects/**/*', 'dist/**/*', 'coverage/**/*', '.angular/**/*'],
+    ignores: ['dist/**/*', 'coverage/**/*', '.angular/**/*', 'out-tsc/**/*'],
   },
   {
     files: ['**/*.ts'],
@@ -23,6 +20,12 @@ module.exports = tseslint.config(
       // The demo app updates charts imperatively and intentionally relies on
       // the default (eager) change detection strategy.
       '@angular-eslint/prefer-on-push-component-change-detection': 'off',
+    },
+  },
+  {
+    // Demo app selectors follow the `app` prefix convention.
+    files: ['src/**/*.ts'],
+    rules: {
       '@angular-eslint/directive-selector': [
         'error',
         {
@@ -39,6 +42,31 @@ module.exports = tseslint.config(
           style: 'kebab-case',
         },
       ],
+    },
+  },
+  {
+    // The published library keeps a few intentional design choices that the
+    // default app-oriented rules would flag:
+    // - it exposes an unprefixed `[chart]` selector as its public API;
+    // - `ChartDirective` stays NgModule-based (`standalone: false`) for
+    //   backward compatibility with existing consumers;
+    // - it keeps constructor injection and interoperates with Highcharts'
+    //   loosely-typed module registration (`any`).
+    files: ['projects/**/*.ts'],
+    rules: {
+      '@angular-eslint/directive-selector': 'off',
+      '@angular-eslint/component-selector': 'off',
+      '@angular-eslint/prefer-standalone': 'off',
+      '@angular-eslint/prefer-inject': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
+  {
+    // Test seams push fake Highcharts chart objects through the classes, which
+    // requires occasional `any` casts.
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {

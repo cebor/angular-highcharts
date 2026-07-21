@@ -15,7 +15,7 @@ import { AsyncSubject, Observable } from 'rxjs';
 export type Point = number | [number, number] | Highcharts.Point;
 
 export class Chart {
-  private refSubject: AsyncSubject<Highcharts.Chart> = new AsyncSubject();
+  private refSubject = new AsyncSubject<Highcharts.Chart>();
   ref$: Observable<Highcharts.Chart> = this.refSubject.asObservable();
   /**
    * @deprecated Deprecated. Please use `ref$`.
@@ -31,7 +31,7 @@ export class Chart {
    * @param redraw        Flag whether or not to redraw point. This defaults to true.
    * @param shift         Shift point to the start of series. This defaults to false.
    */
-  addPoint(point: Point, serieIndex: number = 0, redraw: boolean = true, shift: boolean = false): void {
+  addPoint(point: Point, serieIndex = 0, redraw = true, shift = false): void {
     this.ref$.subscribe(chart => {
       if (chart.series.length > serieIndex) {
         chart.series[serieIndex].addPoint(point, redraw, shift);

@@ -23,7 +23,7 @@ An Angular wrapper for [Highcharts](https://www.highcharts.com/), providing easy
 | Package | Version |
 |---------|---------|
 | Angular | >=22.0.0 |
-| Highcharts | >=11.0.0 |
+| Highcharts | >=12.0.0 |
 
 ## Installation
 
