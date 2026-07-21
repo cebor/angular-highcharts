@@ -84,7 +84,8 @@
           "builder": "@angular/build:karma",
           "options": {
             "polyfills": [
-              "src/polyfills.ts"
+              "zone.js",
+              "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
@@ -135,15 +136,6 @@
           "options": {
             "tsConfig": "projects/angular-highcharts/tsconfig.spec.json",
             "karmaConfig": "projects/angular-highcharts/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/angular-highcharts/**/*.ts",
-              "projects/angular-highcharts/**/*.html"
-            ]
           }
         }
       }

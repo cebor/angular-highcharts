@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { Chart, StockChart } from 'angular-highcharts';
 import { ChartModule } from 'angular-highcharts';
 
@@ -7,6 +7,7 @@ import { ChartModule } from 'angular-highcharts';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [ChartModule]
 })
 export class AppComponent implements OnInit, AfterViewInit {
