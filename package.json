@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build_lib": "ng build angular-highcharts --configuration production && cp README.md dist/angular-highcharts",
+    "build:lib": "ng build angular-highcharts --configuration production && cp README.md dist/angular-highcharts",
     "test": "ng test",
     "test:lib": "ng test angular-highcharts",
     "lint": "ng lint",
@@ -49,5 +49,8 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.65.0",
     "vitest": "^4.0.8"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }
