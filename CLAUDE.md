@@ -9,8 +9,8 @@ workspace contains two projects:
 
 - **Library** (`projects/angular-highcharts/src/lib/`) — the publishable npm
   package `angular-highcharts`. This is the code that ships.
-- **Demo app** (`src/`) — a standalone, zoneless example app used to develop and
-  smoke-test the library.
+- **Demo app** (`src/`) — a standalone, zoneless example app
+  (`provideZonelessChangeDetection`) used to develop and smoke-test the library.
 
 The library builds against the locally-built package via the `angular-highcharts`
 path mapping in `tsconfig.json` (→ `dist/angular-highcharts`), so **the library
@@ -112,17 +112,25 @@ npm run lint       # ESLint (flat config) — lints BOTH the demo app and librar
 Tests run on **Vitest** via Angular's `@angular/build:unit-test` builder in a
 Node + jsdom environment (no browser, no Karma). Globals (`describe`, `it`,
 `expect`, `vi`) are enabled via `"types": ["vitest/globals"]` in the spec
-tsconfigs. The test environment is **zoneless**, wired through the
-`providersFile` (`src/test-providers.ts` and
-`projects/angular-highcharts/src/test-providers.ts`), which provide
-`provideZonelessChangeDetection()`.
+tsconfigs. The environment is **zoneless**: the app build's `polyfills` are
+empty (no `zone.js`), and each `test` target points `providersFile` at a
+`test-providers.ts` that exports `provideZonelessChangeDetection()`, so the
+`TestBed` matches the app.
 
 Because rendering a real Highcharts chart needs a browser layout engine, unit
 tests avoid booting Highcharts: they push a **fake chart object** through a
 class's private `refSubject` (an `AsyncSubject`) and assert the class forwards
 calls correctly. Directive lifecycle logic is tested by invoking `ngOnChanges`
-directly with a `SimpleChange` rather than relying on zoneless change-detection
-propagation.
+directly with a `SimpleChange` (rather than relying on zoneless change-detection
+propagation) for a deterministic result.
+
+**Hide/show reuse (Highcharts 12):** each chart class's `destroy()` snapshots a
+deep clone of `chart.userOptions` (via `merge(true, {}, …)`) *before* calling the
+Highcharts `destroy()`. This is required because Highcharts 12 empties `series`
+on the live options object during destroy (re-init would render an empty chart),
+and the processed `chart.options` carries render-time artifacts such as a
+color-axis legend when add-on modules are loaded. Cloning `userOptions` lets a
+chart re-render identically after a hide/show toggle.
 
 ### Version management
 

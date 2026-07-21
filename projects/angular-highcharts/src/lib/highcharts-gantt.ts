@@ -34,7 +34,12 @@ export class HighchartsGantt {
 
   destroy(): void {
     if (this.ref) {
-      this.options = this.ref.options;
+      // Snapshot a deep clone of the *user* options before destroying, so the
+      // chart re-initializes (e.g. after a hide/show toggle) rendering
+      // identically. `destroy()` empties `series` on the live options object in
+      // Highcharts 12, and the processed `chart.options` carries render-time
+      // artifacts; cloning `chart.userOptions` avoids both.
+      this.options = Highcharts.merge<Highcharts.Options>(true, {}, this.ref.userOptions);
       this.ref.destroy();
       this.ref = undefined;
 

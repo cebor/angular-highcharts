@@ -8,7 +8,8 @@ import { Chart } from './chart';
  */
 function makeFakeChart() {
   return {
-    options: { title: { text: 'fake' } },
+    options: { title: { text: 'fake' }, series: [{ type: 'line', data: [1, 2, 3] }] },
+    userOptions: { title: { text: 'fake' }, series: [{ type: 'line', data: [1, 2, 3] }] },
     addSeries: vi.fn(),
     destroy: vi.fn(),
     series: [
@@ -134,6 +135,22 @@ describe('Chart', () => {
       expect(chart.ref).toBeUndefined();
       // A fresh AsyncSubject is created so the instance can be re-initialised.
       expect(chart.ref$).not.toBe(firstRef$);
+    });
+
+    it('snapshots a deep clone of userOptions instead of the live reference', () => {
+      // Regression guard: re-init must render identically after a hide/show
+      // toggle. Highcharts 12 empties `chart.options.series` inside destroy()
+      // (empty re-render) and the processed `chart.options` carries render-time
+      // artifacts, so the class clones `chart.userOptions` before destroying.
+      const chart = new Chart();
+      const fake = makeFakeChart();
+      emitReady(chart, fake);
+
+      chart.destroy();
+
+      const stored = (chart as any).options;
+      expect(stored).not.toBe(fake.userOptions);
+      expect(stored.series).toEqual([{ type: 'line', data: [1, 2, 3] }]);
     });
 
     it('is a no-op when the chart was never initialised', () => {

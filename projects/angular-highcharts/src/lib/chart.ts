@@ -90,7 +90,14 @@ export class Chart {
 
   destroy(): void {
     if (this.ref) {
-      this.options = this.ref.options;
+      // Snapshot a deep clone of the *user* options before destroying, so the
+      // chart can be re-initialized (e.g. after a hide/show toggle) rendering
+      // identically to the first time. Two Highcharts 12 details make this
+      // necessary: `destroy()` empties `series` on the live options object, and
+      // the fully-processed `chart.options` carries render-time artifacts (a
+      // color-axis legend appears when add-on modules are loaded). Cloning
+      // `chart.userOptions` avoids both.
+      this.options = Highcharts.merge<Highcharts.Options>(true, {}, this.ref.userOptions);
       this.ref.destroy();
       this.ref = undefined;
 
