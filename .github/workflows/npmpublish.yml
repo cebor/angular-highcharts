@@ -23,7 +23,7 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
           package-manager-cache: false # never use caching in release builds
       - run: npm install
-      - run: npm run build_lib
+      - run: npm run build:lib
       - run: npm test
       - run: npm publish
         working-directory: ./dist/angular-highcharts

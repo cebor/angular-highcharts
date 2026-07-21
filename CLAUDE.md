@@ -14,7 +14,7 @@ workspace contains two projects:
 
 The library builds against the locally-built package via the `angular-highcharts`
 path mapping in `tsconfig.json` (→ `dist/angular-highcharts`), so **the library
-must be built before the demo app resolves it** (`npm run build_lib`).
+must be built before the demo app resolves it** (`npm run build:lib`).
 
 ## Architecture
 
@@ -101,7 +101,7 @@ Angular CLI is installed locally (not globally). Use it via npm scripts or
 
 ```bash
 npm start          # Serve the demo app (build the library first)
-npm run build_lib  # Build the library to dist/angular-highcharts (+ copy README)
+npm run build:lib  # Build the library to dist/angular-highcharts (+ copy README)
 npm test           # Run Vitest for BOTH projects (demo app + library)
 npm run test:lib   # Run Vitest for the library only
 npm run lint       # ESLint (flat config) — lints BOTH the demo app and library
@@ -170,7 +170,7 @@ npx ng update @angular/core @angular/cli
 
 Then bump the library's `peerDependencies` in
 `projects/angular-highcharts/package.json` to match, and verify with
-`npm run build_lib && npm start`.
+`npm run build:lib && npm start`.
 
 ## Code conventions
 

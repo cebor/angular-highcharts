@@ -63,7 +63,7 @@ This is an **Angular library wrapper** for Highcharts:
 ### Building the Library
 
 ```bash
-npm run build_lib
+npm run build:lib
 ```
 
 This builds the library to `dist/angular-highcharts` using Angular's `ng-packagr`.
@@ -94,7 +94,7 @@ npm test
 2. Make your changes in the `projects/angular-highcharts/src/lib/` directory for library code
 
 3. Test your changes:
-   - Build the library: `npm run build_lib`
+   - Build the library: `npm run build:lib`
    - Run the demo app: `npm start`
    - Run tests: `npm test`
 

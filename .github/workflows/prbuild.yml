@@ -16,6 +16,6 @@ jobs:
           node-version: 24
       - run: npm install
       - run: npm run lint
-      - run: npm run build_lib
+      - run: npm run build:lib
       - run: npm test
       - run: npm run build
