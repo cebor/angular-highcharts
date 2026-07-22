@@ -1,6 +1,6 @@
 {
   "git": {
-    "requireBranch": "master",
+    "requireBranch": "main",
     "requireCleanWorkingDir": true,
     "requireUpstream": false,
     "commitMessage": "Bump to v${version}",

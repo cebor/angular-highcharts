@@ -199,7 +199,7 @@ table.
 1. **Update your fork** with the latest upstream changes:
    ```bash
    git fetch upstream
-   git rebase upstream/master
+   git rebase upstream/main
    ```
 
 2. **Push your changes** to your fork:

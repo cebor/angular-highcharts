@@ -4,7 +4,7 @@
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at
- * https://github.com/cebor/angular-highcharts/blob/master/LICENSE
+ * https://github.com/cebor/angular-highcharts/blob/main/LICENSE
  */
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Chart } from './chart';
