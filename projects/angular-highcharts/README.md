@@ -55,8 +55,8 @@ Import modules with `.src` suffix using default imports (Highcharts 12.x+):
 
 ```typescript
 import { ChartModule, HIGHCHARTS_MODULES } from 'angular-highcharts';
-import more from 'highcharts/highcharts-more.src';
-import exporting from 'highcharts/modules/exporting.src';
+import more from 'highcharts/esm/highcharts-more.src';
+import exporting from 'highcharts/esm/modules/exporting.src';
 
 @NgModule({
   imports: [ChartModule],
@@ -67,13 +67,17 @@ import exporting from 'highcharts/modules/exporting.src';
 export class AppModule {}
 ```
 
-**Note:** Both default imports (Highcharts 12.x+) and namespace imports (Highcharts 11.x) are supported:
+Import from `highcharts/esm/` with the `.src` suffix for proper tree-shaking and
+AOT compatibility. Note that `highcharts-more.src` lives in the ESM root, while
+most modules are under `highcharts/esm/modules/`.
+
+**Note:** Both default and namespace imports are supported:
 ```typescript
 // Default import (recommended)
-import exporting from 'highcharts/modules/exporting.src';
+import exporting from 'highcharts/esm/modules/exporting.src';
 
 // Namespace import (still supported)
-import * as exporting from 'highcharts/modules/exporting.src';
+import * as exporting from 'highcharts/esm/modules/exporting.src';
 ```
 
 ## Documentation

@@ -158,10 +158,6 @@ chart.ref$.subscribe(chartInstance => {
 });
 ```
 
-##### `ref: Highcharts.Chart` ⚠️ Deprecated
-
-Direct reference to the chart. **Deprecated** - use `ref$` observable instead.
-
 #### Methods
 
 ##### `addPoint(point: number | [number, number] | Highcharts.PointOptionsObject, serieIndex?: number, redraw?: boolean, shift?: boolean): void`
@@ -180,15 +176,13 @@ this.chart.addPoint(10);
 this.chart.addPoint([Date.now(), 25], 0, true, false);
 ```
 
-##### `removePoint(pointIndex: number, serieIndex?: number, redraw?: boolean, shift?: boolean): void`
+##### `removePoint(pointIndex: number, serieIndex?: number): void`
 
 Removes a point from a series.
 
 **Parameters:**
 - `pointIndex` - Index of the point to remove
 - `serieIndex` - Index of the series (default: 0)
-- `redraw` - Whether to redraw the chart (default: true)
-- `shift` - Whether to shift (default: false)
 
 ##### `addSeries(series: Highcharts.SeriesOptionsType): void`
 
@@ -233,10 +227,6 @@ new StockChart(options: Highcharts.Options)
 
 Observable that emits the initialized Highstock chart instance.
 
-##### `ref: Highcharts.Chart` ⚠️ Deprecated
-
-Direct reference to the chart. **Deprecated** - use `ref$` observable instead.
-
 #### Example
 
 ```typescript
@@ -271,10 +261,6 @@ new MapChart(options: Highcharts.Options)
 ##### `ref$: Observable<Highcharts.Chart>`
 
 Observable that emits the initialized Highmaps chart instance.
-
-##### `ref: Highcharts.Chart` ⚠️ Deprecated
-
-Direct reference to the chart. **Deprecated** - use `ref$` observable instead.
 
 #### Example
 
