@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
 [![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
-![Build Status](https://github.com/cebor/angular-highcharts/workflows/Node.js%20Package/badge.svg)
+[![Build Status](https://github.com/cebor/angular-highcharts/actions/workflows/npmpublish.yml/badge.svg)](https://github.com/cebor/angular-highcharts/actions/workflows/npmpublish.yml)
 
 An Angular wrapper for [Highcharts](https://www.highcharts.com/), providing easy integration of Highcharts, Highstock, Highmaps, and Highcharts Gantt charts into your Angular applications.
 
