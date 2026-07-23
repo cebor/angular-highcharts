@@ -129,6 +129,71 @@ export class ChartComponent implements OnInit {
 }
 ```
 
+### Handling Chart Events
+
+Highcharts events are configured **directly in the options object** — there is no separate
+Angular API for them. Set chart-level events under `chart.events`, and series/point events
+under `plotOptions`:
+
+```typescript
+chart = new Chart({
+  chart: {
+    type: 'line',
+    events: {
+      load: () => console.log('chart loaded'),
+      click: (e) => console.log('chart clicked', e)
+    }
+  },
+  plotOptions: {
+    series: {
+      events: {
+        legendItemClick: (e) => console.log('legend item clicked', e)
+      },
+      point: {
+        events: {
+          click: (e) => this.onPointClick(e)
+        }
+      }
+    }
+  },
+  series: [{ type: 'line', data: [1, 2, 3] }]
+});
+```
+
+Use arrow functions (or `.bind(this)`) for any handler that needs access to your component
+instance.
+
+### Applying a Theme
+
+Themes are applied with `Highcharts.setOptions()` on the **same** Highcharts instance the
+library uses. Import it from the ESM `.src` entry point and call `setOptions()` before
+creating a chart:
+
+```typescript
+import Highcharts from 'highcharts/esm/highcharts.src';
+
+Highcharts.setOptions({
+  colors: ['#2b908f', '#90ee7e', '#f45b5b'],
+  chart: { backgroundColor: '#2a2a2b' }
+});
+```
+
+To switch themes at runtime, call `setOptions()` with the new theme and then re-create the
+chart — assigning a new `Chart` instance to the `[chart]` input re-initializes it.
+
+### Updating a Chart Dynamically
+
+For simple point/series changes, use the [`Chart` mutation helpers](#methods)
+(`addPoint`, `removePoint`, `addSeries`, `removeSeries`). For anything else, reach the live
+instance through `ref$` and call the Highcharts API directly:
+
+```typescript
+this.chart.ref$.subscribe(chart => {
+  chart.series[0].setData([4, 5, 6]);            // replace a series' data
+  chart.update({ title: { text: 'Updated' } });  // update any options
+});
+```
+
 ## API Documentation
 
 ### Chart
@@ -431,6 +496,55 @@ import exporting from 'highcharts/esm/modules/exporting';
 1. `ChartModule` not imported in your module
 2. Chart container has no height - add CSS: `div { height: 400px; }`
 3. Chart initialization happens before the view is ready - use `ngAfterViewInit()` or `ref$` observable
+
+### Chart Doesn't Resize With Its Container
+
+Highcharts only auto-resizes on **window** resize — not when its container changes size (for
+example inside a grid, splitter, or `mat-card`). Call `reflow()` on the live instance when the
+container resizes:
+
+```typescript
+this.chart.ref$.subscribe(chart => {
+  const observer = new ResizeObserver(() => chart.reflow());
+  observer.observe(hostElement); // the element wrapping the chart
+});
+```
+
+### Server-Side Rendering (SSR / Angular Universal)
+
+Highcharts renders SVG through the DOM and accesses `window`/`document`, so it **cannot run
+during server rendering**. Only render the chart element in the browser:
+
+```typescript
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Chart } from 'angular-highcharts';
+
+@Component({
+  selector: 'app-chart',
+  template: `
+    @if (isBrowser) {
+      <div [chart]="chart"></div>
+    }
+  `
+})
+export class ChartComponent {
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  chart = new Chart({ /* ... */ });
+}
+```
+
+This keeps the `[chart]` directive (and therefore Highcharts) from initializing on the server.
+The older `Cannot read property 'parts/…' of undefined` errors came from the legacy build; the
+current ESM build behaves better, but Highcharts must still never render server-side.
+
+### Highcharts error #17 (or an Unknown Chart Type)
+
+A `Highcharts error #17` — or a chart type that silently renders nothing — almost always means
+the **module that provides that series type isn't registered**. Types such as `gauge` /
+`solidgauge` (need `highcharts-more`), `sankey`, `heatmap`, `treemap`, `dependency-wheel`, and
+3D charts live in separate modules. Register them via
+[`HIGHCHARTS_MODULES`](#using-highcharts-modules).
 
 ### Memory Leaks
 
