@@ -1,0 +1,51 @@
+# Deploys the demo app (projects/... consumes the freshly built library) to
+# GitHub Pages whenever a version tag is pushed. Can also be run manually.
+
+name: Deploy demo to GitHub Pages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write # Required for deploy-pages OIDC
+
+# Allow one concurrent deployment; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - run: npm install
+      # The demo resolves `angular-highcharts` from dist/, so build the library first.
+      - run: npm run build:lib
+      # Project page lives under /angular-highcharts/, so set the base href to match.
+      - run: npx ng build lib-angular-highcharts --configuration production --base-href /angular-highcharts/
+      - name: Prepare static output
+        run: |
+          cp dist/lib-angular-highcharts/browser/index.html dist/lib-angular-highcharts/browser/404.html
+          touch dist/lib-angular-highcharts/browser/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/lib-angular-highcharts/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
