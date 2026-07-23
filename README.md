@@ -3,8 +3,11 @@
 [![NPM version](https://img.shields.io/npm/v/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
 [![NPM downloads](https://img.shields.io/npm/dt/angular-highcharts.svg)](https://npmjs.org/package/angular-highcharts)
 [![Build Status](https://github.com/cebor/angular-highcharts/actions/workflows/npmpublish.yml/badge.svg)](https://github.com/cebor/angular-highcharts/actions/workflows/npmpublish.yml)
+[![Live Demo](https://img.shields.io/badge/live%20demo-cebor.github.io-2563eb)](https://cebor.github.io/angular-highcharts/)
 
 An Angular wrapper for [Highcharts](https://www.highcharts.com/), providing easy integration of Highcharts, Highstock, Highmaps, and Highcharts Gantt charts into your Angular applications.
+
+> 🚀 **[Explore the live demo gallery →](https://cebor.github.io/angular-highcharts/)** — every chart type in action.
 
 ## Table of Contents
 
@@ -564,8 +567,9 @@ ngOnDestroy() {
 
 ## Demo
 
-- 🚀 [Live Demo](https://angular-9nkrgd.stackblitz.io)
-- 💻 [Source Code](https://stackblitz.com/edit/angular-9nkrgd)
+- 🚀 **[Live demo gallery](https://cebor.github.io/angular-highcharts/)** — an interactive showcase of every chart type, deployed from this repo on each release.
+- 💻 [Demo source code](https://github.com/cebor/angular-highcharts/tree/main/src) — the Angular app behind the gallery.
+- 🧪 [Playground on StackBlitz](https://stackblitz.com/edit/angular-9nkrgd) — quick in-browser experiments.
 
 ## Contributing
 

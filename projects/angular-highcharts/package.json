@@ -2,6 +2,7 @@
   "name": "angular-highcharts",
   "version": "22.0.6",
   "author": "Felix Itzenplitz",
+  "homepage": "https://cebor.github.io/angular-highcharts/",
   "repository": {
     "type": "git",
     "url": "https://github.com/cebor/angular-highcharts.git"
