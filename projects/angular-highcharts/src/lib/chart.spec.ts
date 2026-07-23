@@ -1,3 +1,5 @@
+import { ElementRef } from '@angular/core';
+import Highcharts from 'highcharts/esm/highcharts.src';
 import { Chart } from './chart';
 
 /**
@@ -157,6 +159,54 @@ describe('Chart', () => {
       const chart = new Chart();
       expect(() => chart.destroy()).not.toThrow();
       expect(chart.ref).toBeUndefined();
+    });
+  });
+
+  describe('doubled export callback (#238)', () => {
+    // Regression guard for the `forExport`/broken-navigation crashes reported in
+    // #384, #327, #321, #316, #289 and #324. Highcharts' (offline) exporting
+    // renders a *temporary* copy of the chart via
+    // `new chart.constructor(options, chart.callback)` — reusing the very
+    // callback `init()` registered — and then destroys that copy itself. Without
+    // the `if (!this.ref)` guard the copy's callback overwrites `ref` with a
+    // chart Highcharts immediately frees, so the next `ref` access or the
+    // component's `destroy()` hits `Cannot read properties of undefined
+    // (reading 'forExport')`.
+    it('keeps ref pinned to the live chart when the export copy re-invokes the callback', () => {
+      const chart = new Chart();
+      const live = makeFakeChart();
+      const exportCopy = makeFakeChart();
+      exportCopy.userOptions.title.text = 'export-copy';
+
+      // Stand in for Highcharts.chart(): capture the callback and fire it with
+      // the live chart, exactly as chart creation does.
+      let registered: ((c: unknown) => void) | undefined;
+      const spy = vi
+        .spyOn(Highcharts, 'chart')
+        .mockImplementation(((_el: unknown, _opts: unknown, cb: (c: unknown) => void) => {
+          registered = cb;
+          cb(live);
+          return live;
+        }) as never);
+
+      chart.init({ nativeElement: document.createElement('div') } as ElementRef);
+
+      // Now simulate the export: Highcharts re-invokes our callback with the
+      // throwaway copy, then frees it.
+      registered!(exportCopy);
+      exportCopy.destroy();
+
+      // ref stayed on the live chart; ref$ emitted it exactly once.
+      expect(chart.ref).toBe(live);
+      const emissions: unknown[] = [];
+      chart.ref$.subscribe(c => emissions.push(c));
+      expect(emissions).toEqual([live]);
+
+      // Component teardown tears down the live chart, never the freed copy.
+      chart.destroy();
+      expect(live.destroy).toHaveBeenCalledTimes(1);
+
+      spy.mockRestore();
     });
   });
 });
