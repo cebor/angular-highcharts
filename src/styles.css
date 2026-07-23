@@ -1,1 +1,197 @@
-/* You can add global styles to this file, and also import other style files */
+/* angular-highcharts demo — global styles & theming. */
+
+:root {
+  --bg: #f6f7fb;
+  --bg-elevated: #ffffff;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+  --accent: #2563eb;
+  --accent-contrast: #ffffff;
+  --hero-from: #1e3a8a;
+  --hero-to: #2563eb;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --radius: 14px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --bg-elevated: #111827;
+    --border: #1f2937;
+    --text: #e5e7eb;
+    --text-muted: #9ca3af;
+    --accent: #3b82f6;
+    --accent-contrast: #0b1120;
+    --hero-from: #0b1120;
+    --hero-to: #1e3a8a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Hero ----------------------------------------------------------------- */
+
+.hero {
+  background: linear-gradient(135deg, var(--hero-from), var(--hero-to));
+  color: #f8fafc;
+  padding: 4rem 1.5rem 3.5rem;
+}
+
+.hero__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero__lead {
+  margin: 0.75rem 0 0;
+  max-width: 640px;
+  font-size: 1.05rem;
+  opacity: 0.92;
+}
+
+.hero__actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* --- Buttons -------------------------------------------------------------- */
+
+.btn {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.05s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: #ffffff;
+  color: var(--hero-to);
+  border-color: #ffffff;
+}
+
+.btn--primary:hover {
+  background: #eef2ff;
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+/* --- Gallery -------------------------------------------------------------- */
+
+.gallery {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+/*
+ * Cards stay light in both themes: Highcharts renders dark text on a light
+ * background by default, so keeping the chart surface light guarantees readable
+ * charts without theming every Highcharts variant. Light cards on a dark page is
+ * a deliberate, common dashboard look.
+ */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.08), 0 16px 40px rgba(15, 23, 42, 0.1);
+}
+
+.card__body {
+  padding: 1.15rem 1.25rem 0.5rem;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.card__desc {
+  margin: 0.35rem 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.card__chart {
+  padding: 0.5rem 0.75rem 1rem;
+  min-height: 360px;
+}
+
+/* --- Footer --------------------------------------------------------------- */
+
+.footer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}

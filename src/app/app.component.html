@@ -1,10 +1,34 @@
-<h1>angular-highcharts demo</h1>
-<button (click)="init()">Init</button>
-<button (click)="toggle()">{{ hidden ? 'Show' : 'Hide' }}</button>
-<button (click)="add()">Add Point!</button>
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">Angular · Highcharts</p>
+    <h1 class="hero__title">angular-highcharts</h1>
+    <p class="hero__lead">
+      A thin, tree-shakeable Angular wrapper for Highcharts, Highstock, Highmaps
+      and Highcharts Gantt. Below is a live gallery of what the library can render.
+    </p>
+    <div class="hero__actions">
+      <button type="button" class="btn btn--primary" (click)="add()">Add point</button>
+      <button type="button" class="btn" (click)="toggle()">{{ hidden ? 'Show charts' : 'Hide charts' }}</button>
+      <a class="btn btn--ghost" href="https://github.com/cebor/angular-highcharts" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn--ghost" href="https://www.npmjs.com/package/angular-highcharts" target="_blank" rel="noopener">npm</a>
+    </div>
+  </div>
+</header>
+
 @if (!hidden) {
-  <div [chart]="chart"></div>
+  <main class="gallery">
+    @for (item of charts; track item.title) {
+      <article class="card">
+        <div class="card__body">
+          <h2 class="card__title">{{ item.title }}</h2>
+          <p class="card__desc">{{ item.description }}</p>
+        </div>
+        <div class="card__chart" [chart]="item.chart"></div>
+      </article>
+    }
+  </main>
 }
-@if (!hidden) {
-  <div [chart]="stockChart"></div>
-}
+
+<footer class="footer">
+  <p>Built with angular-highcharts · Highcharts is a product of Highsoft AS.</p>
+</footer>
