@@ -25,6 +25,9 @@
 !.vscode/extensions.json
 .history/*
 
+# Claude Code - local, per-developer settings
+.claude/settings.local.json
+
 # misc
 /.angular/cache
 /coverage
